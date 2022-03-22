@@ -40,9 +40,9 @@
 
 <body>
    {{-- start top_header --}}
-    @yield('top_header')
+    @include("top_header")
    {{-- end top_header --}}
-   
+
     <section class="nav-bar">
         <div class="nav-container">
           <div class="brand">
