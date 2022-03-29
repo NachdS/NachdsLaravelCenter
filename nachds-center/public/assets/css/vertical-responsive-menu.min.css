@@ -265,3 +265,12 @@ a.menu--link:active,:focus {
    /*  background: #ffecec !important; */
     color: #ed2a26 !important;
 }
+
+
+.vertical_nav.vertical_nav__minify li.menu--item.avatar {
+    display: none;
+}
+
+.vertical_nav.vertical_nav__minify .left_footer{
+	display: none;
+}

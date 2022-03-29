@@ -1,56 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Copyright NACHD IT, Tue, 08 Mar 2022 13:31:36 GMT -->
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, shrink-to-fit=9">
-    <meta name="description" content="Gambolthemes">
-    <meta name="author" content="Gambolthemes">
-    <title>Cursus - About Us</title>
-
-    <link rel="icon" type="image/png" href="{{asset('assets/images/fav.png')}}">
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500" rel='stylesheet'>
-    <link
-    href="https://fonts.googleapis.com/css?family=Righteous&display=swap"
-    rel="stylesheet"
-  />
-    <link href="{{ asset('assets/vendor/unicons-2.0.1/css/unicons.css') }}" rel='stylesheet'>
-    <link href="{{ asset('assets/css/vertical-responsive-menu.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/night-mode.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/OwlCarousel/assets/owl.theme.default.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/semantic/semantic.min.css')}}">
-
-    <link
-      rel="shortcut icon"
-      href="/sites/default/files/favicon.ico"
-      type="image/vnd.microsoft.icon"
-    />
-
-</head>
+@extends('global_common.scripts_styles')
+@section('basic_content')
 
 <body>
-   {{-- start top_header --}}
-    @include("top_header")
-   {{-- end top_header --}}
 
-
-
-
-
-
+  {{-- start global content--}}
+   @yield('content')
+  {{-- end global content --}}
 
 </body>
-   <footer class="footer mt-30">
+
+<footer class="footer ">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6">
@@ -79,7 +38,6 @@
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6">
                 <div class="item_f3">
-                    <a href="#" class="btn1542">Teach on Cursus</a>
                     <div class="lng_btn">
                         <div class="ui language bottom right pointing dropdown floating" id="languages"
                             data-content="Select Language">
@@ -200,7 +158,7 @@
                         <div class="col-md-6">
                             <ul class="fotb_left">
                                 <li>
-                                    <a href="index.html">
+                                    <a href="{{url('/index')}}">
                                         <div class="footer_logo">
                                             <img src="../images/logo1.svg" alt="">
                                         </div>
@@ -228,30 +186,6 @@
         </div>
     </div>
 </footer>
-</div>
+ 
 
-
-
-
-
-
-<!-- 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=Map123"></script> -->
-
-
-
-<script data-cfasync="false" src="{{ asset('assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/OwlCarousel/owl.carousel.js') }}"></script>
-<script src="{{ asset('assets/vendor/semantic/semantic.min.js') }}"></script>
-<script src="{{ asset('assets/js/custom.js') }}"></script>
-<script src="{{ asset('assets/js/night-mode.js') }}"></script>
-<script src="{{ asset('assets/unpkg.com/es6-promise%404.2.4/dist/es6-promise.auto.min.js') }}"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/js/function.js') }}"></script>
-
-</body>
-
-<!-- Copyright  contact_us.html Nachd IT 13:31:52 GMT -->
-
-</html>
+@endsection

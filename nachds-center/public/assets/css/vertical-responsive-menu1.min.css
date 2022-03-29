@@ -257,3 +257,29 @@
 	height: 40px;
 	line-height: 40px;
 }
+}
+.vertical_nav__minify li.menu.avatar{
+	display:none;
+}
+
+h5#exampleModalLabel:focus {
+    color: #9f312f !important;
+    font-size: 14px !important;
+}
+
+
+.modal-body h2:focus {
+    color: #9f312f !important;
+    font-size: 14px !important;
+}
+
+h5#exampleModalLabel {
+    color: #9f312f !important;
+    font-size: 14px !important;
+}
+
+
+.modal-body h2 {
+    color: #9f312f !important;
+    font-size: 14px !important;
+}

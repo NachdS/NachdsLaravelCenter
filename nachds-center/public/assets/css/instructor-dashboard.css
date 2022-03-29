@@ -820,10 +820,6 @@ i.icon1 {
     transition: all 0.3s ease-out;
 }
 
-.sa4d25 {
-    min-height: 700px !important;
-}
-
 .clearfix:after {
 	content: "";
 	display: block;
@@ -4949,4 +4945,14 @@ img.logo-main {
 .section3125.rpt145.profile-section {
     background-color: #333 !important;
     margin-top: 30px;
+}
+
+.sa4d25.min-heigth {
+     min-height: 550px !important;
+}
+
+
+video {
+    height: 100% !important;
+    width: 100% !important;
 }

@@ -1,5 +1,4 @@
-@extends ("global_common.top_header")
-@section ("top_header")
+
 <section>
     <div class="col-lg-12" style="background-color: #262626">
       <div class="row">
@@ -24,4 +23,3 @@
       </div>
     </div>
   </section>
-  @endsection

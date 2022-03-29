@@ -321,6 +321,10 @@ input[type=text] {
     margin-left: 0;
   }
 
+  .wrapper.wrapper__minify {
+    padding: 90px 0 0 60px !important;
+}
+
 }
 
 /*--- Left Side Footer ---*/
@@ -2715,7 +2719,7 @@ i.icon2 {
     width: 100%;
     padding: 0px 0 0;
     background: #fff;
-	margin-bottom: 17px;
+	/* margin-bottom: 17px; */
 }
 
 .course_tabs {
@@ -4812,7 +4816,8 @@ a.rmv-btn i {
     background: #fff;
 	position: relative;
     margin-bottom: 0px;
-    z-index: 1000;
+    /* z-index: 1000; */
+    z-index: 1;
 }
 
 ._215cd2:before {
@@ -6070,7 +6075,7 @@ a.rmv-btn i {
     float: left;
     width: 100%;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .membership_bg {
@@ -8685,7 +8690,7 @@ header.header.clearfix {
     background: #f7f7f7 !important;
     position: relative;
     width: 100%;
-    z-index: 1;
+    /* z-index: 0; */
 }
 
 .section3125 {

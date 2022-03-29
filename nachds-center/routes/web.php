@@ -1,5 +1,14 @@
 <?php
+//require '../app/Http/Controllers/publicControllers/AlbumsController.php'; 
 
+use App\Http\Controller\publicControllers\AlbumsController;
+use App\Http\Controllers\publicControllers\FaqsController;
+use App\Http\Controllers\publicControllers\ActualitesController;
+use App\Http\Controllers\publicControllers\EvenementsController;
+use App\Http\Controllers\publicControllers\IndexController;
+use App\Http\Controllers\MailerController;
+use App\Models\Album;
+/* use App\Http\Controller\publicControllers\AlbumsController; */
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,48 +32,54 @@ Route::get('contact_us', function () {
 });
 
 Route::get('espace_staff', function () {
-    return view('public_interface/faqs');
+    return view('public_interface/espace_staff');
 });
+
+
+Route::get('faqs',[FaqsController::class, 'show'])->name('faqs'); 
+
 
 Route::get('forgot_password', function () {
     return view('public_interface/forgot_password');
 });
 
-Route::get('gallery_single_view', function () {
-    return view('public_interface/gallery_single_view');
-});
+Route::get('event_single_view/{id}',[EvenementsController::class,'showById'])->name('event_single_view'); 
+Route::get('event',[EvenementsController::class, 'show'])->name('event'); 
 
-Route::get('gallery', function () {
-    return view('public_interface/gallery');
-});
+Route::get('gallery',[AlbumsController::class, 'show'])->name('gallery');
+Route::get('gallery_single_view/{id}',[AlbumsController::class,'showById'])->name('gallery_single_view'); 
 
-Route::get('index', function () {
-    return view('public_interface/index');
-});
+Route::get('index',[IndexController::class, 'show'])->name('indexEnseignant'); 
+/* Route::get('indexEnseignant',[IndexController::class, 'showEnseignant'])->name('indexEnseignant'); */
 
-
-Route::get('news_single_view', function () {
-    return view('public_interface/news_single_view');
-});
-
-Route::get('news', function () {
-    return view('public_interface/news');
-});
+Route::get('news_single_view/{id}',[ActualitesController::class,'showById'])->name('news_detail'); 
+Route::get('news',[ActualitesController::class, 'show'])->name('news'); 
 
 Route::get('search_result_formation', function () {
     return view('public_interface/search_result_formation');
 });
+
+Route::get('sign_up_steps', function () {
+    return view('public_interface/sign_up_steps');
+});
+
+
+
+Route::get('video_pub_detail', function () {
+    return view('public_interface/video_pub_detail');
+});
+
 
 /* student */
 Route::get('forgot_password', function () {
     return view('student/forgot_password');
 });
 
-Route::get('list_eleve', function () {
+Route::get('student_list_eleve', function () {
     return view('student/list_eleve');
 });
 
-Route::get('search_result', function () {
+Route::get('student_search_result', function () {
     return view('student/search_result');
 });
 
@@ -148,6 +163,14 @@ Route::get('sign_in_teacher', function () {
 Route::get('teacher_schedule', function () {
     return view('teacher/teacher_schedule');
 });
+
+/*mailer*/
+Route::get("email", [MailerController::class, "email"])->name("email");
+
+Route::post("send-email", [MailerController::class, "composeEmail"])->name("send-email");
+
+
+
 
 
 

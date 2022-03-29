@@ -1,41 +1,14 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
-<!-- Copyright  sign_up_steps.html Nachd IT 13:31:36 GMT -->
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, shrink-to-fit=9">
-    <meta name="description" content="Gambolthemes">
-    <meta name="author" content="Gambolthemes">
-    <title>Cursus - Sign Up Next Step</title>
-
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/fav.png') }}">
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500" rel='stylesheet'>
-    <link href="{{ asset('assets/vendor/unicons-2.0.1/css/unicons.css') }}" rel='stylesheet'>
-    <link href="{{ asset('assets/css/vertical-responsive-menu.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/night-mode.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/OwlCarousel/assets/owl.carousel.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/OwlCarousel/assets/owl.theme.default.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/semantic/semantic.min.css') }}">
-</head>
-
-<body class="index-content">
+﻿
+    @extends('global_common.scripts_styles')
+    @section('basic_content')
 
     <div class="sign_in_up_bg">
         <div class="container">
             <div class="row justify-content-lg-center justify-content-md-center">
                 <div class="col-lg-12">
                     <div class="main_logo25" id="logo">
-                        <a href="index.html"><img class="logo" src="{{ asset('assets/images/logo.png') }}" alt=""></a>
-                        <a href="index.html"><img class="logo-inverse" src="{{ asset('assets/images/ct_logo.png') }}" alt=""></a>
+                        <a href="{{url('/index')}}"><img class="logo" src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                        <a href="{{url('/index')}}"><img class="logo-inverse" src="{{ asset('assets/images/ct_logo.png') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-8">
@@ -112,7 +85,7 @@
                                         </select>
                                     </div>
                                     <button class="login-btn" type="submit">Connectez-vous maintenant</button>
-                                    <p class="mb-0 mt-30">Vous avez déjà un compte?<a href="../teacher/sign_in_teacher.html">Connexion</a></p>
+                                    <p class="mb-0 mt-30">Vous avez déjà un compte?<a href="{{url('/sign_in_teacher')}}">Connexion</a></p>
                                 </form> 
                             </div>
                             <div class="tab-pane fade" id="student-signup-tab" role="tabpanel"
@@ -170,7 +143,7 @@
                                         </div>
                                     </div>
                                     <button class="login-btn" type="submit">Se connecter maintenant</button>
-                                    <p class="mb-0 mt-30">Vous avez déjà un compte?<a href="../student/sign_in_student.html"> Connexion</a></p>
+                                    <p class="mb-0 mt-30">Vous avez déjà un compte?<a href="{{url('/sign_in_student')}}"> Connexion</a></p>
                                 </form>
                             </div>
                         </div>
@@ -183,15 +156,4 @@
         </div>
     </div>
 
-    <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('assets/vendorbootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendorOwlCarousel/owl.carousel.js') }}"></script>
-    <script src="{{ asset('assets/vendorsemantic/semantic.min.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <script src="{{ asset('assets/js/night-mode.js') }}"></script>
-    <script src="{{ asset('assets/js/function.js') }}"></script>
-</body>
-
-<!-- Copyright  sign_up_steps.html Nachd IT 13:31:36 GMT -->
-
-</html>
+    @endsection
