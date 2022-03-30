@@ -17,7 +17,7 @@ class Enseignant extends Model
      */
     protected $fillable = [
 
-        'name', 'phone', 'adresse', 'email', 'cin', 'specialite', 'created_at', 'updated_at', 'deleted_at', 'type', 'genre', 'cin_delivre','image',
+         'specialite', 'created_at', 'updated_at', 'deleted_at', 'type', 'genre', 'cin_delivre',
     ];
 
 }

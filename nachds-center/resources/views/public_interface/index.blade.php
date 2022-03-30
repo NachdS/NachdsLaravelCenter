@@ -22,13 +22,15 @@
         <!--Slides-->
         <div class="carousel-inner" role="listbox">
           <!-- First slide -->
+          @if(@$allsliders)
+          @foreach (@$allsliders as $slider )
           <div class="carousel-item active">
             <!--Mask color-->
             <div class="view">
               <!--Video source-->
               <video class="video-fluid" autoplay loop muted>
                 <source
-                  src="https://mdbootstrap.com/img/video/Lines.mp4"
+                src="{{ asset(@$slider->photo) }}"
                   type="video/mp4"
                 />
               </video>
@@ -44,57 +46,10 @@
             </div>
             <!--Caption-->
           </div>
+          @endforeach
+          @endif
           <!-- /.First slide -->
 
-          <!-- Second slide -->
-          <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-              <!--Video source-->
-              <video class="video-fluid" autoplay loop muted>
-                <source
-                  src="https://mdbootstrap.com/img/video/animation-intro.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div class="mask rgba-purple-slight"></div>
-            </div>
-
-            <!--Caption-->
-            <div class="carousel-caption">
-              <div class="animated fadeInDown">
-                <h3 class="h3-responsive">Super light mask</h3>
-                <p>Secondary text</p>
-              </div>
-            </div>
-            <!--Caption-->
-          </div>
-          <!-- /.Second slide -->
-
-          <!-- Third slide -->
-          <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-              <!--Video source-->
-              <video class="video-fluid" autoplay loop muted>
-                <source
-                  src="https://mdbootstrap.com/img/video/Tropical.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div class="mask rgba-black-strong"></div>
-            </div>
-
-            <!--Caption-->
-            <div class="carousel-caption">
-              <div class="animated fadeInDown">
-                <h3 class="h3-responsive">Strong mask</h3>
-                <p>Third text</p>
-              </div>
-            </div>
-            <!--Caption-->
-          </div>
-          <!-- /.Third slide -->
         </div>
         <!--/.Slides-->
         <!--Controls-->
@@ -143,28 +98,19 @@
                       @foreach (@$allvideo_Pubs as $video )
                         <div class="item">
                           <div class="fcrse_1 mb-20">
-                            <a href="course_detail_view.html" class="fcrse_img">
-                              <video class="video-fluid" autoplay loop muted>
+                              <a href="{{route('video_pub_detail' , ['id' => @$video->id])}}"  class="fcrse_img">
+                              <video style="width:338px !important; heigth:150px !important;"  class="video-fluid" autoplay loop muted>
                                 <source
                                 src="{{ asset(@$video->file) }}"
                                   type="video/mp4"
                                 />
                               </video>
                               <div class="course-overlay">
-                                <span class="play_btn1"
-                                  ><i class="uil uil-play"></i
-                                ></span>
+                                <span class="play_btn1">
+                                  <i class="uil uil-play"></i></span>
                               </div>
                             </a>
                             <div class="fcrse_content">
-                              <div class="eps_dots more_dropdown">
-                                <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                                <div class="dropdown-content">
-                                  <span
-                                    ><i class="uil uil-share-alt"></i>See more</span
-                                  >
-                                </div>
-                              </div>
                               <div class="vdtodt">
                                 <span class="vdt14">15 vues</span>
                                 <span class="vdt14">10 min ago</span>
@@ -195,7 +141,7 @@
                           <div class="fcrse_1 mb-20">
                             <div class="tutor_img">
                               <a href="instructor_profile_view.html"
-                                ><img  src="{{ asset(@$enseignant->image) }}" alt=""
+                                ><img  src="{{ asset(@$enseignant->avatar) }}" alt=""
                               /></a>
                             </div>
                             <div class="tutor_content_dt">
@@ -212,7 +158,7 @@
                               <div class="tutor_cate">
                                 {{@$enseignant -> specialite}}
                               </div>
-                              <ul class="tutor_social_links">
+                              <!-- <ul class="tutor_social_links">
                                 <li>
                                   <a href="#" class="fb"
                                     ><i class="fab fa-facebook-f"></i
@@ -233,7 +179,7 @@
                                     ><i class="fab fa-youtube"></i
                                   ></a>
                                 </li>
-                              </ul>
+                              </ul> -->
                             </div>
                           </div>
                         </div>
@@ -252,7 +198,7 @@
                         <i class="uil uil-history"></i>
                       </div>
                       <div class="value_content">
-                        <h4>100,000 élèves en ligne</h4>
+                        <h4>{{@$totalCondidats}} élèves en ligne</h4>
                         <p>
                           Apprendre et progresser dans un environnement adapté
                         </p>
@@ -265,7 +211,7 @@
                         <i class="uil uil-user-check"></i>
                       </div>
                       <div class="value_content">
-                        <h4>100,000 professeurs experts</h4>
+                        <h4>{{@$totalEnseignants}} professeurs experts</h4>
                         <p>Choisissez parmi les meilleurs professeurs du site</p>
                       </div>
                     </div>
@@ -276,7 +222,7 @@
                         <i class="uil uil-play-circle"></i>
                       </div>
                       <div class="value_content">
-                        <h4>Obtenir une meilleure éducation</h4>
+                        <h4>{{@$totalCours}} Obtenir une meilleure éducation</h4>
                         <p>
                           Trouvez des cours vidéo sur presque tous les matières
                         </p>
@@ -289,8 +235,8 @@
                         <i class="uil uil-presentation-play"></i>
                       </div>
                       <div class="value_content">
-                        <h4>100,000 cours en ligne</h4>
-                        <p>Découvrez une grande variété de cours de haute qualité</p>
+                        <h4> {{@$totalFormations}} Formations en ligne</h4>
+                        <p>Découvrez une grande variété de formations de haute qualité</p>
                       </div>
                     </div>
                   </div>

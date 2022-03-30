@@ -50,7 +50,7 @@ Route::get('gallery',[AlbumsController::class, 'show'])->name('gallery');
 Route::get('gallery_single_view/{id}',[AlbumsController::class,'showById'])->name('gallery_single_view'); 
 
 Route::get('index',[IndexController::class, 'show'])->name('indexEnseignant'); 
-/* Route::get('indexEnseignant',[IndexController::class, 'showEnseignant'])->name('indexEnseignant'); */
+Route::get('video_pub_detail/{id}',[IndexController::class,'showById'])->name('video_pub_detail'); 
 
 Route::get('news_single_view/{id}',[ActualitesController::class,'showById'])->name('news_detail'); 
 Route::get('news',[ActualitesController::class, 'show'])->name('news'); 
@@ -65,9 +65,6 @@ Route::get('sign_up_steps', function () {
 
 
 
-Route::get('video_pub_detail', function () {
-    return view('public_interface/video_pub_detail');
-});
 
 
 /* student */

@@ -17,9 +17,6 @@ class VideosPub extends Model
      */
     protected $fillable = [
         'designation', 'description', 'file',
-
-
-
     ];
 
 }

@@ -283,3 +283,7 @@ h5#exampleModalLabel {
     color: #9f312f !important;
     font-size: 14px !important;
 }
+
+video {
+	width: 100% !important; 
+}

@@ -274,3 +274,7 @@ a.menu--link:active,:focus {
 .vertical_nav.vertical_nav__minify .left_footer{
 	display: none;
 }
+
+video {
+	width: 100% !important; 
+}
