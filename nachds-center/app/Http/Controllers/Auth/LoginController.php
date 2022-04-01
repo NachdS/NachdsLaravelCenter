@@ -36,9 +36,9 @@ class LoginController extends Controller
           case '4':
             return '/student_dashboard';
             break; 
-      
+
           default:
-            return '/home'; 
+            return '/instructor_earning'; 
           break;
         }
       }
@@ -56,6 +56,21 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+
+
+public function showStudentForm()
+{
+    return view('student.sign_in_student');
+}
+
+public function showTeacherForm()
+{
+    return view('teacher.sign_in_teacher');
+}
+
+
 }
 
 

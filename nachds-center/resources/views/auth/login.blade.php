@@ -1,46 +1,51 @@
-@extends('layouts.app')
+@extends('global_common.scripts_styles')
+@section('basic_content')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+<div class="sign_in_up_bg">
+    <div class="container">
+        <div class="row justify-content-lg-center justify-content-md-center">
+            <div class="col-lg-12">
+                <div class="main_logo25" id="logo">
+                    <a  href="{{url('/instructor_dashboard')}}"><img class="logo" src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                    <a  href="{{url('/instructor_dashboard')}}"><img class="logo-inverse" src="{{ asset('assets/images/ct_logo.png') }}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-8">
+             <div class="sign_form"> 
+                <h2>Bienvenue Professeur</h2>
+                <p>Connectez-vous à votre compte!</p>
+                    <form method="POST" action="{{ route('login') }}" target="_blank">
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                        <div class="ui search focus mt-15">
+                         <div class="ui left icon input swdh95">
+                            
+                                <input id="email" type="email" placeholder="Adresse e-mail" class="prompt srch_explore @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                                <i class="uil uil-envelope icon icon2"></i>
+                         </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <div class="ui search focus mt-15">
+                            <div class="ui left icon input swdh95">
+                                <input id="password"  placeholder="Mot de passe" type="password" class="prompt srch_explore @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                                <i class="uil uil-key-skeleton-alt icon icon2"></i>
+                         </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="ui search focus mt-15">
+                            <div class="ui left icon input swdh95">
+                            <div class="">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -50,22 +55,26 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
+                        
+                        <div class="">
+                                <button class="login-btn" type="submit"> {{ __('Login') }}</button>
+                                <p class="sgntrm145">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                    <a  href="{{ route('password.request') }}">
+                                        Or {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                            </div>
+                                </p>
                         </div>
                     </form>
-                </div>
+                   
+                    <p class="mb-0 mt-30 hvsng145">Vous n'avez pas de compte ?<a href="{{url('/sign_up_steps')}}">S'inscrire</a></p>
+             </div>
+             <div class="sign_footer"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}" alt="">© 2020 <strong>Cursus</strong>. All
+                Rights Reserved.
+             </div>
             </div>
         </div>
     </div>

@@ -9,12 +9,12 @@ class Role {
 
   public function handle($request, Closure $next, String $role_id) {
     if (!Auth::check()) // This isnt necessary, it should be part of your 'auth' middleware
-      return redirect('/home');
+      return redirect('/index');
     
     $user = Auth::user();
     if($user->role_id == $role_id)
       return $next($request);
 
-    return redirect('/home');
+    return redirect('/index');
   }
 }

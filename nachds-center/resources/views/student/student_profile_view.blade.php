@@ -4,7 +4,7 @@
  @extends('student.layout_public_student_interface')
  @section('content_public_student_interface') 
 
-
+    @auth
     <div class="wrapper _bg4586">
         <div class="_216b01">
             <div class="container-fluid">
@@ -21,7 +21,7 @@
                                             <img src="{{ asset('assets/images/hd_dp.jpg') }}" alt="">
                                         </div>
                                         <div class="prfledt1">
-                                            <h2>Joginder Singh</h2>
+                                            <h2>{{ Auth::user()->name }}</h2>
                                             <span>UI / UX Designer and Web Developer</span>
                                         </div>
                                     </div>
@@ -105,5 +105,6 @@
             </div>
         </div>
     </div>
+    @endauth
     @endsection
     

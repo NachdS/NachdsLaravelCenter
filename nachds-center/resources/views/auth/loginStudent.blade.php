@@ -1,7 +1,7 @@
-﻿@extends('global_common.scripts_styles')
+@extends('global_common.scripts_styles')
 @section('basic_content')
 
-<div class="sign_in_up_bg index-content " style="height: 100% !important;">
+<div class="sign_in_up_bg index-content">
     <div class="container">
         <div class="row justify-content-lg-center justify-content-md-center">
             <div class="col-lg-12">

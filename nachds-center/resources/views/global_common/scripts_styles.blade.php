@@ -61,6 +61,7 @@
 
 
 </head>
+<body>
 
   {{-- start global content--}}
   @yield('basic_content')

@@ -1,5 +1,5 @@
 <?php
-//require '../app/Http/Controllers/publicControllers/AlbumsController.php'; 
+/* require '../app/Http/Controllers/publicControllers/AlbumsController.php';   */
 
 use App\Http\Controller\publicControllers\AlbumsController;
 use App\Http\Controllers\publicControllers\FaqsController;
@@ -8,11 +8,10 @@ use App\Http\Controllers\publicControllers\EvenementsController;
 use App\Http\Controllers\publicControllers\IndexController;
 use App\Http\Controllers\publicControllers\ContactController;
 use App\Http\Controllers\publicControllers\AboutUsController;
-use App\Http\Controllers\teacher\DashboardController;
-/* use App\Http\Controllers\teacher\DashboardController; */
+use App\Http\Controllers\teacher\DashboardInstructorController;
+use App\Http\Controllers\student\DashboardStudentController;
 use App\Http\Controllers\MailerController;
 use Illuminate\Support\Facades\Auth;
-/* use App\Http\Controller\publicControllers\AlbumsController; */
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,9 +80,6 @@ Route::get('student_search_result', function () {
     return view('student/search_result');
 });
 
-Route::get('sign_in_student', function () {
-    return view('student/sign_in_student');
-});
 
 Route::get('student_course_detail', function () {
     return view('student/student_course_detail');
@@ -150,9 +146,7 @@ Route::get('saved_courses', function () {
     return view('teacher/saved_courses');
 });
 
-Route::get('sign_in_teacher', function () {
-    return view('teacher/sign_in_teacher');
-});
+
 
 Route::get('teacher_schedule', function () {
     return view('teacher/teacher_schedule');
@@ -165,25 +159,17 @@ Route::post("send-email", [MailerController::class, "composeEmail"])->name("send
 
 
 
-/* Route::get('student_dashboard', function () {
-    return view('student/student_dashboard');
-});
-
-Route::get('instructor_dashboard', function () {
-    return view('teacher/instructor_dashboard');
-});  */
-
-Route::get('instructor_dashboard', [DashboardController::class, "index"])->middleware('role_id:4');
-/* Route::get('/student_dashboard', 'teacher\DashboardController@index')->middleware('role_id:3'); */
 
 
 
-
-
-
-
+/**********auth route  **************/
 Auth::routes();
+
+Route::get('sign_in_student', [App\Http\Controllers\Auth\LoginController::class, 'showStudentForm']);
+Route::get('sign_in_teacher', [App\Http\Controllers\Auth\LoginController::class, 'showTeacherForm']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\HomeController::class, "logout"]);
 
+Route::get('instructor_dashboard', [DashboardInstructorController::class, "dashboard"])->middleware('role_id:3');
+Route::get('student_dashboard', [DashboardStudentController::class, "index"])->middleware('role_id:4');

@@ -115,20 +115,29 @@
                         <div class="profile_link">
                             <img src="{{ asset('assets/images/hd_dp.jpg') }}" alt="">
                             <div class="pd_content">
+                                @auth
                                 <div class="rhte85">
-                                    <h6>Joginder Singh</h6>
+                                    <h6>{{ Auth::user()->name }}</h6>
                                     <div class="mef78" title="Verify">
                                         <i class='uil uil-check-circle'></i>
                                     </div>
                                 </div>
+                                
                                 <span><a href="https://gambolthemes.net/cdn-cgi/l/email-protection"
                                         class="__cf_email__"
-                                        data-cfemail="3c5b5d515e535005080f7c5b515d5550125f5351">[email&#160;protected]</a></span>
+                                        data-cfemail="0364626e616c6f3a373043646e626a6f2d606c6e">{{ Auth::user()->email }}</a></span>
+                                @endauth
                             </div>
                         </div>
                         <a href="{{url('/my_instructor_profile_view')}}" class="dp_link_12">View Instructor Profile</a>
                     </div>
-                    <a href="sign_in.html" class="item channel_item">Sign Out</a>
+                    <a href="#">
+                        @auth
+                            <a href="{{ route('logout') }}" class="item channel_item">se déconnecter</a>
+                          @else
+                            <a href="{{ route('login') }}">Connecter</a>
+                          @endauth
+                    </a>
                 </div>
             </li>
         </ul>

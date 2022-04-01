@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controller\publicControllers;
+namespace App\Http\Controllers\publicControllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Album;
