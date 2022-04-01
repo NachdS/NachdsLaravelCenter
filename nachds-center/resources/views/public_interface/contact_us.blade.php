@@ -45,6 +45,9 @@
 						</style></div><br />
 						</div>
 					</div>
+
+					@if(@$allcontacts)
+
 					<div class="col-lg-4">
 						<div class="contact_info">
 							<div class="checkout_title">
@@ -55,7 +58,8 @@
 								<li>
 									<div class="txt_cntct"><span class="cntct_895"><i
 												class="uil uil-location-point"></i>Adresse principale :</span>
-										<p>#1235 Sks Nagar St No. 8 Phase 3, Pakhowal Road, 141001, LDH, Punjab, India
+										<p>
+											{{@$allcontacts->adresse}}
 										</p>
 									</div>
 								</li>
@@ -64,27 +68,40 @@
 										Adresse :</span>
 										<p><a href="https://gambolthemes.net/cdn-cgi/l/email-protection"
 												class="__cf_email__"
-												data-cfemail="eaa3848c85aa8f8e9f9e9f9e999a869f99">[email&#160;protected]</a>@gmail.com
+												data-cfemail="eaa3848c85aa8f8e9f9e9f9e999a869f99">{{@$allcontacts->email}}
 										</p>
 									</div>
 								</li>
 								<li>
 									<div class="txt_cntct"><span class="cntct_895"><i
 												class="uil uil-mobile-android-alt"></i>Numéro de téléphone :</span>
-										<p>+911234567890, 01610000000</p>
+										<p>{{@$allcontacts->telephone1}}/p>
+									</div>
+								</li>
+								<li>
+									<div class="txt_cntct"><span class="cntct_895"><i
+												class="uil uil-mobile-android-alt"></i>Numéro de téléphone :</span>
+										<p>{{@$allcontacts->telephone2}} </p>
+									</div>
+								</li>
+								<li>
+									<div class="txt_cntct"><span class="cntct_895"><i
+												class="uil uil-mobile-android-alt"></i>Numéro de fax :</span>
+										<p>{{@$allcontacts->fax}} </p>
 									</div>
 								</li>
 							</ul>
 							<div class="edututs_links_social">
 								<ul class="tutor_social_links">
-									<li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#" class="ln"><i class="fab fa-linkedin-in"></i></a></li>
-									<li><a href="#" class="yu"><i class="fab fa-youtube"></i></a></li>
+									<li><a href={{ asset(@$allcontacts->facebook) }} class="fb"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href={{ asset(@$allcontacts->linkedin) }} class="ln"><i class="fab fa-linkedin-in"></i></a></li>
+									
 								</ul>
 							</div>
 						</div>
 					</div>
+
+					@endif
 				</div>
 
 				<form class="row contact-form" action="{{route('send-email')}}" method="POST" enctype="multipart/form-data">

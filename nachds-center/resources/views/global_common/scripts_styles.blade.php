@@ -68,43 +68,43 @@
 
 
 
-<script data-cfasync="false" src="{{ asset('assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
-<script src="{{ asset('assets/js/vertical-responsive-menu.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/OwlCarousel/owl.carousel.js') }}"></script>
-<script src="{{ asset('assets/vendor/semantic/semantic.min.js') }}"></script>
-<script src="{{ asset('assets/js/custom.js') }}"></script>
-<script src="{{ asset('assets/js/custom1.js') }}"></script>
-<script src="{{ asset('assets/js/night-mode.js') }}"></script>
-<script src="{{ asset('assets/js/vertical-responsive-menu.min.js') }}"></script>
-<script src="{{ asset('assets/unpkg.com/es6-promise%404.2.4/dist/es6-promise.auto.min.js') }}"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/jquery-ui-1.12.1/jquery-ui.js') }}"></script>
-<script src="{{ asset('assets/js/jquery-steps.min.js') }}"></script>
-<script src="{{ asset('assets/js/function.js') }}"></script>
-<script src="{{ asset('assets/js/datepicker.min.js') }}"></script>
-<script src="{{ asset('assets/js/i18n/datepicker.en.js') }}"></script>
-<script>$(document).ready(function () {
-    $('#dtBasicExample').DataTable();
-    $('.dataTables_length').addClass('bs-select');
-  });
-</script>
-<script>
-    $('#add-course-tab').steps({
-        onFinish: function () {
-            alert('Wizard Completed');
-        }
-    });		
-</script>
-<script>
-    $(function () {
-        $(".sortable").sortable();
-        $(".sortable").disableSelection();
+  <script data-cfasync="false" src="{{ asset('assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
+  <script src="{{ asset('assets/js/vertical-responsive-menu.min.js') }}"></script>
+  <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/OwlCarousel/owl.carousel.js') }}"></script>
+  <script src="{{ asset('assets/vendor/semantic/semantic.min.js') }}"></script>
+  <script src="{{ asset('assets/js/custom.js') }}"></script>
+  <script src="{{ asset('assets/js/custom1.js') }}"></script>
+  <script src="{{ asset('assets/js/night-mode.js') }}"></script>
+  <script src="{{ asset('assets/js/vertical-responsive-menu.min.js') }}"></script>
+  <script src="{{ asset('assets/unpkg.com/es6-promise%404.2.4/dist/es6-promise.auto.min.js') }}"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/jquery-ui-1.12.1/jquery-ui.js') }}"></script>
+  <script src="{{ asset('assets/js/jquery-steps.min.js') }}"></script>
+  <script src="{{ asset('assets/js/function.js') }}"></script>
+  <script src="{{ asset('assets/js/datepicker.min.js') }}"></script>
+  <script src="{{ asset('assets/js/i18n/datepicker.en.js') }}"></script>
+  <script>$(document).ready(function () {
+      $('#dtBasicExample').DataTable();
+      $('.dataTables_length').addClass('bs-select');
     });
+  </script>
+  <script>
+      $('#add-course-tab').steps({
+          onFinish: function () {
+              alert('Wizard Completed');
+          }
+      });		
+  </script>
+  <script>
+      $(function () {
+          $(".sortable").sortable();
+          $(".sortable").disableSelection();
+      });
 
-</script>
-<script>
+  </script>
+  <script>
     // Open the Modal
     function openModal() {
       document.getElementById("myModal").style.display = "block";

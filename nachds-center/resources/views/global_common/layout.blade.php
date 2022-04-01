@@ -1,4 +1,5 @@
 @extends('global_common.scripts_styles')
+
 @section('basic_content')
 
 <body>

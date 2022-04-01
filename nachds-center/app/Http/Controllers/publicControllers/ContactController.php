@@ -16,8 +16,8 @@ class ContactController extends Controller
         */
        public function show(Coordonnee $coordonnees) 
        {
-           $allcoordonnees = Coordonnee::latest()->paginate(10);
+           $allcontacts = Coordonnee::first();
    
-           return view('public_interface.faqs', compact('allcoordonnees'));
+           return view('public_interface.contact_us', compact('allcontacts'));
        }
 }

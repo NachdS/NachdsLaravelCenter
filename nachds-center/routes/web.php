@@ -6,8 +6,12 @@ use App\Http\Controllers\publicControllers\FaqsController;
 use App\Http\Controllers\publicControllers\ActualitesController;
 use App\Http\Controllers\publicControllers\EvenementsController;
 use App\Http\Controllers\publicControllers\IndexController;
+use App\Http\Controllers\publicControllers\ContactController;
+use App\Http\Controllers\publicControllers\AboutUsController;
+use App\Http\Controllers\teacher\DashboardController;
+/* use App\Http\Controllers\teacher\DashboardController; */
 use App\Http\Controllers\MailerController;
-use App\Models\Album;
+use Illuminate\Support\Facades\Auth;
 /* use App\Http\Controller\publicControllers\AlbumsController; */
 use Illuminate\Support\Facades\Route;
 
@@ -23,13 +27,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 /* public interface */
-Route::get('about_us', function () {
-    return view('public_interface/about_us');
-});
 
-Route::get('contact_us', function () {
-    return view('public_interface/contact_us');
-});
+Route::get('about_us',[AboutUsController::class, 'show'])->name('about_us'); 
+
+Route::get('contact_us',[ContactController::class, 'show'])->name('contact_us'); 
 
 Route::get('espace_staff', function () {
     return view('public_interface/espace_staff');
@@ -49,7 +50,7 @@ Route::get('event',[EvenementsController::class, 'show'])->name('event');
 Route::get('gallery',[AlbumsController::class, 'show'])->name('gallery');
 Route::get('gallery_single_view/{id}',[AlbumsController::class,'showById'])->name('gallery_single_view'); 
 
-Route::get('index',[IndexController::class, 'show'])->name('indexEnseignant'); 
+Route::get('index',[IndexController::class, 'show'])->name('index'); 
 Route::get('video_pub_detail/{id}',[IndexController::class,'showById'])->name('video_pub_detail'); 
 
 Route::get('news_single_view/{id}',[ActualitesController::class,'showById'])->name('news_detail'); 
@@ -88,9 +89,7 @@ Route::get('student_course_detail', function () {
     return view('student/student_course_detail');
 });
 
-Route::get('student_dashboard', function () {
-    return view('student/student_dashboard');
-});
+
 
 Route::get('student_payout', function () {
     return view('student/student_payout');
@@ -129,9 +128,7 @@ Route::get('instructor_courses', function () {
     return view('teacher/instructor_courses');
 });
 
-Route::get('instructor_dashboard', function () {
-    return view('teacher/instructor_dashboard');
-});
+
 
 Route::get('instructor_earning', function () {
     return view('teacher/instructor_earning');
@@ -168,6 +165,16 @@ Route::post("send-email", [MailerController::class, "composeEmail"])->name("send
 
 
 
+/* Route::get('student_dashboard', function () {
+    return view('student/student_dashboard');
+});
+
+Route::get('instructor_dashboard', function () {
+    return view('teacher/instructor_dashboard');
+});  */
+
+Route::get('instructor_dashboard', [DashboardController::class, "index"])->middleware('role_id:4');
+/* Route::get('/student_dashboard', 'teacher\DashboardController@index')->middleware('role_id:3'); */
 
 
 
@@ -175,5 +182,8 @@ Route::post("send-email", [MailerController::class, "composeEmail"])->name("send
 
 
 
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', [App\Http\Controllers\HomeController::class, "logout"]);
 

@@ -36,7 +36,7 @@
             <div class="title484">
             <h2>Nos origines</h2>
             <img class="line-title" src="{{ asset('assets/images/line.svg') }}" alt="">
-            <p>Cursus was founded in 2020 by computer science instructor with a vision to provide anyone, anywhere with access to the world’s best education. Now many instructors put their courses online for anyone to take and taught more learners in a few months than they could over an entire lifetime in the classroom. Today, Cursus has expanded to reach more than 40 million people and 2,300 businesses around the world. On Cursus you can find online courses, instructors, and certificates from Cursus.</p >
+            <p>{{@$allaboutUs->short_presentation}}</p >
             </div>
             </div>
             <div class="col-md-6">
@@ -69,9 +69,10 @@
                             <img class="line-title" src="{{ asset('assets/images/line.svg') }}" alt="">
                         </div>
                     </div>
+
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <div class="p__metric">
-                            25k
+                            {{@$totalEnseignants}}
                             <span>Professeurs</span>
                         </div>
                     </div>
@@ -83,28 +84,29 @@
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <div class="p__metric">
-                            95k
+                            {{@$totalCours}}
                             <span>Cours</span>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <div class="p__metric">
-                            95k
-                            <span>Vidéos</span>
+                            {{@$totalInscription}}
+                            <span>Inscription</span>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <div class="p__metric">
-                            40M
-                            <span>Inscription au cours</span>
+                            {{@$totalFormations}}
+                            <span>Formations</span>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <div class="p__metric">
-                            595+
+                            {{@$totalPartenaires}}
                             <span>Partenaires d'adhésion</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -114,16 +116,9 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="title478">
-                            <h2>Notre histoire</h2>
+                            <h2>Notre équipe</h2>
                             <img class="line-title" src="{{ asset('assets/images/line.svg') }}" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur vel dolor id
-                                ultrices. Proin a magna at mi pretium pulvinar in eu enim. Nulla vel lacus lectus. Donec
-                                at venenatis augue. Nam vitae purus placerat, hendrerit nisl id, finibus magna. Etiam
-                                pharetra gravida ornare. Donec sagittis, ipsum in egestas egestas, dui lorem
-                                sollicitudin justo, ut ullamcorper velit neque eu velit. Ut et fringilla elit. Mauris
-                                augue augue, auctor a blandit ac, convallis eget neque. Curabitur in ante ante. Nullam
-                                laoreet tempus erat at ornare. In nisl nisi, dapibus eget facilisis sit amet, commodo
-                                quis nibh.</p>
+                            <p><p>{{@$allaboutUs->presentation}}</p ></p>
                         </div>
                     </div>
                     <div class="col-md-4">

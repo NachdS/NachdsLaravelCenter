@@ -77,9 +77,18 @@
            <li>
             <a href="{{url('/about_us')}}">A propos de nous</a>
           </li>
-           <li>
-               <a href="{{url('/contact_us')}}">Contact</a>
-             </li>
+          <li>
+              <a href="{{url('/contact_us')}}">Contact</a>
+         </li>
+         <li>
+             
+              @auth
+                <a href="{{ route('logout') }}">se déconnecter</a>
+              @else
+                <a href="{{ route('login') }}">Connecter</a>
+              @endauth
+             
+          </li>
          </ul>
        </nav>
      </div>
@@ -89,4 +98,4 @@
      @yield('content_public')
      {{-- end global public interface content --}}
     
-   @endsection
+@endsection
