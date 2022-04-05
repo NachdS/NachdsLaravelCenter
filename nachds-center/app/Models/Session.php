@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Condidat extends Model
+class Session extends Model
 {
     use HasFactory, Notifiable;
 
@@ -16,13 +16,6 @@ class Condidat extends Model
      * @var array
      */
     protected $fillable = [
-
-        'slug', 'birthday', 'etude', 'classe', 'diplome', 'etat_payement', 'profession', 'phone2', 'parent_id', 'observation', 'nationalite', 'lieu_naissance', 'passeport', 'cin_delivre', 'passeport_delivre', 'ecole', 'genre', 'age', 'prenom', 'nom',
+        'designation', 'debut', 'duree', 'created_at', 'updated_at', 'deleted_at', 'year', 'abreviation',
     ];
-
 }
-
-
-
-
- 

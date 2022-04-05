@@ -10,6 +10,8 @@ use App\Http\Controllers\publicControllers\ContactController;
 use App\Http\Controllers\publicControllers\AboutUsController;
 use App\Http\Controllers\teacher\DashboardInstructorController;
 use App\Http\Controllers\student\DashboardStudentController;
+use App\Http\Controllers\teacher\ProfileTeacherController;
+use App\Http\Controllers\student\ProfileStudenteController;
 use App\Http\Controllers\MailerController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -91,9 +93,7 @@ Route::get('student_payout', function () {
     return view('student/student_payout');
 });
 
-Route::get('student_profile_view', function () {
-    return view('student/student_profile_view');
-});
+Route::get('student_profile_view',[ProfileStudenteController::class,'show'])->name('student_profile_view'); 
 
 Route::get('student_schedule', function () {
     return view('student/student_schedule');
@@ -138,9 +138,11 @@ Route::get('list_eleve', function () {
     return view('teacher/list_eleve');
 });
 
-Route::get('my_instructor_profile_view', function () {
+/* Route::get('my_instructor_profile_view', function () {
     return view('teacher/my_instructor_profile_view');
-});
+}); */
+
+Route::get('my_instructor_profile_view',[ProfileTeacherController::class,'show'])->name('my_instructor_profile_view'); 
 
 Route::get('saved_courses', function () {
     return view('teacher/saved_courses');

@@ -21,27 +21,27 @@
                                             <img src="{{ asset('assets/images/hd_dp.jpg') }}" alt="">
                                         </div>
                                         <div class="prfledt1">
-                                            <h2>{{ Auth::user()->name }}</h2>
-                                            <span>UI / UX Designer and Web Developer</span>
+                                            <h2>{{ auth()->user()->name }}</h2>
+                                           <!-- <span>UI / UX Designer and Web Developer</span> -->
                                         </div>
                                     </div>
                                     <ul class="_ttl120">
                                         <li>
                                             <div class="_ttl121">
                                                 <div class="_ttl122">Groupe</div>
-                                                <div class="_ttl123">Nom de son grp</div>
+                                                <div class="_ttl123">{{ @$groupe->designation }}</div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="_ttl121">
                                                 <div class="_ttl122">Session</div>
-                                                <div class="_ttl123">Nom du session</div>
+                                                <div class="_ttl123">{{ @$session->designation }}</div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="_ttl121">
                                                 <div class="_ttl122">Nombre de cours</div>
-                                                <div class="_ttl123">11</div>
+                                                <div class="_ttl123">{{ @$totalCours }}</div>
                                             </div>
                                         </li>
                                     </ul>
@@ -84,17 +84,17 @@
                                     <div class="_htg451">
                                         <div class="_htg452">
                                             <h3>À propos de moi</h3>
-                                                <ul class="list-group">
-                                                    <li class="list-group-item" style="background-color: #fff"><span><strong>Nom :</strong></span> <span>Nom Value</span></li>
-                                                    <li class="list-group-item" style="background-color: #ffecec"><span><strong>Prenom :</strong></span> <span>Prenom Value</span></li>
-                                                    <li class="list-group-item" style="background-color: #fff"><span><strong>Sexe :</strong></span> <span>Sexe Value</span></li>
-                                                    <li class="list-group-item" style="background-color: #ffecec"><span><strong>Adress :</strong></span> <span>Adress Value</span></li>
-                                                    <li class="list-group-item" style="background-color: #fff"><span><strong>Télèphone :</strong></span> <span>Télèphone Value</span></li>
-                                                    <li class="list-group-item" style="background-color: #ffecec"><span><strong>Email :</strong></span> <span>Email Value</span></li>
-                                                    <li class="list-group-item" style="background-color: #fff"><span><strong>Cin </strong></span> <span>Cin Value</span></li>
-                                                    <li class="list-group-item" style="background-color: #ffecec"><span><strong>Spécialité :</strong></span> <span>Spécialité Value</span></li>
-                                                    
-                                                  </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item" style="background-color: #fff"><span><strong>Nom :</strong></span> <span>{{ auth()->user()->name }}</span></li>
+                                                <li class="list-group-item" style="background-color: #fff"><span><strong>Date de naissance :</strong></span> <span>{{ @$user->birthday }}</span></li>
+                                                <li class="list-group-item" style="background-color: #fff"><span><strong>Sexe :</strong></span> <span>{{ @$user->genre }}</span></li>
+                                                <li class="list-group-item" style="background-color: #ffecec"><span><strong>Etude :</strong></span> <span>{{ @$user->etude }}</span></li>
+                                                <li class="list-group-item" style="background-color: #fff"><span><strong>Classe :</strong></span> <span>{{ @$user->classe }}</span></li>
+                                                <li class="list-group-item" style="background-color: #ffecec"><span><strong>Diplome :</strong></span> <span>{{ @$user->diplome }}</span></li>
+                                                <li class="list-group-item" style="background-color: #fff"><span><strong>Profession :	</strong></span> <span>{{ @$user->profession }}</span></li>
+                                                <li class="list-group-item" style="background-color: #ffecec"><span><strong>Spécialité :</strong></span> <span>{{ @$user->phone }}</span></li>
+                                                
+                                              </ul>
                                         </div>
                                     </div>
                                     </div>
