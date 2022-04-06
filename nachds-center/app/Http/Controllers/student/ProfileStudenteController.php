@@ -47,14 +47,14 @@ class ProfileStudenteController extends Controller
              ->first();
 
             
-            /*  $cours = Cour::join('groupes', 'cours.groupe_id', '=', 'groupes.id')
-             ->join('inscriptions.groupe_id','=', 'groupes.id')
+              $cours = Cour::join('groupes', 'groupes.id', '=', 'cours.groupe_id')
+             ->join('inscriptions', 'inscriptions.groupe_id' , '=','groupes.id')
              ->where('inscriptions.candidat_id',@Auth::user()->id)
-             ->get();   */
-
+             ->first();   
+ 
              $totalCours= $cours->count();
 
 
-            return view('student.student_profile_view', compact('user','session','totalCours'));
+            return view('student.student_profile_view', compact('user','groupe','session','totalCours'));
         }
 }

@@ -57,8 +57,6 @@ class ProfileTeacherController extends Controller
             $totalCours = $cours->count();
 
 
-            
-
             return view('teacher.my_instructor_profile_view', compact('user','totalGroupes','totalCours','totalCondidats'));
         }
 }

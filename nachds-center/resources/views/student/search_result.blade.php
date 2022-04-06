@@ -451,163 +451,45 @@
                     <div class="col-lg-9 col-md-8">
                         <div class="_14d25 mb-20">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="fcrse_1">
-                                        <a href="{{url('/student_course_detail')}}" class="hf_img">
-                                            <img src="{{ asset('assets/images/courses/img-1.jpg') }}"  alt="">
+                                <div class="col-md-12 ">
+
+                                    @if(@$allformations)
+                                    @foreach (@$allformations as $formation )
+
+                                    <div class="fcrse_1 mb-20">
+                                        <a class="hf_img">
+                                            <img  src="{{ asset($formation->image) }}"  alt="">
                                             <div class="course-overlay">
-                                                <div class="badge_seller">la plus rependu</div>
-                                                <div class="crse_revues">
+                                                <div class="badge_seller">{{@$formation -> matiere}}</div>
+                                                <!--<div class="crse_revues">
                                                     <i class="uil uil-star"></i>4.5
-                                                </div>
+                                                </div>-->
                                                 <span class="play_btn1"><i class="uil uil-play"></i></span>
                                                 <div class="crse_timer">
-                                                    25 heures
+                                                    {{@$formation -> duree}} période
                                                 </div>
                                             </div>
                                         </a>
                                         <div class="hs_content">
-                                            <div class="eps_dots eps_dots10 more_dropdown">
-                                                <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class="uil uil-share-alt"></i>Share</span>
-                                                    <span><i class="uil uil-heart"></i>Save</span>
-                                                    <span><i class="uil uil-ban"></i>Not Interested</span>
-                                                    <span><i class="uil uil-windsock"></i>Report</span>
-                                                </div>
-                                            </div>
                                             <div class="vdtodt">
-                                                <span class="vdt14">109k élèves</span>
-                                                <span class="vdt14">il y'a 15 jours</span>
+                                                <!--<span class="vdt14">109k élèves</span>-->
+                                                <span class="vdt14">{{@$formation -> created_at->format('j F, Y')}}</span>
                                             </div>
-                                            <a href="{{url('/student_course_detail')}}" class="crse14s title900">Complete Python
-                                                Bootcamp: Go from zero to hero in Python 3</a>
-                                            <a href="#" class="crse-cate">Web Development | Python</a>
+                                            <a class="crse14s title900">{{@$formation -> designation}}</a>
+                                            <!--<a href="#" class="crse-cate"></a>-->
+                                            <p class="cr1fot">{{@$formation -> type}}</p>
                                             <div class="auth1lnkprce">
-                                                <p class="cr1fot">Par M.<a href="#">John Doe</a></p>
-                                                <div class="prce142">$10</div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
+                                                <!--<p class="cr1fot">Par M.<a href="#">John Doe</a></p>-->
+                                                <div class="prce142">{{@$formation -> prix1}}DT</div>
+                                                <!--<button class="shrt-cart-btn" title="cart"><i
+                                                        class="uil uil-shopping-cart-alt"></i></button>-->
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="fcrse_1 mt-30">
-                                        <a href="{{url('/student_course_detail')}}" class="hf_img">
-                                            <img src="{{ asset('assets/images/courses/img-2.jpg') }}"  alt="">
-                                            <div class="course-overlay">
-                                                <div class="badge_seller">la plus rependu</div>
-                                                <div class="crse_revues">
-                                                    <i class="uil uil-star"></i>4.5
-                                                </div>
-                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                                <div class="crse_timer">
-                                                    28 heures
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="hs_content">
-                                            <div class="eps_dots eps_dots10 more_dropdown">
-                                                <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class="uil uil-share-alt"></i>Share</span>
-                                                    <span><i class="uil uil-heart"></i>Save</span>
-                                                    <span><i class="uil uil-ban"></i>Not Interested</span>
-                                                    <span><i class="uil uil-windsock"></i>Report</span>
-                                                </div>
-                                            </div>
-                                            <div class="vdtodt">
-                                                <span class="vdt14">5M élèves</span>
-                                                <span class="vdt14">il y'a 15 jours</span>
-                                            </div>
-                                            <a href="{{url('/student_course_detail')}}" class="crse14s title900">The Complete
-                                                JavaScript Course 2020: Build Real Projects!</a>
-                                            <a href="#" class="crse-cate">Development | JavaScript</a>
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">Par M.<a href="#">Jassica William</a></p>
-                                                <div class="prce142">$5</div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fcrse_1 mt-30">
-                                        <a href="{{url('/student_course_detail')}}" class="hf_img">
-                                            <img src="{{ asset('assets/images/courses/img-3.jpg') }}"  alt="">
-                                            <div class="course-overlay">
-                                                <div class="badge_seller">la plus rependu</div>
-                                                <div class="crse_revues">
-                                                    <i class="uil uil-star"></i>4.5
-                                                </div>
-                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                                <div class="crse_timer">
-                                                    12 heures
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="hs_content">
-                                            <div class="eps_dots eps_dots10 more_dropdown">
-                                                <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class="uil uil-share-alt"></i>Share</span>
-                                                    <span><i class="uil uil-heart"></i>Save</span>
-                                                    <span><i class="uil uil-ban"></i>Not Interested</span>
-                                                    <span><i class="uil uil-windsock"></i>Report</span>
-                                                </div>
-                                            </div>
-                                            <div class="vdtodt">
-                                                <span class="vdt14">1M élèves</span>
-                                                <span class="vdt14">il y'a 18 jours</span>
-                                            </div>
-                                            <a href="{{url('/student_course_detail')}}" class="crse14s title900">Beginning C++
-                                                Programming - From Beginner to Beyond</a>
-                                            <a href="#" class="crse-cate">Development | C++</a>
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">Par M.<a href="#">Joginder Singh</a></p>
-                                                <div class="prce142">$13</div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fcrse_1 mt-30">
-                                        <a href="{{url('/student_course_detail')}}" class="hf_img">
-                                            <img src="{{ asset('assets/images/courses/img-4.jpg') }}"  alt="">
-                                            <div class="course-overlay">
-                                                <div class="badge_seller">la plus rependu</div>
-                                                <div class="crse_revues">
-                                                    <i class="uil uil-star"></i>5.0
-                                                </div>
-                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                                <div class="crse_timer">
-                                                    1 heures
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="hs_content">
-                                            <div class="eps_dots eps_dots10 more_dropdown">
-                                                <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class="uil uil-share-alt"></i>Share</span>
-                                                    <span><i class="uil uil-heart"></i>Save</span>
-                                                    <span><i class="uil uil-ban"></i>Not Interested</span>
-                                                    <span><i class="uil uil-windsock"></i>Report</span>
-                                                </div>
-                                            </div>
-                                            <div class="vdtodt">
-                                                <span class="vdt14">153k élèves</span>
-                                                <span class="vdt14">3 months ago</span>
-                                            </div>
-                                            <a href="{{url('/student_course_detail')}}" class="crse14s title900">The Complete
-                                                Digital Marketing Course - 12 Courses in 1</a>
-                                            <a href="#" class="crse-cate">Digital Marketing | Marketing</a>
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">Par M.<a href="#">Poonam Verma</a></p>
-                                                <div class="prce142">$12</div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    @endforeach
+                                    @endif
+
                                     <div class="main-loader mt-50">
                                         <div class="spinner">
                                             <div class="bounce1"></div>

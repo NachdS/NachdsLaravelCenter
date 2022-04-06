@@ -185,12 +185,19 @@
             <ul>
             <li class="menu--item avatar">
             <div class="menu--link ">
+                
+                @php
+                 $user = App\Models\Candidat::join('users', 'candidats.id', 'users.id')
+                ->where('candidats.id', Auth::user()->id)
+                 ->first(); 
+                @endphp
+                
                 <div class="tutor_img">
-                    <a href="{{url('/student_profile_view')}}"><img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt=""></a>
+                    <a href="{{url('/student_profile_view')}}"><img src="{{ asset(@$user->avatar) }}" alt=""></a>
                 </div>
                 <div class="tutor_content_dt">
                     <div class="tutor150">
-                        <a href="{{url('/student_profile_view')}}"  class="tutor_name">John Doe</a>
+                        <a href="{{url('/student_profile_view')}}"  class="tutor_name">{{ auth()->user()->name }}</a>
                         <div class="mef78" title="Verify">
                             <i class="uil uil-check-circle"></i>
                         </div>
@@ -217,9 +224,9 @@
                 </li>  
                 
                 <li class="menu--item">
-                    <a href="{{url('/student_search_result')}}" class="menu--link" title="Cours">
+                    <a href="{{url('/student_search_result')}}" class="menu--link" title="Formations">
                         <i class='uil uil-book-alt menu--icon'></i>
-                        <span class="menu--label">Cours</span>
+                        <span class="menu--label">Formations</span>
                     </a>
                 </li>  
                 

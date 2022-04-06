@@ -17,7 +17,7 @@ class Cour extends Model
      */
     protected $fillable = [
 
-         'designation', 'photo', 
+         'designation', 'photo', 'groupe_id'
     ];
 
 }

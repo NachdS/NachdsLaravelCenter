@@ -1,7 +1,7 @@
 <?php
 /* require '../app/Http/Controllers/publicControllers/AlbumsController.php';   */
 
-use App\Http\Controller\publicControllers\AlbumsController;
+use App\Http\Controllers\publicControllers\AlbumsController;
 use App\Http\Controllers\publicControllers\FaqsController;
 use App\Http\Controllers\publicControllers\ActualitesController;
 use App\Http\Controllers\publicControllers\EvenementsController;
@@ -12,6 +12,8 @@ use App\Http\Controllers\teacher\DashboardInstructorController;
 use App\Http\Controllers\student\DashboardStudentController;
 use App\Http\Controllers\teacher\ProfileTeacherController;
 use App\Http\Controllers\student\ProfileStudenteController;
+use App\Http\Controllers\student\FriendInGroupController;
+use App\Http\Controllers\student\FormationController;
 use App\Http\Controllers\MailerController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -51,15 +53,16 @@ Route::get('event',[EvenementsController::class, 'show'])->name('event');
 Route::get('gallery',[AlbumsController::class, 'show'])->name('gallery');
 Route::get('gallery_single_view/{id}',[AlbumsController::class,'showById'])->name('gallery_single_view'); 
 
+
 Route::get('index',[IndexController::class, 'show'])->name('index'); 
 Route::get('video_pub_detail/{id}',[IndexController::class,'showById'])->name('video_pub_detail'); 
 
 Route::get('news_single_view/{id}',[ActualitesController::class,'showById'])->name('news_detail'); 
 Route::get('news',[ActualitesController::class, 'show'])->name('news'); 
 
-Route::get('search_result_formation', function () {
+/* Route::get('search_result_formation', function () {
     return view('public_interface/search_result_formation');
-});
+});*/
 
 Route::get('sign_up_steps', function () {
     return view('public_interface/sign_up_steps');
@@ -74,18 +77,23 @@ Route::get('forgot_password', function () {
     return view('student/forgot_password');
 });
 
-Route::get('student_list_eleve', function () {
+/* Route::get('student_list_eleve', function () {
     return view('student/list_eleve');
-});
+}); */
 
-Route::get('student_search_result', function () {
+Route::get('student_list_eleve',[FriendInGroupController::class,'show'])->name('student_list_eleve'); 
+
+/* Route::get('student_search_result', function () {
     return view('student/search_result');
 });
+ */
+Route::get('student_search_result',[FormationController::class,'show'])->name('student_search_result'); 
 
-
-Route::get('student_course_detail', function () {
+/* Route::get('student_course_detail', function () {
     return view('student/student_course_detail');
-});
+}); */
+
+Route::get('student_course_detail/{id}',[DashboardStudentController::class,'showById'])->name('student_course_detail'); 
 
 
 

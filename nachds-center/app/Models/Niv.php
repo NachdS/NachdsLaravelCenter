@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Formation extends Model
+class Niv extends Model
 {
     use HasFactory, Notifiable;
 
@@ -16,9 +16,13 @@ class Formation extends Model
      * @var array
      */
     protected $fillable = [
-        'designation', 'duree', 'prix1', 'prix2', 'prix3', 'type', 'matiere', 'matiere_id', 'niveau_id','image','created_at', 'updated_at',
+        'id', 'designation', 'created_at', 'updated_at', 'deleted_at'
     ];
 }
+
+
+
+
 
 
 

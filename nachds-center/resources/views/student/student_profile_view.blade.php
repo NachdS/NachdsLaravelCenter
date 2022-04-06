@@ -18,7 +18,7 @@
                                     </a>
                                     <div class="dp_dt150">
                                         <div class="img148">
-                                            <img src="{{ asset('assets/images/hd_dp.jpg') }}" alt="">
+                                            <img src="{{ asset(@$user->avatar) }}" alt="">
                                         </div>
                                         <div class="prfledt1">
                                             <h2>{{ auth()->user()->name }}</h2>

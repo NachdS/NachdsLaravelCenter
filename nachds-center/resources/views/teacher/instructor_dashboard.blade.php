@@ -4,8 +4,6 @@
  @section('content_public_teacher_interface') 
  
  <div class="card">
-    <div class="card-header">{{ __('Dashboard') }}</div>
-
     <div class="card-body">
         @if (session('status'))
             <div class="alert alert-success" role="alert">
@@ -31,7 +29,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Total des groupes</h5>
-                                <h2>1500</h2>
+                                <h2>{{@$totalGroupes}}</h2>
                             </div>
                             <div class="card_dash_right">
                                 <img src="{{ asset('assets/images/dashboard/graduation-cap.svg') }}" alt="">
@@ -42,7 +40,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Total des cours</h5>
-                                <h2>130</h2>
+                                <h2>{{@$totalCours}}</h2>
                             </div>
                             <div class="card_dash_right">
                                 <img src="{{ asset('assets/images/dashboard/online-course.svg') }}" alt="">
@@ -53,7 +51,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Total d'élèves</h5>
-                                <h2>2650</h2>
+                                <h2>{{@$totalCondidats}}</h2>
                             </div>
                             <div class="card_dash_right">
                                 <img src="{{ asset('assets/images/dashboard/knowledge.svg') }}" alt="">
@@ -67,8 +65,8 @@
                                 <h1>Sautez dans la création de cours</h1>
                             </div>
                             <div class="card_dash_right1">
-                                <button class="create_btn_dash"
-                                    onclick="window.location.href = 'create_new_course.html';">Créez votre cours</button>
+                                <button class="create_btn_dash" 
+                                    onclick="window.location.href = '{url('/create_new_course')}}';">Créez votre cours</button>
                             </div>
                         </div>
                     </div>
