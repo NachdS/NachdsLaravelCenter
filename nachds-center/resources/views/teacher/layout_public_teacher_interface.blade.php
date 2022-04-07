@@ -152,12 +152,17 @@
             <ul>
             <li class="menu--item avatar">
             <div class="menu--link ">
+                @php
+                    $user = App\Models\Enseignant::join('users', 'enseignants.id', 'users.id')
+                   ->where('enseignants.id', Auth::user()->id)
+                    ->first(); 
+                   @endphp
                 <div class="tutor_img">
-                    <a href="{{url('/my_instructor_profile_view')}}"><img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt=""></a>
+                    <a href="{{url('/my_instructor_profile_view')}}"><img src="{{ asset(@$user->avatar) }}" alt=""></a>
                 </div>
-                <div class="tutor_content_dt">
+                <div class="tutor_content_dt">                   
                     <div class="tutor150">
-                        <a href="{{url('/my_instructor_profile_view')}}" class="tutor_name">John Doe</a>
+                        <a href="{{url('/my_instructor_profile_view')}}" class="tutor_name">{{ auth()->user()->name }}</a>
                         <div class="mef78" title="Verify">
                             <i class="uil uil-check-circle"></i>
                         </div>

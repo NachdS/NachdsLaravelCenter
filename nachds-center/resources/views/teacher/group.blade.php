@@ -3,6 +3,9 @@
     @section('content_public_teacher_interface') 
 
     <div class="wrapper">
+        <div class="col-lg-12">
+            <h2 class="st_title"><i class="uil uil-apps"></i> Groupes</h2>
+        </div>
         <div class="sa4d25">
             <div class="container-fluid">
                 <div class="row">
@@ -12,7 +15,8 @@
                             <div class="la5lo1">
                                 <div class="row">
 
-                                    
+                                    @if (@$allGroupe)
+                                    @foreach ($allGroupe as $groupe )
                                     <div class="col-md-2">
                                         <div class="stream_1 mb-30">
                                             <a href="live_output.html" class="stream_bg">
@@ -20,153 +24,17 @@
                                                 <a href="{{url('/student_list_eleve')}}">
                                                     <h4 style="    color: black;
                                                     text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
+                                                    margin: 20px 0px 10px 0px;">{{$groupe -> designation}}</h4>
                                                 </a>
+                                                <p style="    color: black;
+                                                text-align: center;
+                                                margin: 10px 0px 10px 0px;">{{$groupe -> capacite}} élèves</p>
                                             </a>
                                         </div>
                                     </div>
-                                    
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
-                                                    text-align: center;
-                                                    margin: 20px 0px 10px 25px;">Groupe 1</h4>
-                                                </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="main-loader mt-20">
-                                            <div class="spinner">
-                                                <div class="bounce1"></div>
-                                                <div class="bounce2"></div>
-                                                <div class="bounce3"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
@@ -182,7 +50,7 @@
                                     <div class="live-content">
                                         <p>Consulter vos groupe et vos élèves</p>
                                         <button class="live_link"
-                                            onclick="window.location.href = '';">20 Groupes</button>
+                                            onclick="window.location.href = '';">{{$totalGroupes}} Groupes</button>
                                         <span class="livinfo">.</span>
                                     </div>
                                 </div>
@@ -196,7 +64,7 @@
                                     <div class="live-content">
                                         <p>Consulter vos groupe et vos élèves</p>
                                         <button class="live_link"
-                                            onclick="window.location.href = '';">20 élèves</button>
+                                            onclick="window.location.href = '';">{{$totalelevesGroupe}} élèves</button>
                                         <span class="livinfo">.</span>
                                     </div>
                                 </div>

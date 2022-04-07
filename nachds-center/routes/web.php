@@ -1,6 +1,13 @@
 <?php
-/* require '../app/Http/Controllers/publicControllers/AlbumsController.php';   */
 
+use App\Http\Controllers\MailerController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+/*
+|--------------------------------------------------------------------------
+| public Controllers
+|--------------------------------------------------------------------------
+*/
 use App\Http\Controllers\publicControllers\AlbumsController;
 use App\Http\Controllers\publicControllers\FaqsController;
 use App\Http\Controllers\publicControllers\ActualitesController;
@@ -8,15 +15,29 @@ use App\Http\Controllers\publicControllers\EvenementsController;
 use App\Http\Controllers\publicControllers\IndexController;
 use App\Http\Controllers\publicControllers\ContactController;
 use App\Http\Controllers\publicControllers\AboutUsController;
-use App\Http\Controllers\teacher\DashboardInstructorController;
+/*
+|--------------------------------------------------------------------------
+| Student Controllers
+|--------------------------------------------------------------------------
+*/
 use App\Http\Controllers\student\DashboardStudentController;
 use App\Http\Controllers\teacher\ProfileTeacherController;
 use App\Http\Controllers\student\ProfileStudenteController;
 use App\Http\Controllers\student\FriendInGroupController;
 use App\Http\Controllers\student\FormationController;
-use App\Http\Controllers\MailerController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+/*
+|--------------------------------------------------------------------------
+| Teacher Controllers
+|--------------------------------------------------------------------------
+*/
+use App\Http\Controllers\teacher\DashboardInstructorController;
+use App\Http\Controllers\teacher\TeacherGroupeController;
+
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -124,9 +145,11 @@ Route::get('forgot_password', function () {
     return view('teacher/forgot_password');
 });
 
-Route::get('group', function () {
+/* Route::get('group', function () {
     return view('teacher/group');
-});
+}); */
+
+Route::get('group',[TeacherGroupeController::class,'show'])->name('group'); 
 
 Route::get('instructor_courses', function () {
     return view('teacher/instructor_courses');

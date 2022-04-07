@@ -12,19 +12,19 @@
                             <h4 class="item_title">Mes Amis De Groupe</h4>
                             <div class="la5lo1">
                                 <div class="row">
-                                    @if (@$amisGroupe)
-                                    @foreach ($amisGroupe as $amis )
+                                @if (@$amisGroupe)
+                                @foreach ($amisGroupe as $amis )
                                     <div class="col-md-2">
                                         <div class="stream_1 mb-30">
                                             <a href="live_output.html" class="stream_bg">
                                                 <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
                                                 <h4>{{$amis -> name}}</h4>
-                                                <p>{{$amis -> phone}}<span></span></p>
+                                                <p>{{$amis -> phone}}</p>
                                             </a>
                                         </div>
                                     </div>
-                                    @endforeach
-                                    @endif
+                                @endforeach
+                                @endif
                                 </div>
                             </div>
                         </div>

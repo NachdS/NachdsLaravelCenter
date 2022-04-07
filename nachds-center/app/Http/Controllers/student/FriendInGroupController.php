@@ -17,12 +17,15 @@ class FriendInGroupController extends Controller
       }
       public function show(User $user, Candidat $candidats , Inscription $inscription, Groupe $groupe) {
     
-                 $condidat = Inscription::where('candidat_id',@Auth::user()->id)->first();
+                 $groupes = Inscription::where('candidat_id',@Auth::user()->id)->select('groupe_id')->get();
+              
                  $amisGroupe = Candidat::join('inscriptions', 'inscriptions.candidat_id', '=', 'candidats.id')
                  ->join('users' ,'users.id','=','candidats.id')
-                 ->where('inscriptions.groupe_id','=',$condidat->groupe_id)
-                 ->distinct('candidat_id')
+                 ->whereIn('inscriptions.groupe_id',$groupes)
+                 ->select('users.*')
+                 ->distinct('users.id')
                  ->get(); 
+                // dd($amisGroupe);
                  return view('student.student_list_eleve', compact('amisGroupe'));
       }
 }

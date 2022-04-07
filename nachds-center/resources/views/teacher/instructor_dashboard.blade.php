@@ -3,18 +3,18 @@
  @extends('teacher.layout_public_teacher_interface')
  @section('content_public_teacher_interface') 
  
- <div class="card">
+ <!--<div class="card">
     <div class="card-body">
-        @if (session('status'))
+       {{--  @if (session('status')) --}}
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
             </div>
-        @endif
+        {{-- @endif --}}
 
-        {{ __('Hello professeur, You are logged in!') }}
+        {{-- {{ __('Hello professeur, You are logged in!') }} --}}
     </div>
 </div>
-</div>
+</div>-->
 
 
 

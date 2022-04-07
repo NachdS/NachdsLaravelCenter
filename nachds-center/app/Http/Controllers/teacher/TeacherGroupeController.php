@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\teacher;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Enseignant;
+use App\Models\User;
+use App\Models\Groupe;
+use App\Models\Candidat;
+use App\Models\GroupeIndivs;
 
-class TeacherEarningController extends Controller
+class TeacherGroupeController extends Controller
 {
-    /*public function __construct() {
+    public function __construct() {
         $this->middleware('auth');
       }
       public function show(User $user, Enseignant $enseignants , Groupe $groupe , GroupeIndivs $groupeIndivs) {
@@ -29,5 +35,5 @@ class TeacherEarningController extends Controller
                  $totalelevesGroupe = $elevesGroupe->count(); 
 
                  return view('teacher.group', compact('allGroupe','totalGroupes','totalelevesGroupe'));
-      }*/
+      }
 }
