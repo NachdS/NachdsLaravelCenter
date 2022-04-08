@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Role;
 class RedirectIfAuthenticated
 {
     /**
@@ -33,13 +33,16 @@ class RedirectIfAuthenticated
 
     public function handle($request, Closure $next, $guard = null) {
         if (Auth::guard($guard)->check()) {
-          $role = Auth::user()->role_id; 
-      
-          switch ($role) {
-            case '3':
+          //$role = Auth::user()->role_id;
+          $role = Role::
+          join('roles', 'users.role_id', 'roles.id')
+          ->where('users.id', Auth::user()->id)
+          ->select('roles.name')->first();
+          switch ($role->name) {
+            case 'formateur':
                return redirect('/instructor_dashboard');
                break;
-            case '4':
+            case 'condidat':
                return redirect('/student_dashboard');
                break; 
       

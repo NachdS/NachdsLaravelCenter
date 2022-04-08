@@ -4,30 +4,24 @@ namespace App\Http\Controllers\teacher;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Enseignant;
+use App\Models\User;
+use App\Models\Payementens;
 
 class TeacherEarningController extends Controller
 {
-    /*public function __construct() {
+    public function __construct() {
         $this->middleware('auth');
       }
-      public function show(User $user, Enseignant $enseignants , Groupe $groupe , GroupeIndivs $groupeIndivs) {
-    
-                 $allGroupe = Groupe::where('enseignant_id',@Auth::user()->id)->get();
-                 //$allGroupeIndivs = GroupeIndivs::where('enseignant_id',@Auth::user()->id)->get();
-                 $totalGroupes = $allGroupe->count(); 
-                 
-                 $arr = [];
-                 foreach ($allGroupe as $g) {
-                   array_push($arr , $g->id);
-                 }
-               
-                 $elevesGroupe = Candidat::join('inscriptions', 'inscriptions.candidat_id', '=', 'candidats.id')
-                 ->join('users' ,'users.id','=','candidats.id')
-                 ->join('groupes' ,'groupes.id','=','inscriptions.groupe_id')
-                 ->whereIn('inscriptions.groupe_id',$arr)
-                 ->get(); 
-                 $totalelevesGroupe = $elevesGroupe->count(); 
+     
+    public function show() {
 
-                 return view('teacher.group', compact('allGroupe','totalGroupes','totalelevesGroupe'));
-      }*/
+      $allpayementens = Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id')
+                 ->join('users' ,'users.id','=','enseignants.id')
+                 ->where ('enseignants.id',@Auth::user()->id)
+                 ->get();
+
+      return view('teacher.instructor_earning', compact('allpayementens'));
+    }
 }

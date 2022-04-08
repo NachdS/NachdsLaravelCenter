@@ -32,11 +32,8 @@ use App\Http\Controllers\student\FormationController;
 */
 use App\Http\Controllers\teacher\DashboardInstructorController;
 use App\Http\Controllers\teacher\TeacherGroupeController;
-
-
-
-
-
+use App\Http\Controllers\teacher\TeacherEarningController;
+use App\Http\Controllers\teacher\CourController;
 
 
 /*
@@ -129,9 +126,11 @@ Route::get('student_schedule', function () {
 });
 
 /* teacher */
-Route::get('create_new_chapter', function () {
+/* Route::get('create_new_chapter', function () {
     return view('teacher/create_new_chapter');
-});
+}); */
+
+Route::get('create_new_chapter/{id}',[CourController::class,'showChapitresById'])->name('create_new_chapter'); 
 
 Route::get('create_new_course', function () {
     return view('teacher/create_new_course');
@@ -151,27 +150,16 @@ Route::get('forgot_password', function () {
 
 Route::get('group',[TeacherGroupeController::class,'show'])->name('group'); 
 
-Route::get('instructor_courses', function () {
-    return view('teacher/instructor_courses');
-});
+Route::get('instructor_courses',[CourController::class,'index'])->name('instructor_courses'); 
+/* Route::get('instructor_courses',[CourController::class,'destroy']);  */
 
+/* Route::resource('cour', CourController::class); */
 
-
-Route::get('instructor_earning', function () {
-    return view('teacher/instructor_earning');
-});
-
-Route::get('instructor_payout', function () {
-    return view('teacher/instructor_payout');
-});
+Route::get('instructor_earning',[TeacherEarningController::class,'show'])->name('instructor_earning'); 
 
 Route::get('list_eleve', function () {
     return view('teacher/list_eleve');
 });
-
-/* Route::get('my_instructor_profile_view', function () {
-    return view('teacher/my_instructor_profile_view');
-}); */
 
 Route::get('my_instructor_profile_view',[ProfileTeacherController::class,'show'])->name('my_instructor_profile_view'); 
 

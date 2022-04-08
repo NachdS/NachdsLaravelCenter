@@ -22,6 +22,15 @@
                         </div>
                     </div>
                 </div>
+                @if ($message = Session::get('success'))
+
+                <div class="alert alert-success">
+        
+                    <p>{{ $message }}</p>
+        
+                </div>
+        
+            @endif
                 <div class="row">
                     <div class="col-md-12 mb-50">
                         <div class="my_courses_tabs">
@@ -41,83 +50,34 @@
                                                     <th class="text-center" scope="col">Numéro du cours</th>
                                                     <th>Titre</th>
                                                     <th class="text-center" scope="col">Date de publication</th>
-                                                    <th class="text-center" scope="col">Formation</th>
+                                                    <!--<th class="text-center" scope="col">Formation</th>-->
                                                     <th class="text-center" scope="col">nombre de chapitre </th>
                                                     <th class="text-center" scope="col">Chapitre</th>
                                                     <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($cours as $cour)
                                                 <tr>
-                                                    <td class="text-center">IT-001</td>
-                                                    <td>Course Title Here</td>
-                                                    <td class="text-center">06 April 2020 | 08:31</td>
-                                                    <td class="text-center">15</td>
-                                                    <td class="text-center">5</td>
-                                                    <td class="text-center"><a href="{{url('/create_new_chapter')}}">voir chapitre</a></td>
+                                                    <td class="text-center">{{ ++$i }}</td>
+                                                    <td>{{ $cour->designation }}</td>
+                                                    <td class="text-center">{{  \Carbon\Carbon::parse(@$cour->created_at)->format('j F, Y')  }}</td>
+                                                    <!--<td class="text-center"> </td>-->
+                                                    <td class="text-center">{{$cour->chapitres->count()}}</td>
+                                                    <td class="text-center"><a href="{{route('create_new_chapter' , ['id' => @$cour->id])}}">voir chapitre</a></td>
                                                     <td class="text-center">
-                                                        <a href="#" title="Edit" class="gray-s"><i
-                                                                class="uil uil-edit-alt"></i></a>
-                                                        <a href="#" title="Delete" class="gray-s"><i
-                                                                class="uil uil-trash-alt"></i></a>
+                                                                <form action="" method="POST">
+                                                                    <a title="Edit" class="gray-s" href=""><i
+                                                                        class="uil uil-edit-alt"></i></a>
+                                                                     @csrf 
+                                                                    @method('DELETE') 
+                                                                    <button type="submit" title="Delete" class="gray-s" style="background-color: transparent !important;
+                                                                    border: 0 !important;"><i
+                                                                        class="uil uil-trash-alt"></i></button>
+                                                                </form>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-center">IT-002</td>
-                                                    <td>Course Title Here</td>
-                                                    <td class="text-center">05 April 2020 | 05:15</td>
-                                                    <td class="text-center">30</td>
-                                                    <td class="text-center">3</td>
-                                                    <td class="text-center"> <a href="{{url('/create_new_chapter')}}">voir chapitre</a></td>
-                                                    <td class="text-center">
-                                                        <a href="#" title="Edit" class="gray-s"><i
-                                                                class="uil uil-edit-alt"></i></a>
-                                                        <a href="#" title="Delete" class="gray-s"><i
-                                                                class="uil uil-trash-alt"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">IT-003</td>
-                                                    <td>Course Title</td>
-                                                    <td class="text-center">03 April 2020 | 01:30</td>
-                                                    <td class="text-center">14</td>
-                                                    <td class="text-center">5</td>
-                                                    <td class="text-center"> <a href="{{url('/create_new_chapter')}}">voir chapitre</a></td>
-                                                    <td class="text-center">
-                                                        <a href="#" title="Edit" class="gray-s"><i
-                                                                class="uil uil-edit-alt"></i></a>
-                                                        <a href="#" title="Delete" class="gray-s"><i
-                                                                class="uil uil-trash-alt"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">IT-004</td>
-                                                    <td>Course Title Here</td>
-                                                    <td class="text-center">02 April 2020 | 05:15</td>
-                                                    <td class="text-center">110</td>
-                                                    <td class="text-center">9</td>
-                                                    <td class="text-center"> <a href="{{url('/create_new_chapter')}}">voir chapitre</a></td>
-                                                    <td class="text-center">
-                                                        <a href="#" title="Edit" class="gray-s"><i
-                                                                class="uil uil-edit-alt"></i></a>
-                                                        <a href="#" title="Delete" class="gray-s"><i
-                                                                class="uil uil-trash-alt"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">IT-002</td>
-                                                    <td>Course Title Here</td>
-                                                    <td class="text-center">28 March 2020 | 05:15</td>
-                                                    <td class="text-center">185</td>
-                                                    <td class="text-center">10</td>
-                                                    <td class="text-center"><a href="#">C++</a></td>
-                                                    <td class="text-center">
-                                                        <a href="#" title="Edit" class="gray-s"><i
-                                                                class="uil uil-edit-alt"></i></a>
-                                                        <a href="#" title="Delete" class="gray-s"><i
-                                                                class="uil uil-trash-alt"></i></a>
-                                                    </td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                             <tfoot>
                                             <tr></tr>

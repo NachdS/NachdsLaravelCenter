@@ -71,7 +71,7 @@
                           <img style="width: 100%; heigth:50%" src="{{ asset($image) }}" />
                         </div>
                         <div class="modal-body">
-                          <h2>{{@$img -> date_album}}, {{@$img -> lieu}}</h2>
+                          <h2>{{  \Carbon\Carbon::parse(@$img->date_album)->format('j F')  }}, {{@$img -> lieu}}</h2>
                           <p> {{@$img -> description}}</p>
                         </div>
                         

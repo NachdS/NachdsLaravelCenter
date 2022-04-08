@@ -3,7 +3,7 @@
  @section('content_public_teacher_interface') 
 
 
-	<div class="modal fade" id="add_lecture_model" tabindex="-1" aria-labelledby="lectureModalLabel" aria-hidden="true">
+	<!--<div class="modal fade" id="add_lecture_model" tabindex="-1" aria-labelledby="lectureModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -837,8 +837,28 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
+	
 
+	@if ($errors->any())
+
+    <div class="alert alert-danger">
+
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+
+        <ul>
+
+            @foreach ($errors->all() as $error)
+
+                <li>{{ $error }}</li>
+
+            @endforeach
+
+        </ul>
+
+    </div>
+
+@endif
 
 
 
@@ -849,7 +869,9 @@
 				<div class="col-lg-12">
 					<h2 class="st_title"><i class="uil uil-analysis"></i> Créer un nouveau cours</h2>
 				</div>
-				<form>
+				<!--<form action="{{ route('') }}" method="POST" enctype="multipart/form-data">-->
+					<form>
+					@csrf
 					<div class="general_info10">
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
@@ -867,23 +889,54 @@
 								</div>
 							</div>
 
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<div class="form-group">
+									<div class="mt-30 lbel25">
+										<label>Course Level*</label>
+									</div>
+									<input type="file" name="image" class="form-control" placeholder="image">
+								</div>
+							</div>
+
 							<div class="col-lg-12 col-md-12">
 								<div class="mt-30 lbel25">
-									<label>Course Level*</label>
+									<label>Groupe*</label>
 								</div>
 								<select
 									class="ui hj145 dropdown cntry152 prompt srch_explore"
 									multiple="">
-									<option value="">Select Level</option>
+									<option value="">Select Groupe</option>
 									<option value="1">Beginner</option>
 									<option value="2">Intermediate</option>
 									<option value="3">Expert</option>
 								</select>
-
-								
 							</div>
+
+							<div class="upload-file-dt col-12 mt-30">
+								<div class="upload-btn">
+									<input class="uploadBtn-main-input" type="file"
+										id="AssignmentFile__input--source">
+									<label for="AssignmentFile__input--source" title="Zip"><i
+											class="far fa-plus-square mr-2"></i>Attachment</label>
+								</div>
+								<span class="uploadBtn-main-file">Supports: jpg, jpeg, png, pdf or .zip</span>
+								<div class="add-attachments-dt">
+									<div class="attachment-items">
+										<div class="attachment_id">Uploaded ID: 5</div>
+										<button class="cancel-btn" type="button"><i
+												class="fas fa-trash-alt"></i></button>
+									</div>
+									<div class="attachment-items">
+										<div class="attachment_id">Uploaded ID: 6</div>
+										<button class="cancel-btn" type="button"><i
+												class="fas fa-trash-alt"></i></button>
+									</div>
+								</div>
+							</div>
+							
+
 							<div class="col-lg-12 col-md-12">
-							<div class="mt-30 lbel25">
+							<div class="mt-30 mb-30 lbel25">
 							<button class="main-btn color btn-hover"><i
 								class="fas fa-save mr-2"></i>Ajouter</button>
 							</div>

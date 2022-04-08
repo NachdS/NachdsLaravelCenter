@@ -89,7 +89,7 @@
 
               <div class="section3125 mt-30">
                 <h4 class="item_title">Video</h4>
-                <a href="#" class="see150">Voir tout</a>
+                <!--<a href="#" class="see150">Voir tout</a>-->
                 <div class="la5lo1">
                   <div class="owl-carousel featured_courses owl-theme">
                     
@@ -112,8 +112,8 @@
                             </a>
                             <div class="fcrse_content">
                               <div class="vdtodt">
-                                <span class="vdt14">15 vues</span>
-                                <span class="vdt14">10 min ago</span>
+                                <!--<span class="vdt14">15 vues</span>-->
+                                <span class="vdt14">{{\Carbon\Carbon::parse(@$video->created_at)->format('j F')}}</span>
                               </div>
                               <a href="course_detail_view.html" class="crse14s"
                                 >{{@$video -> designation}}</a> 
@@ -130,7 +130,7 @@
               </div>
               <div class="section3125 carousel-section mt-50">
                 <h4 class="item_title">Nos instructeurs populaires</h4>
-                <a href="all_instructor.html" class="see150">Voir tout</a>
+                <!--<a href="all_instructor.html" class="see150">Voir tout</a>-->
                 <div class="la5lo1">
                   <div class="owl-carousel top_instrutors owl-theme">
                     
@@ -248,7 +248,7 @@
             
             <div class="col-xl-12 col-lg-12 mb-30">
               <div class="section3125 color-section mt-30">
-                <h4 class="item_title">Avis de nos Elèves</h4>
+                <h4 class="item_title">Nos Partenaires</h4>
                 <div class="la5lo1">
                   <div class="owl-carousel Student_says owl-theme">
                     

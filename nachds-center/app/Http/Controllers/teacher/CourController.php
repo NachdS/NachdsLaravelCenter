@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\teacher;
 
 use App\Http\Controllers\Controller;
+use App\Models\Chapitre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Groupe;
@@ -23,9 +24,21 @@ class CourController extends Controller
     public function index()
 
     {
-        $cours = Cour::latest()->paginate(5);
+        /* $cours = Cour::latest()->paginate(5); */
+        $cours = Cour::paginate(5);
+       // $chapitres = Chapitre::join('cours','cours.id','=','chapitres.cours_id')
+        //->get();
+        //$totalchapitres = $chapitres->count();
         return view('teacher.instructor_courses',compact('cours'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5); 
+    }
+
+
+    public function showChapitresById($id) 
+    {
+        $detailchapitre = Chapitre::where('cour_id', $id)->get();
+        $cour = Cour::find($id);
+        return view('teacher.create_new_chapter', compact('detailchapitre' , 'cour'));
     }
 
      
@@ -50,8 +63,9 @@ class CourController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'designation' => 'required',
+            'photo' => 'required',
+            'groupe_id' => 'required',
         ]);
 
         Cour::create($request->all());
@@ -96,8 +110,9 @@ class CourController extends Controller
     public function update(Request $request, Cour $cour)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'designation' => 'required',
+            'photo' => 'required',
+            'groupe_id' => 'required',
         ]);
         $cour->update($request->all());
 

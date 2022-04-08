@@ -3,7 +3,7 @@
     @section('content_public_student_interface') 
    
 
-    <div class="wrapper">
+    <div class="wrapper" style="min-height: 700px;">
         <div class="sa4d25">
             <div class="container-fluid">
                 <div class="row">

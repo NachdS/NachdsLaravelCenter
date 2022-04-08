@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Cour;
 
 class Chapitre extends Model
 {
@@ -19,5 +20,9 @@ class Chapitre extends Model
 
          'designation', 'description', 'type', 'files', 
     ];
+
+    public function cours(){
+        return $this->belongsTo(Cour::class);
+    }
 
 }

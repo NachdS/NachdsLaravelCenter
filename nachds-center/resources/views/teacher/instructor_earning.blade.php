@@ -54,7 +54,7 @@
                                 <a href="#">April</a>
                             </div>
                         </div>
-                        <div class="table-responsive mt-30">
+                        <div id="order_data" class="table-responsive mt-30">
                             <table class="table ucp-table earning__table">
                                 <thead class="thead-s">
                                     <tr>
@@ -64,32 +64,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if (@$allpayementens)
+                                    @foreach ($allpayementens as $pay )
                                     <tr>
-                                        <td>1</td>
-                                        <td>1, Wednesday</td>
-                                        <td>$120.50</td>
+                                        <td >{{@$pay->num}}</td>
+                                        <td >{{\Carbon\Carbon::parse(@$pays->created_at)->format('j F, Y')}}</td>
+                                        <td id="loop">{{@$pay->montant}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>2, Thursday</td>
-                                        <td>$84.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>4, Saturday</td>
-                                        <td>$150.50</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>5, Sunday</td>
-                                        <td>$102.24</td>
-                                    </tr>
+                                    @endforeach
+                                    @endif
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td></td>
-                                        <td>Total</td>
-                                        <td>$1146.78</td>
+                                        <td Total> Total</td>
+                                        <td> </td>
+                                        <td id="total"></td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -101,5 +90,6 @@
     </div>
 
 
+ 
     @endsection
     

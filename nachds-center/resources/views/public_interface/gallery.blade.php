@@ -51,7 +51,7 @@
                             <div class="hs_content">
                                 <div class="vdtodt">
                                     
-                                    <span class="vdt14">{{@$image -> date_album}}</span>
+                                    <span class="vdt14"> {{\Carbon\Carbon::parse(@$image->date_album)->format('j F')}} </span>
                                 </div>
                                 <a href="{{route('gallery_single_view' , ['id' => @$image->id])}}" class="crse14s title900">{{@$image -> title}}</a>
                                 <p class="blog_des">{{@$image -> short_description}}</p>

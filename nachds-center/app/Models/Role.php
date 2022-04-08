@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Chapitre;
-class Cour extends Model
+
+class Role extends Model
 {
     use HasFactory, Notifiable;
 
@@ -16,12 +16,7 @@ class Cour extends Model
      * @var array
      */
     protected $fillable = [
-
-         'designation', 'photo', 'groupe_id'
+        'name', 'display_name', 'created_at', 'updated_at'
     ];
 
-    public function chapitres(){
-        return $this->hasMany(Chapitre::class);
-    }
 }
-

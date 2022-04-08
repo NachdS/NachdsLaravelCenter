@@ -105,7 +105,7 @@
       });
 
   </script>
-  <script>
+<script>
     // Open the Modal
     function openModal() {
       document.getElementById("myModal").style.display = "block";
@@ -145,7 +145,21 @@
     }
     </script>
 
+    <script type="text/javascript">
+     $(function() {
 
+     var TotalValue = 0;
+
+     $("tr #loop").each(function(index,value){
+       currentRow = parseFloat($(this).text());
+       TotalValue += currentRow
+     });
+
+     document.getElementById('total').innerHTML = TotalValue;
+
+    });
+    </script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 <!-- Copyright  contact_us.html Nachd IT 13:31:52 GMT -->

@@ -765,7 +765,7 @@
 													<div class="col-md-12">
 														<div class="curriculum-add-item">
 															<h4 class="section-title mt-0"><i
-																	class="fas fa-th-list mr-2"></i>Titre du cours</h4>
+																	class="fas fa-th-list mr-2"></i>{{$cour->designation}}</h4>
 														</div>
 														<div class="added-section-item mb-30">
 															<div class="section-header">
@@ -773,11 +773,14 @@
 															</div>
 														
 															<div class="section-group-list sortable">
+
+																@if(@$detailchapitre->count() > 0)
+																@foreach ($detailchapitre as $chp )
 																<div class="section-list-item">
 																	<div class="section-item-title">
 																		<i class="fas fa-file-alt mr-2"></i>
-																		<span class="section-item-title-text">lecture
-																			Title</span>
+																		<span class="section-item-title-text">{{@$chp->designation}}
+																			</span>
 																	</div>
 																	<button type="button" class="add_lecture section-item-tools" data-toggle="modal"
 																	data-target="#add_lecture_model" ><i
@@ -788,34 +791,9 @@
 																		class="section-item-tools ml-auto"><i
 																			class="fas fa-bars"></i></button>
 																</div>
-																<div class="section-list-item">
-																	<div class="section-item-title">
-																		<i class="fas fa-stream mr-2"></i>
-																		<span class="section-item-title-text">Quiz
-																			Title</span>
-																	</div>
-																	<button type="button" class="add_lecture section-item-tools" data-toggle="modal"
-																	data-target="#add_lecture_model" ></i></button>
-																	<button type="button" class="section-item-tools"><i
-																			class="fas fa-trash-alt"></i></button>
-																	<button type="button"
-																		class="section-item-tools ml-auto"><i
-																			class="fas fa-bars"></i></button>
-																</div>
-																<div class="section-list-item">
-																	<div class="section-item-title">
-																		<i class="fas fa-clipboard-list mr-2"></i>
-																		<span class="section-item-title-text">Assignment
-																			Title</span>
-																	</div>
-																	<button type="button" class="add_lecture section-item-tools" data-toggle="modal"
-																	data-target="#add_lecture_model" ></i></button>
-																	<button type="button" class="section-item-tools"><i
-																			class="fas fa-trash-alt"></i></button>
-																	<button type="button"
-																		class="section-item-tools ml-auto"><i
-																			class="fas fa-bars"></i></button>
-																</div>
+																@endforeach
+																@endif
+												
 															</div>
 															<div class="section-add-item-wrap p-3">
 																<button class="add_lecture" data-toggle="modal"

@@ -4,26 +4,28 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Partenaire extends Migration
+class Chapitre extends Migration
 {
-        /**
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('partenaires', function (Blueprint $table) {
+        Schema::create('chapitres', function (Blueprint $table) {
 
             $table->id();
     
-            $table->string('name');
+            $table->string('designation');
             $table->string('description');
-            $table->string('logo');
-    
+            $table->string('type');
+            $table->string('files');
+            
             $table->timestamps();
     
         });
+
     }
 
     /**
@@ -33,6 +35,6 @@ class Partenaire extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('partenaires');
+        Schema::dropIfExists('chapitres');
     }
 }
