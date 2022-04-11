@@ -709,19 +709,19 @@
 																		<span class="section-item-title-text">{{@$chp->designation}}
 																			</span>
 																	</div>
-																	<button type="button" class="add_lecture section-item-tools" data-toggle="modal"
+																	<!--<button type="button" class="add_lecture section-item-tools" data-toggle="modal"
 																	data-target="#add_lecture_model" ><i
 																			class="fas fa-edit"></i></button>
 																	<button type="button" class="section-item-tools"><i
 																			class="fas fa-trash-alt"></i></button>
 																	<button type="button"
 																		class="section-item-tools ml-auto"><i
-																			class="fas fa-bars"></i></button>
-																	<form action="{{ route('delete_new_chapter',$chp->id) }}" method="GET">
+																			class="fas fa-bars"></i></button>-->
+																	<form action="{{ route('delete_new_chapter',$chp->id)}}" method="GET">
 																			@csrf
 																			@method('DELETE')
 																			<button type="submit" class="section-item-tools ml-auto"><i
-																				class="fas fa-bars"></i></button>
+																				class="fas fa-trash-alt"></i></button>
 																	</form>
 																</div>
 																@endforeach

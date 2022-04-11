@@ -20,7 +20,7 @@ class TeacherEarningController extends Controller
       $allpayementens = Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id')
                  ->join('users' ,'users.id','=','enseignants.id')
                  ->where ('enseignants.id',@Auth::user()->id)
-                 ->get();
+                 ->paginate(5);
 
       return view('teacher.instructor_earning', compact('allpayementens'));
     }

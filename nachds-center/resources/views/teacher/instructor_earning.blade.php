@@ -82,6 +82,9 @@
                                     </tr>
                                 </tfoot>
                             </table>
+                            <div class='mt-10 mb-10' style="float: right;">
+                                {{ $allpayementens->links() }}
+                                </div>
                         </div>
                     </div>
                 </div>

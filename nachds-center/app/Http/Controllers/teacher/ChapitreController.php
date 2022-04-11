@@ -74,7 +74,7 @@ class ChapitreController extends Controller
             'designation' => 'required',
             'description' => 'required',
             'type' => 'required',
-            'files' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'files' => 'image|mimes:jpeg,png,jpg,gif,svg|mimes:csv,txt,xlx,xls,pdf',
         ]);
             $new_course = New Chapitre();
             $new_course->designation = @$request->input('designation');
