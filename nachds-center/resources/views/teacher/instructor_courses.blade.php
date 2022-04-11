@@ -59,22 +59,29 @@
                                             <tbody>
                                                 @foreach ($cours as $cour)
                                                 <tr>
-                                                    <td class="text-center">{{ ++$i }}</td>
-                                                    <td>{{ $cour->designation }}</td>
-                                                    <td class="text-center">{{  \Carbon\Carbon::parse(@$cour->created_at)->format('j F, Y')  }}</td>
+                                                    <td class="text-center" style="text-align: center;">{{ ++$i }}</td>
+                                                    <td class="text-center" style="text-align: center;">{{ $cour->designation }}</td>
+                                                    <td class="text-center" style="text-align: center;">{{  \Carbon\Carbon::parse(@$cour->created_at)->format('j F, Y')  }}</td>
                                                     <!--<td class="text-center"> </td>-->
-                                                    <td class="text-center">{{$cour->chapitres->count()}}</td>
-                                                    <td class="text-center"><a href="{{route('create_new_chapter' , ['id' => @$cour->id])}}">voir chapitre</a></td>
-                                                    <td class="text-center">
-                                                                <form action="" method="POST">
-                                                                    <a title="Edit" class="gray-s" href=""><i
-                                                                        class="uil uil-edit-alt"></i></a>
-                                                                     @csrf 
-                                                                    @method('DELETE') 
-                                                                    <button type="submit" title="Delete" class="gray-s" style="background-color: transparent !important;
-                                                                    border: 0 !important;"><i
-                                                                        class="uil uil-trash-alt"></i></button>
-                                                                </form>
+                                                    <td class="text-center" style="text-align: center;">{{$cour->chapitres->count()}}</td>
+                                                    <td class="text-center" style="text-align: center;"><a href="{{route('create_new_chapter' , ['id' => @$cour->id])}}">voir chapitre</a></td>
+                                                    <td class="text-center d-flex" style="place-content: center;">
+                                                        <form action="{{ route('delete_new_course',$cour->id) }}" method="GET">
+    
+                                                            @csrf
+                                                            @method('DELETE')
+                                                
+                                                            <button type="submit" title="Delete" class="gray-s" style="background-color: transparent !important;
+                                                            border: 0 !important;"><i
+                                                                class="uil uil-trash-alt"></i></button>
+                                                        </form>
+
+                                                        <form action="{{ route('delete_new_course',$cour->id) }}" method="GET">
+     
+                                                            <a class="gray-s" href="{{ route('edit_new_course',$cour->id) }}"><i
+                                                                class="uil uil-edit-alt"></i></a>
+                                                        </form>
+
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -83,6 +90,11 @@
                                             <tr></tr>
                                             </tfoot>
                                         </table>
+                                        <div class='mt-10 mb-10' style="float: right;">
+                                        {{ $cours->links() }}
+                                        {{-- {!! $cours->links(); !!}
+                                        {!! $cours->render() !!} --}}
+                                        </div>
                                     </div>
                                 </div>
                         </div>

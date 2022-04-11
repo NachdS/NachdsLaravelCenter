@@ -21,9 +21,6 @@
 											href="#nav-basic" role="tab" aria-selected="true"><i
 												class="fas fa-file-alt mr-2"></i>Informations générales</a>
 										<a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab"
-											href="#nav-video" role="tab" aria-selected="false"><i
-												class="fas fa-video mr-2"></i>Video</a>
-										<a class="flex-sm-fill text-sm-center nav-link" data-toggle="tab"
 											href="#nav-attachment" role="tab" aria-selected="false"><i
 												class="fas fa-paperclip mr-2"></i>Pièces jointes</a>
 									</div>
@@ -52,77 +49,7 @@
 											</div>
 			
 										</div>
-										<div class="tab-pane fade" id="nav-video" role="tabpanel">
-											<div class="lecture-video-dt mt-30">
-												<span class="video-info">Sélectionnez votre type de vidéo préféré. (.mp4,
-													YouTube, Viméo, etc.)</span>
-												<div class="video-category">
-													<label><input type="radio" name="colorRadio" value="mp4"
-															checked=""><span>HTML5(mp4)</span></label>
-													<label><input type="radio" name="colorRadio"
-															value="url"><span>External URL</span></label>
-													<label><input type="radio" name="colorRadio"
-															value="youtube"><span>YouTube</span></label>
-													<div class="mp4 video-box" style="display: block;">
-														<div class="row">
-															<div class="col-lg-6 col-md-6">
-																<div class="upload-file-dt mt-30">
-																	<div class="upload-btn">
-																		<input class="uploadBtn-main-input" type="file"
-																			id="VideoFile__input--source">
-																		<label for="VideoFile__input--source"
-																			title="Zip">Télécharger une video</label>
-																	</div>
-																	<span class="uploadBtn-main-file">Format de fichier:
-																		.mp4</span>
-																	<span class="uploaded-id">ID téléchargé :
-																		<b>12</b></span>
-																</div>
-															</div>
-															<div class="col-lg-6 col-md-6">
-																<div class="upload-file-dt mt-30">
-																	<div class="upload-btn">
-																		<input class="uploadBtn-main-input" type="file"
-																			id="PosterFile__input--source">
-																		<label for="PosterFile__input--source"
-																			title="Zip">Video Poster</label>
-																	</div>
-																	<span class="uploadBtn-main-file color-b">Uploaded
-																		ID : preview.jpg</span>
-																	<span class="uploaded-id color-fmt">Size: 590x300
-																		pixels. Supports: jpg,jpeg, or png</span>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="url video-box">
-														<div class="new-section">
-															<div class="ui search focus mt-30 lbel25">
-																<label>External URL*</label>
-																<div class="ui left icon input swdh19">
-																	<input class="prompt srch_explore" type="text"
-																		placeholder="External Video URL" name="" id=""
-																		value="">
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="youtube video-box">
-														<div class="new-section">
-															<div class="ui search focus mt-30 lbel25">
-																<label>Youtube URL*</label>
-																<div class="ui left icon input swdh19">
-																	<input class="prompt srch_explore" type="text"
-																		placeholder="Youtube Video URL" name="" id=""
-																		value="">
-																</div>
-															</div>
-														</div>
-													</div>
-	
-												</div>
-											</div>
-										</div>
+
 										<div class="tab-pane fade" id="nav-attachment" role="tabpanel">
 											<div class="row">
 												<div class="col-lg-12">
@@ -790,6 +717,12 @@
 																	<button type="button"
 																		class="section-item-tools ml-auto"><i
 																			class="fas fa-bars"></i></button>
+																	<form action="{{ route('delete_new_chapter',$chp->id) }}" method="GET">
+																			@csrf
+																			@method('DELETE')
+																			<button type="submit" class="section-item-tools ml-auto"><i
+																				class="fas fa-bars"></i></button>
+																	</form>
 																</div>
 																@endforeach
 																@endif

@@ -19,5 +19,8 @@ class Enseignant extends Model
 
          'specialite', 'created_at', 'updated_at', 'deleted_at', 'type', 'genre', 'cin_delivre',
     ];
+    public function groupes(){
+        return $this->belongsTo(Enseignant::class);
+    }
 
 }
