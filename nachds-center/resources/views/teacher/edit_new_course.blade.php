@@ -63,12 +63,16 @@
 									<div class="mt-30 lbel25">
 										<label>Groupe*</label>
 									</div>
-									<select name="groupe_id" id=""  class="form-control" required>
-										<option value="{{$cour->groupe_id}}">choisir ...</option>
+									<select name="groupe_id" id="groupe_id"  class="form-control" required>
+										<option> choisir ...</option>
 										@foreach($groupes as $grp)
-											<option value="{{$grp->id}}">{{$grp->designation}}</option>
+										<option value="{{ $grp->groupe_id}}"
+											{{ old('groupe_id',$grp->groupe_id)? 'selected':'' }}  >
+											{{$grp->designation}}
+										</option>
 										@endforeach
-									</select>	
+									</select>
+									
 							    </div>
 							</div>
 

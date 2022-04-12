@@ -129,14 +129,15 @@ Route::get('student_schedule', function () {
 /* teacher */
 
 
-Route::get('create_new_chapter/{id}',[CourController::class,'showChapitresById'])->name('create_new_chapter');
+Route::get('create_new_chapter/{id}',[CourController::class,'showChapitresById'])->name('create_new_chapter'); 
 Route::get('create_new_course',[CourController::class,'create'])->name('create_new_course'); 
 Route::post('store_new_course',[CourController::class,'store'])->name('store_new_course'); 
 Route::get('delete_new_course/{id}',[CourController::class,'destroy'])->name('delete_new_course'); 
 Route::get('edit_new_course/{id}',[CourController::class,'edit'])->name('edit_new_course'); 
 Route::put('update_new_course',[CourController::class,'update'])->name('update_new_course'); 
 
-Route::get('create_new_chapter',[ChapitreController::class,'index'])->name('create_new_chapter');
+Route::post('store_new_chapter',[ChapitreController::class,'store'])->name('store_new_chapter');
+Route::get('create_new_chapter',[CourController::class,'create'])->name('create_new_chapter'); 
 Route::get('delete_new_chapter/{id}',[ChapitreController::class,'destroy'])->name('delete_new_chapter'); 
 
 Route::get('explore', function () {

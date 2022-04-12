@@ -33,10 +33,17 @@ class DashboardInstructorController extends Controller {
     ->where('groupes.enseignant_id',@Auth::user()->id)
     ->get();  
 
+    $coursprof = Cour::join('groupes', 'cours.groupe_id', '=', 'groupes.id')
+        ->join('enseignants', 'enseignants.id', '=', 'groupes.enseignant_id')
+        ->join('users', 'users.id', '=', 'enseignants.id')
+        ->where('users.id',@Auth::user()->id)
+        ->select('cours.*')
+        ->paginate(8);
+
    $totalGroupes = $groupe->count();
    $totalCondidats = $condidat->count();
    $totalCours = $cours->count();
 
-    return view('teacher.instructor_dashboard', compact('user','totalGroupes','totalCours','totalCondidats'));
+    return view('teacher.instructor_dashboard', compact('user','totalGroupes','totalCours','totalCondidats','coursprof'));
   }
 }

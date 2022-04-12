@@ -23,32 +23,21 @@ class ChapitreController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(User $user, Enseignant $enseignants , Groupe $groupes)
+    /* public function index(User $user, Enseignant $enseignants , Groupe $groupes)
 
     {
-        /*$cours = Cour::join('groupes', 'cours.groupe_id', '=', 'groupes.id')
-        ->join('enseignants', 'enseignants.id', '=', 'groupes.enseignant_id')
-        ->join('users', 'users.id', '=', 'enseignants.id')
-        ->where('users.id',@Auth::user()->id)
-        ->select('cours.*')
-        ->paginate(4);*/
-
-        $chapitres = Chapitre::join('cours','cours.id','=','chapitres.cours_id')
+        $chapitres = Chapitre::join('cours','cours.id','=','chapitres.cour_id')
         ->join('groupes', 'cours.groupe_id', '=', 'groupes.id')
         ->join('enseignants', 'enseignants.id', '=', 'groupes.enseignant_id')
         ->join('users', 'users.id', '=', 'enseignants.id')
         ->where('users.id',@Auth::user()->id)
         ->select('chapitres.*')
-        ->paginate(4);
-
-        dd($chapitres);
-
-         /*$chapitres = Chapitre::join('cours','cours.id','=','chapitres.cours_id')
-         ->get();*/
+        ->get();
+        
        
         return view('teacher.create_new_chapter',compact('chapitres'))
             ->with('i', (request()->input('page', 1) - 1) * 5); 
-    }
+    } */
 
 
 
@@ -68,24 +57,29 @@ class ChapitreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)    
     {  
         $request->validate([
             'designation' => 'required',
             'description' => 'required',
             'type' => 'required',
-            'files' => 'image|mimes:jpeg,png,jpg,gif,svg|mimes:csv,txt,xlx,xls,pdf',
+            'files' => 'required',
+            'files.*' => 'mimes:csv,txt,xlx,xls,pdf'
         ]);
-            $new_course = New Chapitre();
-            $new_course->designation = @$request->input('designation');
-            $new_course->description = @$request->input('description');
-            $new_course->type = @$request->input('type');
-            if(@$request->file('files')){
-                $path_files= @$request->file('files')->store('chapitres');
-                $new_course->photo = @$path_files;
-            }
-            $new_course->save();
-            return redirect()->route('create_new_chapter')->with('success','Cour created successfully.'); 
+            $new_chapitre = New Chapitre();
+            $new_chapitre->designation = @$request->input('designation');
+            $new_chapitre->description = @$request->input('description');
+            $new_chapitre->type = @$request->input('type');
+
+            if(@$request->file('files'))
+            //foreach(@$request->files as $file) {
+            {
+                $path_files= @$request->file('file')->store('chapitres');
+                $new_chapitre->files = @$path_files;
+             }
+            //} 
+            $new_chapitre->save();
+            return redirect()->route('store_new_chapter')->with('success','Cour created successfully.'); 
     }
      
 

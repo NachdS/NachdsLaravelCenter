@@ -141,26 +141,20 @@ class CourController extends Controller
         return redirect()->route('instructor_courses')
                         ->with('success','Cour updated successfully');*/
         
-                        $request->validate([
-                            'designation' => 'required',
+        $request->validate([
+            'designation' => 'required',
             'groupe_id' => 'required',
-                        ]);
-                  
-                        $input = $request->all();
-                  
-                        if ($image = $request->file('image')) {
-                            $destinationPath = 'images/';
-                            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-                            $image->move($destinationPath, $profileImage);
-                            $input['photo'] = "$profileImage";
-                        }else{
-                            unset($input['photo']);
-                        }
-                          
-                        $cour->update($input);
-                    
-                        return redirect()->route('instructor_courses')
-                                        ->with('success','Product updated successfully');
+            ]);
+        $input = $request->all();
+            if (@$request->file('image')) {
+                $path_photo = @$request->file('photo')->store('cours');
+                $input['photo'] = "$path_photo";
+            }else{
+                unset($input['photo']);
+                }
+                $cour->update($input);
+            return redirect()->route('instructor_courses')
+            ->with('success','Product updated successfully');
                     
     }
   
