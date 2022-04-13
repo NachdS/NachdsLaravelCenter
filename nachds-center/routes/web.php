@@ -15,6 +15,7 @@ use App\Http\Controllers\publicControllers\EvenementsController;
 use App\Http\Controllers\publicControllers\IndexController;
 use App\Http\Controllers\publicControllers\ContactController;
 use App\Http\Controllers\publicControllers\AboutUsController;
+use App\Http\Controllers\publicControllers\FormationPubliqueController;
 /*
 |--------------------------------------------------------------------------
 | Student Controllers
@@ -79,9 +80,7 @@ Route::get('video_pub_detail/{id}',[IndexController::class,'showById'])->name('v
 Route::get('news_single_view/{id}',[ActualitesController::class,'showById'])->name('news_detail'); 
 Route::get('news',[ActualitesController::class, 'show'])->name('news'); 
 
-/* Route::get('search_result_formation', function () {
-    return view('public_interface/search_result_formation');
-});*/
+Route::get('search_result_formation',[FormationPubliqueController::class, 'show'])->name('search_result_formation'); 
 
 Route::get('sign_up_steps', function () {
     return view('public_interface/sign_up_steps');
@@ -112,7 +111,7 @@ Route::get('student_search_result',[FormationController::class,'show'])->name('s
     return view('student/student_course_detail');
 }); */
 
-Route::get('student_course_detail/{id}',[DashboardStudentController::class,'showById'])->name('student_course_detail'); 
+Route::get('student_course_detail/{id}',[FormationController::class,'showById'])->name('student_course_detail'); 
 
 
 
@@ -137,7 +136,7 @@ Route::get('edit_new_course/{id}',[CourController::class,'edit'])->name('edit_ne
 Route::put('update_new_course',[CourController::class,'update'])->name('update_new_course'); 
 
 Route::post('store_new_chapter',[ChapitreController::class,'store'])->name('store_new_chapter');
-Route::get('create_new_chapter',[CourController::class,'create'])->name('create_new_chapter'); 
+/*Route::get('create_chapter',[CourController::class,'create'])->name('create_chapter'); */
 Route::get('delete_new_chapter/{id}',[ChapitreController::class,'destroy'])->name('delete_new_chapter'); 
 
 Route::get('explore', function () {

@@ -48,15 +48,18 @@
                                 <li>
                                     <div class="explore_search blg152">
                                         <div class="ui search focus">
-                                            <div class="ui left icon input swdh11 swdh15">
-                                                <input class="prompt srch_explore" type="text" placeholder="Search">
-                                                <i class="uil uil-search-alt icon icon2"></i>
+                                            <span class="vdt14">Nous joindre sur FB</span>
+                                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0">
+                                            </script>
+                                            <div class="fb-page" data-href="https://www.facebook.com/nachd.it"
+                                                data-tabs="timeline" data-width="" data-height="400px" data-small-header="false"
+                                                data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#collapse1" class="category-topics cate-right collapsed"
+                                    <!--<a href="#collapse1" class="category-topics cate-right collapsed"
                                         data-toggle="collapse" role="button" aria-expanded="true"
                                         aria-controls="collapse1">Labels</a>
                                     <div class="collapse" id="collapse1" >
@@ -83,7 +86,7 @@
                                                 <a href="#" class="category-item1">April 2020</a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div>-->
                                 </li>
                                 <li>
                             </ul>
@@ -110,6 +113,9 @@
                         </div>
                         @endforeach
                         @endif
+                        <div class='mt-10 mb-50' style="float: right;">
+                            {{ $allEvenements->links() }}
+                        </div>
 
                     </div>
                 </div>

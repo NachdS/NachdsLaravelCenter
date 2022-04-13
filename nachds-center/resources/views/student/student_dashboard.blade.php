@@ -78,7 +78,7 @@
                               @foreach (@$formation as $form )
                                 <div class="col-lg-3 col-md-4">
                                     <div class="fcrse_1 mt-30">
-                                        <a href="{{route('student_course_detail' , ['id' => @$form->id])}}"  class="fcrse_img">
+                                        <a class="fcrse_img">
                                             <img src="{{ asset(@$form->image) }}"  alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Les plus abonnés</div>

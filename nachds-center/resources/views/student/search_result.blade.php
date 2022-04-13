@@ -457,7 +457,7 @@
                                     @foreach (@$allformations as $formation )
 
                                     <div class="fcrse_1 mb-20">
-                                        <a class="hf_img">
+                                        <a href="{{route('student_course_detail' , ['id' => @$formation->id])}}" class="hf_img">
                                             <img  src="{{ asset($formation->image) }}"  alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">{{@$formation -> matiere}}</div>
@@ -473,7 +473,7 @@
                                         <div class="hs_content">
                                             <div class="vdtodt">
                                                 <!--<span class="vdt14">109k élèves</span>-->
-                                                <span class="vdt14">{{@$formation -> created_at->format('j F, Y')}}</span>
+                                                <span class="vdt14">{{\Carbon\Carbon::parse(@$formation->created_at)->format('j F')}}</span>
                                             </div>
                                             <a class="crse14s title900">{{@$formation -> designation}}</a>
                                             <!--<a href="#" class="crse-cate"></a>-->
@@ -486,21 +486,16 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class='mt-10 mb-10' style="float: right;">
+                                        {{ $allformations->links() }} 
+                                    </div> 
 
                                     @endforeach
                                     @endif
-
-                                    <div class="main-loader mt-50">
-                                        <div class="spinner">
-                                            <div class="bounce1"></div>
-                                            <div class="bounce2"></div>
-                                            <div class="bounce3"></div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>>
+                    </div>
                 </div>
             </div>
         </div>

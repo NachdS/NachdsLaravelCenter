@@ -64,22 +64,28 @@ class ChapitreController extends Controller
             'description' => 'required',
             'type' => 'required',
             'files' => 'required',
-            'files.*' => 'mimes:csv,txt,xlx,xls,pdf'
+            'files.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf',
+            'cour_id' => 'required',
         ]);
             $new_chapitre = New Chapitre();
             $new_chapitre->designation = @$request->input('designation');
             $new_chapitre->description = @$request->input('description');
             $new_chapitre->type = @$request->input('type');
+            $new_chapitre->cour_id = @$request->input('cour_id');
+            //$new_chapitre->cour_id = $request->cour_id;
 
             if(@$request->file('files'))
-            //foreach(@$request->files as $file) {
+
+            foreach(@$request->file('files') as $file) {
             {
-                $path_files= @$request->file('file')->store('chapitres');
-                $new_chapitre->files = @$path_files;
-             }
-            //} 
+                $path_files = $file->store('chapitres');
+                $fileData[] = $path_files; 
+            }
+                $new_chapitre->files = json_encode($fileData);
+            } 
             $new_chapitre->save();
-            return redirect()->route('store_new_chapter')->with('success','Cour created successfully.'); 
+
+            return redirect()->route('create_new_chapter',$request->input('cour_id'))->with('success','Cour created successfully.'); 
     }
      
 

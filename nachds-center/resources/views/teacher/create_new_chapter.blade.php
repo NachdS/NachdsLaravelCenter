@@ -24,7 +24,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form action="{{ route('store_new_chapter') }}" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+				<form action="{{ url('store_new_chapter')}}" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
 					@csrf
 				<div class="modal-body">
 					<div class="new-section-block">
@@ -49,6 +49,7 @@
 													<input name="designation" class="form_input_1" type="text" placeholder="Titre ici">
 												</div>
 											</div>
+											<input type="hidden" name="cour_id" value="{{$cour->id}}">
 										    </div>
 											<div class="form-group">
 											<div class="new-section mt-30">
@@ -78,8 +79,8 @@
 												 <div class="col-lg-12">
 													<div class="upload-file-dt mt-30">
 														<div class="upload-btn">
-															<input type="file" name="files[]" placeholder="Choose files" class="uploadBtn-main-input" id="SourceFile__input--source" >
-															<label for="SourceFile__input--source" title="Zip" multiple ><i
+															<input multiple  type="file" name="files[]" placeholder="Choose files" class="uploadBtn-main-input" id="SourceFile__input--source" >
+															<label for="SourceFile__input--source" title="Zip" ><i
 																	class="far fa-plus-square mr-2"></i>Attachment</label>
 														</div>
 														<span class="uploadBtn-main-file">Supports: jpg, jpeg, png, pdf
@@ -178,12 +179,12 @@
 																</div>
 																@endforeach
 																@endif
-												
+
+																<div class='mt-10' style="float: right;">
+																	{{ $detailchapitre->links() }} 
+															   </div> 
 															</div>
-															<!-- <div class='mt-10 mb-10' style="float: right;">
-																{{-- {{ $detailchapitre->links() }}  --}}
-															</div> -->
-															<div class="section-add-item-wrap p-3">
+															<div class="section-add-item-wrap p-3 mt-35">
 																<button class="add_lecture" data-toggle="modal"
 																	data-target="#add_lecture_model"><i
 																	class="far fa-plus-square mr-2"></i>créer un chapitre</button>
@@ -195,8 +196,8 @@
 										</div>
 									</div>
 								<div class="step-footer step-tab-pager">
-									<button data-direction="prev" class="btn btn-default steps_btn">PREVIOUS</button>
-									<button data-direction="next" class="btn btn-default steps_btn">Next</button>
+									<button data-direction="prev"  class="btn btn-default steps_btn"
+                                    onclick="window.location.href = '{{url('/instructor_courses')}}';">précédente</button>
 								</div>
 							</div>
 						</div>

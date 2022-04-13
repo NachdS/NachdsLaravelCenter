@@ -51,19 +51,8 @@
              <a href="{{url('/event')}}">Événements</a>
            </li>
            <li>
-               <a href="#!">Nos formations</a>
-               <ul class="nav-dropdown">
-                 <li>
-                   <a href="{{url('/search_result_formation')}}">formation 1</a>
-                 </li>
-                 <li>
-                   <a href="{{url('/search_result_formation')}}">formation 2</a>
-                 </li>
-                 <li>
-                   <a href="{{url('/search_result_formation')}}">formation 3</a>
-                 </li>
-               </ul>
-           </li>
+            <a href="{{url('/search_result_formation')}}">Formations</a>
+          </li>
            <li>
              <a href="{{url('/news')}}">Actualités</a>
            </li>

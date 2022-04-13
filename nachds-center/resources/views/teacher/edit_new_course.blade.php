@@ -54,7 +54,7 @@
 										<label>Image*</label>
 									</div>
 									<input value="{{ $cour->photo }}" style="height: calc(2em + 0.75rem + 2px);border: 1px solid #e5e5e5;" type="file" name="photo" class="form-control" placeholder="image">
-									<img src="/storage/app/public/{{ $cour->photo }}" width="300px">
+									<img class="mt-10"src="{{env('APP_STORAGE')}}{{ $cour->photo }}" width="100px">
 								</div>
 							</div>
 
@@ -63,11 +63,12 @@
 									<div class="mt-30 lbel25">
 										<label>Groupe*</label>
 									</div>
+								
 									<select name="groupe_id" id="groupe_id"  class="form-control" required>
 										<option> choisir ...</option>
 										@foreach($groupes as $grp)
-										<option value="{{ $grp->groupe_id}}"
-											{{ old('groupe_id',$grp->groupe_id)? 'selected':'' }}  >
+										<option value="{{ $grp->groupe_id}}" @if($grp->id == $cour->groupe_id) selected @endif
+										  >
 											{{$grp->designation}}
 										</option>
 										@endforeach

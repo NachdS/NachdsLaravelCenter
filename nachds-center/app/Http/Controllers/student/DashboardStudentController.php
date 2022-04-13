@@ -42,9 +42,9 @@ class DashboardStudentController extends Controller {
     return view('student.student_dashboard', compact('user','groupe','session','totalCours','formation'));
   }
 
-  public function showById($id) 
+  /*public function showById($id) 
   {
              $detailFormation = Formation::where('id', $id)->first();
              return view('student.student_course_detail', compact('detailFormation'));
-  }
+  }*/
 }

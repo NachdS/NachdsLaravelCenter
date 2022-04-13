@@ -14,25 +14,25 @@
                     <div class="col-md-3">
                         <div class="earning_steps">
                             <p>Gains/Années</p>
-                            <h2>$1146.78</h2>
+                            <h2>{{$last_year}}dt</h2>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="earning_steps">
                             <p>Gains/Sessions</p>
-                            <h2>$1146.78</h2>
+                            <h2>{{$last_session}}dt</h2>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="earning_steps">
                             <p>Gains/Mois</p>
-                            <h2>$1146.78</h2>
+                            <h2>{{$last_month}}dt</h2>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="earning_steps">
-                            <p>Gains/Heures</p>
-                            <h2>$1146.78</h2>
+                            <p>Gains/Jours</p>
+                            <h2>{{$last_7_days}}dt</h2>
                         </div>
                     </div>
 

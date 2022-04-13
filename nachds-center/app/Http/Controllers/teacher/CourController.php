@@ -42,7 +42,7 @@ class CourController extends Controller
 
     public function showChapitresById($id) 
     {
-        $detailchapitre = Chapitre::where('cour_id', $id)->get();
+        $detailchapitre = Chapitre::where('cour_id', $id)->paginate(7);
         $cour = Cour::find($id);
         return view('teacher.create_new_chapter', compact('detailchapitre' , 'cour'));
     }
@@ -121,26 +121,6 @@ class CourController extends Controller
     public function update(Request $request, $id)
     {
         $cour= Cour::find($id)->first();
-        /*$grps = Groupe::where('enseignant_id', Auth::user()->id)->where('id' ,$request->input('groupe_id'))->first();
-        $request->validate([
-            'designation' => 'required',
-            'groupe_id' => 'required',
-        ]);
-        
-        $input = $request->all();
-  
-        if (@$request->file('photo')) {
-            $path_photo = @$request->file('photo')->store('cours');
-            $input['photo'] = "$path_photo";
-        }else{
-            unset($input['photo']);
-        }
-          
-        $cour->update($input);
-    
-        return redirect()->route('instructor_courses')
-                        ->with('success','Cour updated successfully');*/
-        
         $request->validate([
             'designation' => 'required',
             'groupe_id' => 'required',

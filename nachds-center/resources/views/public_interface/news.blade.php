@@ -73,7 +73,9 @@
                             @endforeach
                             @endif
 
-                            <a href="#" class="allnews_btn">Voir plus d'actualités</a>
+                        </div>
+                        <div class='mt-10 mb-50' style="float: right;">
+                            {{ $allactualites->links() }}
                         </div>
                         <br> <br>
                     </div> 
