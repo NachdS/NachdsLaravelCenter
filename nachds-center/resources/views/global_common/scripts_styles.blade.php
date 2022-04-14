@@ -160,6 +160,36 @@
     });
     </script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="{{ asset('assets/js/ddtf.js') }}"></script>
+    <script> $('table#myTable').ddTableFilter();</script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      function addRemoveClass(theRows) {
+          theRows.removeClass("odd even");
+          theRows.filter(":odd").addClass("odd");
+          theRows.filter(":even").addClass("even");
+      }
+      var rows = $("table#myTable tbody > tr");
+      addRemoveClass(rows);
+      $("#dropdownField").on("change", function() {
+          var selected = this.value;
+          if (selected != "All") {
+              rows.filter("[year=" + selected + "]").show();
+              rows.not("[year=" + selected + "]").hide();
+              var visibleRows = rows.filter("[year=" + selected + "]");
+              addRemoveClass(visibleRows);
+          } else {
+              rows.show();
+             addRemoveClass(rows);
+          }
+      });
+  });
+  
+  </script>
+
+
+
 </body>
 
 <!-- Copyright  contact_us.html Nachd IT 13:31:52 GMT -->

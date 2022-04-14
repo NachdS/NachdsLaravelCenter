@@ -12,6 +12,7 @@ use App\Models\Groupe;
 use App\Models\Niv;
 use App\Models\Chapitre;
 use App\Models\Cour;
+use App\Models\Inscription;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class FormationController extends Controller
@@ -28,30 +29,40 @@ class FormationController extends Controller
             ->join('users','users.id',"=","enseignants.id")
             ->get();  */
 
-            $allformations = Formation::join('inscriptions', 'inscriptions.formation_id', '=', 'formations.id')
+
+            $allformations = Formation::
+            join('groupes', 'formations.id', 'groupes.formation_id')
+            ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
+            ->join('matieres', 'formations.matiere_id', 'matieres.id')
             ->where('inscriptions.candidat_id',@Auth::user()->id)
             ->orderBy('formations.id', 'DESC')
+            ->select(
+              'formations.*',
+              'groupes.designation as groupe',
+              'groupes.id as groupe_id',
+              'matieres.designation as matiere',
+              'inscriptions.prix_total',
+              'inscriptions.prix_acompte',
+              )
             ->paginate(7);
-
-            //dd($allformations);
-
-            
+              /*$allformations = Inscription::
+                join('groupes', 'inscriptions.groupe_id', 'groupes.id')
+                ->join('formations', 'groupes.formation_id', 'formations.id')
+                ->where('inscriptions.candidat_id',@Auth::user()->id)
+                ->orderBy('formations.id', 'DESC')
+                ->select('formations.*')
+                ->paginate(7);*/
             return view('student.search_result', compact('allformations'));
         }
 
-        public function showById($id) 
+        public function showById($groupe_id) 
         {
-                   $detailFormation = Formation::where('id', $id)->first();
-
+                  $groupe_info = Groupe::find($groupe_id);
                    $cours = Cour::join('groupes', 'cours.groupe_id', '=', 'groupes.id')
                    ->join('inscriptions', 'groupes.id', '=', 'inscriptions.groupe_id')
-                   ->join('formations', 'formations.id', '=', 'groupes.formation_id')
                    ->where('inscriptions.candidat_id' ,@Auth::user()->id )
-                   ->where('formations.id',$id)
+                   ->where('cours.groupe_id', $groupe_id)
                    ->get();
-
-                   dd($cours);
-
-                   return view('student.student_course_detail', compact('detailFormation','cours'));
+                   return view('student.student_course_detail', compact('groupe_info','cours'));
         }
 }

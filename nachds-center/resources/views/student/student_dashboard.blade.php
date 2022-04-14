@@ -97,7 +97,7 @@
                                                 <span class="vdt14">{{@$form -> created_at}}</span>
                                             </div>
                                             <a href="{{url('/student_course_detail')}}" class="crse14s">{{@$form -> designation}}</a>
-                                            <a href="#" class="crse-cate">{{@$form -> matiere}}</a>
+                                            <!-- <a href="#" class="crse-cate">{{@$form -> matiere}}</a> -->
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By <a href="#">John Doe</a></p>
                                                 <div class="prce142">{{@$form -> prix1}}dt</div>

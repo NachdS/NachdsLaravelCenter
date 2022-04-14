@@ -21,11 +21,12 @@ class TeacherEarningController extends Controller
       $allpayementens = Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id')
                  ->join('users' ,'users.id','=','enseignants.id')
                  ->where ('enseignants.id',@Auth::user()->id)
+                 ->select('payementens.id','payementens.montant','payementens.created_at')
                  ->paginate(5);
 
        $last_7_days = Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id')
        ->join('users' ,'users.id','=','enseignants.id')
-       ->where('payementens.created_at','>=',Carbon::now()->subdays(7))
+       ->whereBetween('payementens.created_at',[Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()])
        ->where('enseignants.id', @Auth::user()->id)
        ->sum('payementens.montant');
 

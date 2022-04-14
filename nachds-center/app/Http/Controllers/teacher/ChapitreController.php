@@ -97,12 +97,43 @@ class ChapitreController extends Controller
      */
     public function edit($id)
     {
-        $cour= Chapitre::find($id)->first();
-        return view('teacher.create_new_chapter',compact('cour'));
+        $chapitre= Chapitre::find($id)->first();
+        return view('teacher.create_new_chapter',compact('chapitre'));
     }
     
+    /* Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  \App\Cour  $cour
+    * @return \Illuminate\Http\Response
+    */
+   public function update(Request $request, $id)
+   {
+       $chapitre= Chapitre::find($id)->first();
+       $request->validate([
+        'designation' => 'required',
+        'description' => 'required',
+        'type' => 'required',
+        'files.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf',
+        'cour_id' => 'required',
+           ]);
+       $input = $request->all();
+       if(@$request->file('files'))
+       {
+            foreach(@$request->file('files') as $file)
+            {
+                $path_files = $file->store('chapitres');
+                $input[] = $path_files; 
+            }
+                $chapitre->files = json_encode($input);
+                
+        }
+        $chapitre->update($input);
 
-  
+           return redirect()->route('create_new_chapter',$request->input('cour_id'))
+           ->with('success','Chapitre updated successfully');            
+   }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -112,6 +143,7 @@ class ChapitreController extends Controller
     public function destroy($id)
     {
         Chapitre::find($id)->delete();
+        
         return redirect()->route('create_new_chapter')
                         ->with('success','Chapitre deleted successfully');
     }

@@ -111,7 +111,7 @@ Route::get('student_search_result',[FormationController::class,'show'])->name('s
     return view('student/student_course_detail');
 }); */
 
-Route::get('student_course_detail/{id}',[FormationController::class,'showById'])->name('student_course_detail'); 
+Route::get('student_course_detail/{groupe_id}',[FormationController::class,'showById'])->name('student_course_detail'); 
 
 
 
@@ -138,6 +138,8 @@ Route::put('update_new_course',[CourController::class,'update'])->name('update_n
 Route::post('store_new_chapter',[ChapitreController::class,'store'])->name('store_new_chapter');
 /*Route::get('create_chapter',[CourController::class,'create'])->name('create_chapter'); */
 Route::get('delete_new_chapter/{id}',[ChapitreController::class,'destroy'])->name('delete_new_chapter'); 
+Route::get('edit_new_chapter/{id}',[ChapitreController::class,'edit'])->name('edit_new_chapter'); 
+Route::put('update_new_chapter/{id}',[ChapitreController::class,'update'])->name('update_new_chapter'); 
 
 Route::get('explore', function () {
     return view('teacher/explore');

@@ -457,32 +457,32 @@
                                     @foreach (@$allformations as $formation )
 
                                     <div class="fcrse_1 mb-20">
-                                        <a href="{{route('student_course_detail' , ['id' => @$formation->id])}}" class="hf_img">
+                                        <a href="{{route('student_course_detail' , ['id' => @$formation->groupe_id])}}" class="hf_img">
                                             <img  src="{{ asset($formation->image) }}"  alt="">
                                             <div class="course-overlay">
-                                                <div class="badge_seller">{{@$formation -> matiere}}</div>
+                                                <div class="badge_seller">{{@$formation->matiere}}</div>
                                                 <!--<div class="crse_revues">
                                                     <i class="uil uil-star"></i>4.5
                                                 </div>-->
                                                 <span class="play_btn1"><i class="uil uil-play"></i></span>
                                                 <div class="crse_timer">
-                                                    {{@$formation -> duree}} période
+                                                    {{@$formation->duree}} jours
                                                 </div>
                                             </div>
                                         </a>
                                         <div class="hs_content">
-                                            <div class="vdtodt">
-                                                <!--<span class="vdt14">109k élèves</span>-->
+                                            <!--<div class="vdtodt">
                                                 <span class="vdt14">{{\Carbon\Carbon::parse(@$formation->created_at)->format('j F')}}</span>
-                                            </div>
-                                            <a class="crse14s title900">{{@$formation -> designation}}</a>
+                                            </div>-->
+                                            <a class="crse14s title900">{{@$formation->designation}}-{{$formation->groupe}}</a>
                                             <!--<a href="#" class="crse-cate"></a>-->
-                                            <p class="cr1fot">{{@$formation -> type}}</p>
+                                            <p class="cr1fot">{{@$formation->type}}</p>
                                             <div class="auth1lnkprce">
                                                 <!--<p class="cr1fot">Par M.<a href="#">John Doe</a></p>-->
-                                                <div class="prce142">{{@$formation -> prix1}}DT</div>
+                                                <div class="prce142">{{@$formation->prix_acompte}} / {{@$formation->prix_total}}DT</div>
                                                 <!--<button class="shrt-cart-btn" title="cart"><i
                                                         class="uil uil-shopping-cart-alt"></i></button>-->
+                                                        
                                             </div>
                                         </div>
                                     </div>
