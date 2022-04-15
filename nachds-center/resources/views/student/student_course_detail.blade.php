@@ -6,16 +6,15 @@
         <div class="sa4d25">
             <div class="container-fluid">
                 <div class="row">
+                    {{-- @foreach ($cours as $cour)  --}}
                     <div class="col-xl-8 col-lg-8">
                         <div class="section3125">
                             <div class="user_dt5">
                                 <div class="user_dt_left">
                                     <div class="live_user_dt">
-                                        @foreach ($cours as $cour) 
                                         <div class="user_cntnt">
-                                            <h4>{{$cour->designation}}</h4>
+                                            <h4 id="designation" >{{-- {{$cour->designation}} --}}</h4>
                                         </div>
-                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +32,7 @@
                                             
                                             <div class="_htg452 mt-35">
                                                 <h3>Description</h3>
-                                                <span class="_abc123">{{-- {{$cour->description}} --}}
+                                                <span id="description" class="_abc123">{{-- {{$cour->description}} --}}
                                                 </p>
                                             </div>
                                         </div>
@@ -41,6 +40,7 @@
                                 </div>
                             </div>
                         </div>
+                       {{--  @endforeach --}}
                     </div>
 
                     <div class="col-lg-4" style="background-color: #fff ;">
@@ -77,7 +77,7 @@
                                                     <div class="left-content">
                                                         <i class='uil uil-file icon_142'></i>
                                                         <div class="top">
-                                                            <div class="title"> <a href="#"  id="playvideo" onclick="playme('<?php echo($chap->files) ; ?>')">{{ @$chap->designation}} </a></div>
+                                                            <div class="title"> <a href="#"  id="playvideo" onclick="playme('<?php echo($chap->files) ; ?>')">{{ @$chap->designation}}  </a></div>
                                                         </div>
                                                     </div>
                                                     <div class="details">

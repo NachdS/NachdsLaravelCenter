@@ -38,6 +38,11 @@
            /></a>
          </div>
        </div>
+      {{--  @php
+       $allMenus = App\Models\Menu::get();
+       dd($allMenus);
+       @endphp --}}
+      {{--  @foreach (@$cour->chapitres as $chap)  --}}
 
        <nav>
          <div class="nav-mobile">
