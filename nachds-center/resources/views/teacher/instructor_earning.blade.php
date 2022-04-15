@@ -43,9 +43,9 @@
                                 Filter By Year
                                 <select id="dropdownField" style="width: 100px; height: 30px;">
                                     <option value="All" selected>All</option>
-                                    @if (@$allpayementens)
-                                    @foreach ($allpayementens as $pay )
-                                    <option value="{{\Carbon\Carbon::parse(@$pay->created_at)->format('Y')}}">{{\Carbon\Carbon::parse(@$pay->created_at)->format('Y')}}</option>
+                                    @if (@$year)
+                                    @foreach ($year as $y )
+                                    <option value="{{\Carbon\Carbon::parse(@$y->created_at)->format('Y')}}">{{\Carbon\Carbon::parse(@$y->created_at)->format('Y')}}</option>
                                     @endforeach
                                     @endif
                                 </select>

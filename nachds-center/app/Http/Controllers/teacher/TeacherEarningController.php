@@ -23,6 +23,12 @@ class TeacherEarningController extends Controller
                  ->where ('enseignants.id',@Auth::user()->id)
                  ->select('payementens.id','payementens.montant','payementens.created_at')
                  ->paginate(5);
+      $year = Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id')
+                 ->distinct()
+                 ->get([Payementens::raw('YEAR(payementens.created_at) as year')]);
+      /* $yearOption= Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id') 
+                 ->whereDate ('payementens.created_at',$year) 
+                 ->get();    */   
 
        $last_7_days = Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id')
        ->join('users' ,'users.id','=','enseignants.id')

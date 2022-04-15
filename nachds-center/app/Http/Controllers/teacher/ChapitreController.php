@@ -64,7 +64,7 @@ class ChapitreController extends Controller
             'description' => 'required',
             'type' => 'required',
             'files' => 'required',
-            'files.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf',
+            'files.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf,mp4',
             'cour_id' => 'required',
         ]);
             $new_chapitre = New Chapitre();

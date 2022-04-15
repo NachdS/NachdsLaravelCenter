@@ -457,8 +457,8 @@
                                     @foreach (@$allformations as $formation )
 
                                     <div class="fcrse_1 mb-20">
-                                        <a href="{{route('student_course_detail' , ['id' => @$formation->groupe_id])}}" class="hf_img">
-                                            <img  src="{{ asset($formation->image) }}"  alt="">
+                                        <a href="{{route('student_course_detail' , ['groupe_id' => @$formation->groupe_id])}}" class="hf_img">
+                                            <img  src="{{ asset(@$formation->image) }}"  alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">{{@$formation->matiere}}</div>
                                                 <!--<div class="crse_revues">

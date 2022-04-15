@@ -187,6 +187,12 @@
   });
   
   </script>
+  <script>
+    function playme(vid) {
+      console.log('r',vid)
+    document.getElementById("video1").src = 'http://127.0.0.1/nachds-center/storage/app/public/'+vid;
+    }
+  </script>
 
 
 

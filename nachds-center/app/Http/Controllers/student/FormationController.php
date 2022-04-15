@@ -62,7 +62,7 @@ class FormationController extends Controller
                    ->join('inscriptions', 'groupes.id', '=', 'inscriptions.groupe_id')
                    ->where('inscriptions.candidat_id' ,@Auth::user()->id )
                    ->where('cours.groupe_id', $groupe_id)
-                   ->get();
+                   ->get('cours.*');
                    return view('student.student_course_detail', compact('groupe_info','cours'));
         }
 }
