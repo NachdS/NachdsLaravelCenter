@@ -65,4 +65,92 @@ class FormationController extends Controller
                    ->get('cours.*');
                    return view('student.student_course_detail', compact('groupe_info','cours'));
         }
+
+        public function formationGrp(Request $request){
+          $mat_id = $request->matiere_id;
+          $grp_id= $request->groupe_id;
+          dd( $mat_id);
+  
+          if($grp_id!="" && $mat_id!=""){
+            
+             //echo "both are selected";
+             $allformations = Formation::
+              join('groupes', 'formations.id', 'groupes.formation_id')
+              ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
+              ->join('matieres', 'formations.matiere_id', 'matieres.id')
+              ->where('inscriptions.candidat_id',@Auth::user()->id)
+              ->where('groupes.id',$grp_id)
+              ->where('matieres.id',$mat_id)
+              ->orderBy('formations.id', 'DESC')
+              ->select(
+                'formations.*',
+                'groupes.designation as groupe',
+                'groupes.id as groupe_id',
+                'matieres.designation as matiere',
+                'inscriptions.prix_total',
+                'inscriptions.prix_acompte',
+                'matieres.id as matiere_id',
+                )
+              ->paginate(7);
+              dd($allformations);
+   
+          }
+          else if($mat_id!=""){
+            //echo "mat is selected";
+            $allformations = Formation::
+              join('groupes', 'formations.id', 'groupes.formation_id')
+              ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
+              ->join('matieres', 'formations.matiere_id', 'matieres.id')
+              ->where('inscriptions.candidat_id',@Auth::user()->id)
+              ->where('matieres.id',$mat_id)
+              ->orderBy('formations.id', 'DESC')
+              ->select(
+                'formations.*',
+                'groupes.designation as groupe',
+                'groupes.id as groupe_id',
+                'matieres.designation as matiere',
+                'inscriptions.prix_total',
+                'inscriptions.prix_acompte',
+                'matieres.id as matiere_id',
+                )
+              ->paginate(7);
+   
+          }
+          else if($grp_id!=""){
+            //echo "grp is selected";
+            $allformations = Formation::
+              join('groupes', 'formations.id', 'groupes.formation_id')
+              ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
+              ->join('matieres', 'formations.matiere_id', 'matieres.id')
+              ->where('inscriptions.candidat_id',@Auth::user()->id)
+              ->where('matieres.id',$grp_id)
+              ->orderBy('formations.id', 'DESC')
+              ->select(
+                'formations.*',
+                'groupes.designation as groupe',
+                'groupes.id as groupe_id',
+                'matieres.designation as matiere',
+                'inscriptions.prix_total',
+                'inscriptions.prix_acompte',
+                'matieres.id as matiere_id',
+                )
+              ->paginate(7);
+          }
+          else{
+            //echo "nothing is slected";
+            return "<h1 align='center'>Please select atleast one filter from dropdown</h1>";
+   
+          }
+   
+          if(count($allformations)=="0"){
+            echo "<h1 align='center'>no products found under this Category</h1>";
+          }else{
+          return view('student.search_result',[
+            'data' => $allformations,
+          ]);
+        }
+   
+       }
+
+
 }

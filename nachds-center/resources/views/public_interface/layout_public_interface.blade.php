@@ -4,22 +4,36 @@
   <section>
     <div class="col-lg-12" style="background-color: #262626">
       <div class="row">
-        <div class="col-md-6">
+       @php
+       $header = App\Models\Coordonnee::first();
+       @endphp
+        <div class="col-md-4" style="text-align: center;">
           <ul class="fotb_left">
             <li>
-              <p><strong>phone Number</strong></p>
+              @if (@$header)
+              <p style="margin-top: 4px;">Phone Number: {{@$header->telephone1}}</p>
+              @endif
             </li>
           </ul>
         </div>
-        <div class="col-md-6">
-          <div class="edu_social_links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="col-md-4" style="text-align: center;">
+          <ul class="fotb_left">
+            <li>
+              @if (@$header)
+              <p style="margin-top: 4px;">Email: {{@$header->email}}</p>
+              @endif
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <div class="edu_social_links" style="text-align: center !important;">
+            <a href="{{@$header->facebook}}" ><i class="fab fa-facebook-f"></i></a>
+            <!-- <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-google-plus-g"></i></a> -->
+            <a href="{{@$header->linkedin}}"><i class="fab fa-linkedin-in"></i></a>
+            <!-- <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a> -->
           </div>
         </div>
       </div>
@@ -38,51 +52,20 @@
            /></a>
          </div>
        </div>
-      {{--  @php
-       $allMenus = App\Models\Menu::get();
-       dd($allMenus);
-       @endphp --}}
-      {{--  @foreach (@$cour->chapitres as $chap)  --}}
-
+       @php
+       $allMenus = App\Models\Menu::join('menu_items','menus.id','menu_items.menu_id')->where('name', '=', 'menuPublique')->get();
+       @endphp 
+    
        <nav>
          <div class="nav-mobile">
            <a id="nav-toggle" href="#!"><span></span></a>
          </div>
          <ul class="nav-list">
+          @foreach (@$allMenus as $menu)  
            <li>
-             <a href="{{url('/index')}}">Accueil</a>
+             <a href="{{url(@$menu->url)}}">{{@$menu->title}}</a>
            </li>
-           <li>
-             <a href="{{url('/event')}}">Événements</a>
-           </li>
-           <li>
-            <a href="{{url('/search_result_formation')}}">Formations</a>
-          </li>
-           <li>
-             <a href="{{url('/news')}}">Actualités</a>
-           </li>
-
-           <li>
-             <a href="{{url('/gallery')}}">Galerie</a>
-           </li>
-           <li>
-             <a href="{{url('/faqs')}}">FAQs</a>
-           </li>
-           <li>
-            <a href="{{url('/about_us')}}">A propos de nous</a>
-          </li>
-          <li>
-              <a href="{{url('/contact_us')}}">Contact</a>
-         </li>
-         <li>
-             
-              @auth
-                <a href="{{ route('logout') }}">se déconnecter</a>
-              @else
-                <a href="{{ route('login') }}">Connecter</a>
-              @endauth
-             
-          </li>
+           @endforeach
          </ul>
        </nav>
      </div>

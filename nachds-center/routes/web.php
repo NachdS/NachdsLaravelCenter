@@ -95,28 +95,14 @@ Route::get('forgot_password', function () {
     return view('student/forgot_password');
 });
 
-/* Route::get('student_list_eleve', function () {
-    return view('student/list_eleve');
-}); */
-
 Route::get('student_list_eleve',[FriendInGroupController::class,'show'])->name('student_list_eleve'); 
 
-/* Route::get('student_search_result', function () {
-    return view('student/search_result');
-});
- */
 Route::get('student_search_result',[FormationController::class,'show'])->name('student_search_result'); 
-
-/* Route::get('student_course_detail', function () {
-    return view('student/student_course_detail');
-}); */
 
 Route::get('student_course_detail/{groupe_id}',[FormationController::class,'showById'])->name('student_course_detail'); 
 
-
-
 Route::get('student_payout', function () {
-    return view('student/student_payout');
+    return view('student/student_payout')->name('student_payout');
 });
 
 Route::get('student_profile_view',[ProfileStudenteController::class,'show'])->name('student_profile_view'); 
@@ -125,6 +111,7 @@ Route::get('student_schedule', function () {
     return view('student/student_schedule');
 });
 
+Route::get('formationGrp',[FormationController::class,'formationGrp'])->name('formationGrp');
 /* teacher */
 
 
@@ -136,7 +123,6 @@ Route::get('edit_new_course/{id}',[CourController::class,'edit'])->name('edit_ne
 Route::put('update_new_course',[CourController::class,'update'])->name('update_new_course'); 
 
 Route::post('store_new_chapter',[ChapitreController::class,'store'])->name('store_new_chapter');
-/*Route::get('create_chapter',[CourController::class,'create'])->name('create_chapter'); */
 Route::get('delete_new_chapter/{id}',[ChapitreController::class,'destroy'])->name('delete_new_chapter'); 
 Route::get('edit_new_chapter/{id}',[ChapitreController::class,'edit'])->name('edit_new_chapter'); 
 Route::put('update_new_chapter/{id}',[ChapitreController::class,'update'])->name('update_new_chapter'); 
@@ -149,16 +135,9 @@ Route::get('forgot_password', function () {
     return view('teacher/forgot_password');
 });
 
-/* Route::get('group', function () {
-    return view('teacher/group');
-}); */
-
 Route::get('group',[TeacherGroupeController::class,'show'])->name('group'); 
 
 Route::get('instructor_courses',[CourController::class,'index'])->name('instructor_courses'); 
-/* Route::get('instructor_courses',[CourController::class,'destroy']);  */
-
-/* Route::resource('cour', CourController::class); */
 
 Route::get('instructor_earning',[TeacherEarningController::class,'show'])->name('instructor_earning'); 
 
@@ -171,8 +150,6 @@ Route::get('my_instructor_profile_view',[ProfileTeacherController::class,'show']
 Route::get('saved_courses', function () {
     return view('teacher/saved_courses');
 });
-
-
 
 Route::get('teacher_schedule', function () {
     return view('teacher/teacher_schedule');

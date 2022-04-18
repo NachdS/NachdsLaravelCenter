@@ -208,43 +208,24 @@
             </ul>
         </div>
         <div class="left_section">
+            @php
+                $allMenus = App\Models\Menu::join('menu_items','menus.id','menu_items.menu_id')->where('name', '=', 'menuCondidat')->get();
+            @endphp 
             <ul>
-                <li class="menu--item">
-                    <a href="{{url('/student_dashboard')}}" class="menu--link active" title="Dashboard">
+                <!-- <li class="menu--item">
+                    <a href="" class="menu--link active" title="Dashboard">
                         <i class="uil uil-apps menu--icon"></i>
                         <span class="menu--label">Acceuil</span>
                     </a>
-                </li>
-
+                </li> -->
+                @foreach (@$allMenus as $menu)  
                 <li class="menu--item">
-                    <a href="{{url('/student_list_eleve')}}" class="menu--link " title="Groupe">
-                        <i class='uil uil-layers menu--icon'></i>
-                        <span class="menu--label">Amis Dans Le Grp</span>
+                    <a href="{{url(@$menu->url)}}" class="menu--link " title="Groupe">
+                        <i class="{{@$menu->icon_class}}"></i>
+                        <span class="menu--label">{{@$menu->title}}</span>
                     </a>
                 </li>  
-                
-                <li class="menu--item">
-                    <a href="{{url('/student_search_result')}}" class="menu--link" title="Formations">
-                        <i class='uil uil-book-alt menu--icon'></i>
-                        <span class="menu--label">Formations</span>
-                    </a>
-                </li>  
-                
-                <li class="menu--item">
-                    <a href="{{url('/student_schedule')}}"  class="menu--link" title="Emplois">
-                        <i class='uil uil-star menu--icon'></i>
-                        <span class="menu--label">Emplois</span>
-                    </a>
-                </li>
-
-                
-
-                <li class="menu--item">
-                    <a href="{{url('/student_payout')}}"  class="menu--link" title="Earning">
-                        <i class='uil uil-dollar-sign menu--icon'></i>
-                        <span class="menu--label">Paiement</span>
-                    </a>
-                </li> 
+                @endforeach   
     </div>
     <div class="left_section pt-2">
         <ul>
@@ -257,16 +238,15 @@
         </ul>
     </div>
    
+    @php
+    $publicMenus = App\Models\Menu::join('menu_items','menus.id','menu_items.menu_id')->where('name', '=', 'menuPublique')->get();
+    @endphp 
+
     <div class="left_footer">
         <ul>
-            <li><a href="about_us.html">About</a></li>
-            <li><a href="press.html">Press</a></li>
-            <li><a href="contact_us.html">Contact Us</a></li>
-            <li><a href="coming_soon.html">Advertise</a></li>
-            <li><a href="coming_soon.html">Developers</a></li>
-            <li><a href="terms_of_use.html">Copyright</a></li>
-            <li><a href="terms_of_use.html">Privacy Policy</a></li>
-            <li><a href="terms_of_use.html">Terms</a></li>
+         @foreach (@$publicMenus as $pmenu)  
+         <li><a href="{{@$pmenu->url}}">{{@$pmenu->title}}</a></li>
+         @endforeach
         </ul>
         <div class="left_footer_content">
             <p>© 2020 <strong>Cursus</strong>. All Rights Reserved.</p>

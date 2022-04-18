@@ -11,32 +11,38 @@
 </body>
 
 <footer class="footer ">
-    <div class="container">
+    <div class="container mt-20">
         <div class="row">
+            @php
+            $publicMenuspart1 = App\Models\Menu::join('menu_items','menus.id','menu_items.menu_id')->orderBy('order','ASC')->where('name', '=', 'menuPublique')->limit(4)->get();
+            $publicMenuspart2 = App\Models\Menu::join('menu_items','menus.id','menu_items.menu_id')->orderBy('order','DESC')->where('name', '=', 'menuPublique')->limit(4)->get();
+            @endphp 
+
             <div class="col-lg-3 col-md-3 col-sm-6">
+                @foreach ($publicMenuspart1 as $menu1)
                 <div class="item_f1">
-                    <a href="about_us.html">About</a>
-                    <a href="our_blog.html">Blog</a>
-                    <a href="career.html">Careers</a>
-                    <a href="press.html">Press</a>
+                    <a href="{{@$menu2->url}}">{{@$menu1->title}}</a>
                 </div>
+                @endforeach
             </div>
+           
+            
             <div class="col-lg-3 col-md-3 col-sm-6">
+                @foreach ($publicMenuspart2 as $menu2)
                 <div class="item_f1">
-                    <a href="help.html">Help</a>
-                    <a href="coming_soon.html">Advertise</a>
-                    <a href="coming_soon.html">Developers</a>
-                    <a href="contact_us.html">Contact Us</a>
+                    <a href="{{@$menu2->url}}">{{@$menu2->title}}</a>
                 </div>
+                @endforeach
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
+            
+            <!-- <div class="col-lg-3 col-md-3 col-sm-6">
                 <div class="item_f1">
                     <a href="terms_of_use.html">Copyright Policy</a>
                     <a href="terms_of_use.html">Terms</a>
                     <a href="terms_of_use.html">Privacy Policy</a>
                     <a href="sitemap.html">Sitemap</a>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-3 col-md-3 col-sm-6">
                 <div class="item_f3">
                     <div class="lng_btn">

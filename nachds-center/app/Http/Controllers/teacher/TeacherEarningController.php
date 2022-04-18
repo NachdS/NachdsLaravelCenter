@@ -24,8 +24,15 @@ class TeacherEarningController extends Controller
                  ->select('payementens.id','payementens.montant','payementens.created_at')
                  ->paginate(5);
       $year = Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id')
-                 ->distinct()
-                 ->get([Payementens::raw('YEAR(payementens.created_at) as year')]);
+                  ->select(
+                   'payementens.created_at',
+                   Payementens::raw('YEAR(payementens.created_at) as year')
+                  )
+                  //->groupby([Payementens::raw('YEAR(payementens.created_at) as year')])
+                  //->get();
+                 ->distinct(Payementens::raw('YEAR(payementens.created_at)'))
+                 ->get([Payementens::raw('YEAR(payementens.created_at)')]);
+                 //dd($year);
       /* $yearOption= Payementens::join('enseignants', 'enseignants.id', '=', 'payementens.enseignant_id') 
                  ->whereDate ('payementens.created_at',$year) 
                  ->get();    */   
