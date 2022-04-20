@@ -194,27 +194,6 @@
     document.getElementById("designation").value(des); */
     }
   </script>
-  <script>
-    $(document).ready(function(){
-      $("#findBtn").click(function(){
-        var grp = $("#grpID").val();
-        var mat = $('#matID').val();
-        alert(grp);
-        alert(mat);
-        
-        $.ajax({
-          type: 'get',
-          dataType: 'html',
-          url: '{{url('/formationGrp')}}',
-          data: 'groupe_id=' + grp + '&matiere_id=' + mat,
-          success:function(response){
-            console.log(response);
-            $("#formationsData").html(response);
-          }
-        });
-      });
-    });
-    </script>
 
 
 

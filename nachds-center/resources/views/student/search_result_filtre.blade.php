@@ -43,48 +43,48 @@
                             <div class="result_stitles">
                                 <div class="rs6t_title">Filters</div>
                             </div>
-                            @if (count($allformations) != '0')
-                            <form action="{{ route('search_result_filtre') }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <div class="col-lg-12 col-md-4 mt-50">
-                                    <select class="form-control" id="grpID2" name="groupe_id">
-                                        <option value="">Choisir niveau ...</option>
-                                        @foreach (App\Models\Niv::all() as $niv)
-                                            <option value="{{ $niv->id }}">
-                                                {{ $niv->designation }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-12 col-md-4 mt-10">
-                                    <select class="form-control" class="form-controle" id="matID2" name="matiere_id">
-                                        <option value="">Choisir matière ...</option>
-                                        @foreach (App\Models\Matiere::all() as $mat)
-                                            <option value="{{ $mat->id }}">
-                                                {{ $mat->designation }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-12 col-md-4 mt-10">
-                                    <select class="form-control" class="form-controle" id="matID2" name="type">
-                                        <option value="">Choisir type ...</option>
-                                        @foreach (App\Models\Formation::all() as $form)
-                                            <option value="{{ $form->type }}">
-                                                {{ $form->type }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-12 col-md-4 mt-20">
-                                    <div class="">
-                                        <div class="">
-                                            <input type="submit" style="width: 100%;" class="btn btn-default steps_btn" value="Find" class="btn btn-success">
-                                        </div>
-                                        <div class="styleNm"></div>
+                            @if (count($data) != '0')
+                                <form action="{{ route('search_result_filtre') }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="col-lg-12 col-md-4 mt-50">
+                                        <select class="form-control" id="grpID2" name="groupe_id">
+                                            <option value="">Select a groupe</option>
+                                            @foreach (App\Models\Groupe::all() as $grp)
+                                                <option value="{{ $grp->id }}">
+                                                    {{ $grp->designation }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                </div>
-                            </form>
+
+                                    <div class="col-lg-12 col-md-4 mt-10">
+                                        <select class="form-control" class="form-controle" id="matID2" name="matiere_id">
+                                            <option value="">Select Matière</option>
+                                            @foreach (App\Models\Matiere::all() as $mat)
+                                                <option value="{{ $mat->id }}">
+                                                    {{ $mat->designation }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-lg-12 col-md-4 mt-10">
+                                        <select class="form-control" class="form-controle" id="matID2" name="type">
+                                            <option value="">Choisir type ...</option>
+                                            @foreach (App\Models\Formation::all() as $form)
+                                                <option value="{{ $form->type }}">
+                                                    {{ $form->type }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-4 mt-20">
+                                        <div class="">
+                                            <div class="">
+                                                <input type="submit" style="width: 100%;" class="btn btn-default steps_btn" value="Find" class="btn btn-success">
+                                            </div>
+                                            <div class="styleNm"></div>
+                                        </div>
+                                    </div>
+                                </form>
                             @endif
                         </div>
                     </div>
@@ -97,8 +97,8 @@
                             <div class="row">
                                 <div class="col-md-12 ">
 
-                                    @if (@$allformations)
-                                        @foreach (@$allformations as $formation)
+                                    @if (@$data)
+                                        @foreach (@$data as $formation)
                                             <div class="fcrse_1 mb-20">
                                                 <a href="{{ route('student_course_detail', ['groupe_id' => @$formation->groupe_id]) }}"
                                                     class="hf_img">
@@ -106,8 +106,8 @@
                                                     <div class="course-overlay">
                                                         <div class="badge_seller">{{ @$formation->matiere }}</div>
                                                         <!--<div class="crse_revues">
-                                                        <i class="uil uil-star"></i>4.5
-                                                    </div>-->
+                                                            <i class="uil uil-star"></i>4.5
+                                                        </div>-->
                                                         <span class="play_btn1"><i class="uil uil-play"></i></span>
                                                         <div class="crse_timer">
                                                             {{ @$formation->duree }} jours
@@ -116,8 +116,8 @@
                                                 </a>
                                                 <div class="hs_content">
                                                     <!--<div class="vdtodt">
-                                                    <span class="vdt14">{{ \Carbon\Carbon::parse(@$formation->created_at)->format('j F') }}</span>
-                                                </div>-->
+                                                        <span class="vdt14">{{ \Carbon\Carbon::parse(@$formation->created_at)->format('j F') }}</span>
+                                                    </div>-->
                                                     <a
                                                         class="crse14s title900">{{ @$formation->designation }}-{{ $formation->groupe }}</a>
                                                     <!--<a href="#" class="crse-cate"></a>-->
@@ -127,16 +127,16 @@
                                                         <div class="prce142">{{ @$formation->prix_acompte }} /
                                                             {{ @$formation->prix_total }}DT</div>
                                                         <!--<button class="shrt-cart-btn" title="cart"><i
-                                                            class="uil uil-shopping-cart-alt"></i></button>-->
+                                                                class="uil uil-shopping-cart-alt"></i></button>-->
 
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
+                                        <div class='mt-10 mb-10' style="float: right;">
+                                            {{ $data->links() }}
+                                        </div>
                                     @endif
-                                    <div class='mt-10 mb-10' style="float: right;">
-                                        {{ $allformations->links() }}
-                                    </div>
                                 </div>
                             </div>
                         </div>

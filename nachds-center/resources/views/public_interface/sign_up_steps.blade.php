@@ -1,14 +1,14 @@
-﻿
-    @extends('global_common.scripts_styles')
-    @section('basic_content')
-
+﻿@extends('global_common.scripts_styles')
+@section('basic_content')
     <div class="sign_in_up_bg">
         <div class="container">
             <div class="row justify-content-lg-center justify-content-md-center">
                 <div class="col-lg-12">
                     <div class="main_logo25" id="logo">
-                        <a href="{{url('/index')}}"><img class="logo" src="{{ asset('assets/images/logo.png') }}" alt=""></a>
-                        <a href="{{url('/index')}}"><img class="logo-inverse" src="{{ asset('assets/images/ct_logo.png') }}" alt=""></a>
+                        <a href="{{ url('/index') }}"><img class="logo"
+                                src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                        <a href="{{ url('/index') }}"><img class="logo-inverse"
+                                src="{{ asset('assets/images/ct_logo.png') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-8">
@@ -52,7 +52,8 @@
                                         <div class="ui form swdh30 mt-15">
                                             <div class="ui left icon input swdh11 swdh19">
                                                 <input class="prompt srch_explore" type="text" name="tel" value=""
-                                                    id="id_tel" required="true" maxlength="64" placeholder="Numéro de téléphone">
+                                                    id="id_tel" required="true" maxlength="64"
+                                                    placeholder="Numéro de téléphone">
                                             </div>
                                         </div>
                                         <div class="ui form swdh30 mt-15">
@@ -85,8 +86,9 @@
                                         </select>
                                     </div>
                                     <button class="login-btn" type="submit">Connectez-vous maintenant</button>
-                                    <p class="mb-0 mt-30">Vous avez déjà un compte?<a href="{{url('/sign_in_teacher')}}">Connexion</a></p>
-                                </form> 
+                                    <p class="mb-0 mt-30">Vous avez déjà un compte?<a
+                                            href="{{ url('/sign_in_teacher') }}">Connexion</a></p>
+                                </form>
                             </div>
                             <div class="tab-pane fade" id="student-signup-tab" role="tabpanel"
                                 aria-labelledby="student-tab">
@@ -114,7 +116,8 @@
                                         <div class="ui form swdh30 mt-15">
                                             <div class="ui left icon input swdh11 swdh19">
                                                 <input class="prompt srch_explore" type="text" name="tel" value=""
-                                                    id="id_tel" required="true" maxlength="64" placeholder="Numéro de téléphone">
+                                                    id="id_tel" required="true" maxlength="64"
+                                                    placeholder="Numéro de téléphone">
                                             </div>
                                         </div>
                                         <div class="ui form swdh30 mt-15">
@@ -126,7 +129,8 @@
                                         <div class="ui form swdh30 mt-15">
                                             <div class="ui left icon input swdh11 swdh19">
                                                 <input class="prompt srch_explore" type="text" name="cin_tuteur" value=""
-                                                    id="id_cin_tuteur" required="true" maxlength="64" placeholder="Cin tuteur">
+                                                    id="id_cin_tuteur" required="true" maxlength="64"
+                                                    placeholder="Cin tuteur">
                                             </div>
                                         </div>
                                         <div class="ui form swdh30 mt-15">
@@ -143,17 +147,18 @@
                                         </div>
                                     </div>
                                     <button class="login-btn" type="submit">Se connecter maintenant</button>
-                                    <p class="mb-0 mt-30">Vous avez déjà un compte?<a href="{{url('/sign_in_student')}}"> Connexion</a></p>
+                                    <p class="mb-0 mt-30">Vous avez déjà un compte?<a
+                                            href="{{ url('/sign_in_student') }}"> Connexion</a></p>
                                 </form>
                             </div>
                         </div>
-                        
+
                     </div>
-                    <div class="sign_footer"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}" alt="">© 2020 <strong>Cursus</strong>. All
+                    <div class="sign_footer"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}"
+                            alt="">© 2020 <strong>Cursus</strong>. All
                         Rights Reserved.</div>
                 </div>
             </div>
         </div>
     </div>
-
-    @endsection
+@endsection

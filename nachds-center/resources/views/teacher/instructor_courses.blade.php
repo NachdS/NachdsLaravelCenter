@@ -1,9 +1,7 @@
-﻿
-    @extends('teacher.layout_public_teacher_interface')
-    @section('content_public_teacher_interface')  
-
-    <div class="wrapper">
-        <div class="sa4d25">
+﻿@extends('teacher.layout_public_teacher_interface')
+@section('content_public_teacher_interface')
+    <div class="wrapper" style="min-height: 650px;">
+        <div class="sa4d25" >
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
@@ -17,20 +15,19 @@
                             </div>
                             <div class="card_dash_right1">
                                 <button class="create_btn_dash"
-                                    onclick="window.location.href = '{{url('/create_new_course')}}';">Créez votre cours</button>
+                                    onclick="window.location.href = '{{ url('/create_new_course') }}';">Créez votre
+                                    cours</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
 
-                <div class="alert alert-success">
-        
-                    <p>{{ $message }}</p>
-        
-                </div>
-        
-            @endif
+                        <p>{{ $message }}</p>
+
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-12 mb-50">
                         <div class="my_courses_tabs">
@@ -58,50 +55,60 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($cours as $cour)
-                                                <tr>
-                                                    <td class="text-center" style="text-align: center;">{{ ++$i }}</td>
-                                                    <td class="text-center" style="text-align: center;">{{ $cour->designation }}</td>
-                                                    <td class="text-center" style="text-align: center;">{{  \Carbon\Carbon::parse(@$cour->created_at)->format('j F, Y')  }}</td>
-                                                    <!--<td class="text-center"> </td>-->
-                                                    <td class="text-center" style="text-align: center;">{{$cour->chapitres->count()}}</td>
-                                                    <td class="text-center" style="text-align: center;"><a href="{{route('create_new_chapter' , ['id' => @$cour->id])}}">voir chapitre</a></td>
-                                                    <td class="text-center d-flex" style="place-content: center;">
-                                                        <form action="{{ route('delete_new_course',$cour->id) }}" method="GET">
-    
-                                                            @csrf
-                                                            @method('DELETE')
-                                                
-                                                            <button type="submit" title="Delete" class="gray-s" style="background-color: transparent !important;
-                                                            border: 0 !important;"><i
-                                                                class="uil uil-trash-alt"></i></button>
-                                                        </form>
+                                                    <tr>
+                                                        <td class="text-center" style="text-align: center;">
+                                                            {{ ++$i }}</td>
+                                                        <td class="text-center" style="text-align: center;">
+                                                            {{ $cour->designation }}</td>
+                                                        <td class="text-center" style="text-align: center;">
+                                                            {{ \Carbon\Carbon::parse(@$cour->created_at)->format('j F, Y') }}
+                                                        </td>
+                                                        <!--<td class="text-center"> </td>-->
+                                                        <td class="text-center" style="text-align: center;">
+                                                            {{ $cour->chapitres->count() }}</td>
+                                                        <td class="text-center" style="text-align: center;"><a
+                                                                href="{{ route('create_new_chapter', ['id' => @$cour->id]) }}">voir
+                                                                chapitre</a></td>
+                                                        <td class="text-center d-flex" style="place-content: center;">
+                                                            <form action="{{ route('delete_new_course', $cour->id) }}"
+                                                                method="GET">
 
-                                                        <form action="{{ route('delete_new_course',$cour->id) }}" method="GET">
-     
-                                                            <a class="gray-s" href="{{ route('edit_new_course',$cour->id) }}"><i
-                                                                class="uil uil-edit-alt"></i></a>
-                                                        </form>
+                                                                @csrf
+                                                                @method('DELETE')
 
-                                                    </td>
-                                                </tr>
+                                                                <button type="submit" title="Delete" class="gray-s"
+                                                                    style="background-color: transparent !important;
+                                                                border: 0 !important;"><i
+                                                                        class="uil uil-trash-alt"></i></button>
+                                                            </form>
+
+                                                            <form action="{{ route('delete_new_course', $cour->id) }}"
+                                                                method="GET">
+
+                                                                <a class="gray-s"
+                                                                    href="{{ route('edit_new_course', $cour->id) }}"><i
+                                                                        class="uil uil-edit-alt"></i></a>
+                                                            </form>
+
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
                                             <tfoot>
-                                            <tr></tr>
+                                                <tr></tr>
                                             </tfoot>
                                         </table>
                                         <div class='mt-10 mb-10' style="float: right;">
-                                        {{ $cours->links() }}
-                                        {{-- {!! $cours->links(); !!}
+                                            {{ $cours->links() }}
+                                            {{-- {!! $cours->links(); !!}
                                         {!! $cours->render() !!} --}}
                                         </div>
                                     </div>
                                 </div>
-                        </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
     @endsection

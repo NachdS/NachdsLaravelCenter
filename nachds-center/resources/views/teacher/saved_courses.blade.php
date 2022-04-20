@@ -1,9 +1,6 @@
-﻿
-
- @extends('teacher.layout_public_teacher_interface')
- @section('content_public_teacher_interface') 
-
-    <div class="wrapper">
+﻿@extends('teacher.layout_public_teacher_interface')
+@section('content_public_teacher_interface')
+    <div class="wrapper" style="min-height: 650px;">
         <div class="sa4d25">
             <div class="container-fluid">
                 <div class="row">
@@ -27,7 +24,7 @@
                                 <div class="col-md-12">
                                     <h4 class="mhs_title">Saved Courses</h4>
                                     <div class="fcrse_1">
-                                        <a href="{{url('/student_course_detail')}}" class="hf_img">
+                                        <a href="{{ url('/student_course_detail') }}" class="hf_img">
                                             <img src="{{ asset('assets/images/courses/img-1.jpg') }}" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
@@ -51,7 +48,8 @@
                                                 <span class="vdt14">109k views</span>
                                                 <span class="vdt14">15 days ago</span>
                                             </div>
-                                            <a href="{{url('/student_course_detail')}}" class="crse14s title900">Complete Python
+                                            <a href="{{ url('/student_course_detail') }}" class="crse14s title900">Complete
+                                                Python
                                                 Bootcamp: Go from zero to hero in Python 3</a>
                                             <a href="#" class="crse-cate">Web Development | Python</a>
                                             <div class="auth1lnkprce">
@@ -63,7 +61,7 @@
                                         </div>
                                     </div>
                                     <div class="fcrse_1 mt-30">
-                                        <a href="{{url('/student_course_detail')}}" class="hf_img">
+                                        <a href="{{ url('/student_course_detail') }}" class="hf_img">
                                             <img src="{{ asset('assets/images/courses/img-2.jpg') }}" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
@@ -87,7 +85,8 @@
                                                 <span class="vdt14">5M views</span>
                                                 <span class="vdt14">15 days ago</span>
                                             </div>
-                                            <a href="{{url('/student_course_detail')}}" class="crse14s title900">The Complete
+                                            <a href="{{ url('/student_course_detail') }}" class="crse14s title900">The
+                                                Complete
                                                 JavaScript Course 2020: Build Real Projects!</a>
                                             <a href="#" class="crse-cate">Development | JavaScript</a>
                                             <div class="auth1lnkprce">
@@ -99,7 +98,7 @@
                                         </div>
                                     </div>
                                     <div class="fcrse_1 mt-30">
-                                        <a href="{{url('/student_course_detail')}}" class="hf_img">
+                                        <a href="{{ url('/student_course_detail') }}" class="hf_img">
                                             <img src="{{ asset('assets/images/courses/img-3.jpg') }}" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
@@ -123,7 +122,8 @@
                                                 <span class="vdt14">1M views</span>
                                                 <span class="vdt14">18 days ago</span>
                                             </div>
-                                            <a href="{{url('/student_course_detail')}}" class="crse14s title900">Beginning C++
+                                            <a href="{{ url('/student_course_detail') }}" class="crse14s title900">Beginning
+                                                C++
                                                 Programming - From Beginner to Beyond</a>
                                             <a href="#" class="crse-cate">Development | C++</a>
                                             <div class="auth1lnkprce">
@@ -135,7 +135,7 @@
                                         </div>
                                     </div>
                                     <div class="fcrse_1 mt-30">
-                                        <a href="{{url('/student_course_detail')}}" class="hf_img">
+                                        <a href="{{ url('/student_course_detail') }}" class="hf_img">
                                             <img src="{{ asset('assets/images/courses/img-4.jpg') }}" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
@@ -159,7 +159,8 @@
                                                 <span class="vdt14">153k views</span>
                                                 <span class="vdt14">3 months ago</span>
                                             </div>
-                                            <a href="{{url('/student_course_detail')}}" class="crse14s title900">The Complete
+                                            <a href="{{ url('/student_course_detail') }}" class="crse14s title900">The
+                                                Complete
                                                 Digital Marketing Course - 12 Courses in 1</a>
                                             <a href="#" class="crse-cate">Digital Marketing | Marketing</a>
                                             <div class="auth1lnkprce">
@@ -178,7 +179,4 @@
             </div>
         </div>
     </div>
-
-
-    @endsection
-   
+@endsection

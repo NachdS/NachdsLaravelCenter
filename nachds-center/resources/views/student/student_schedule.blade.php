@@ -1,8 +1,6 @@
-﻿
- @extends('student.layout_public_student_interface')
- @section('content_public_student_interface') 
-
-    <div class="wrapper">
+﻿@extends('student.layout_public_student_interface')
+@section('content_public_student_interface')
+    <div class="wrapper" style="min-height: 650px;">
         <div class="sa4d25 min-heigth">
             <div class="container-fluid">
                 <div class="row">
@@ -46,8 +44,4 @@
             </div>
         </div>
     </div>
-
-
-    @endsection
-
-     
+@endsection

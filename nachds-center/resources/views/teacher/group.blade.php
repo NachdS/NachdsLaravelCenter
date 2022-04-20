@@ -1,8 +1,7 @@
-﻿
-    @extends('teacher.layout_public_teacher_interface')
-    @section('content_public_teacher_interface') 
+﻿@extends('teacher.layout_public_teacher_interface')
+@section('content_public_teacher_interface')
 
-    <div class="wrapper">
+    <div class="wrapper" style="min-height: 650px;">
         <div class="col-lg-12">
             <h2 class="st_title"><i class="uil uil-apps"></i> Groupes</h2>
         </div>
@@ -16,23 +15,24 @@
                                 <div class="row">
 
                                     @if (@$allGroupe)
-                                    @foreach ($allGroupe as $groupe )
-                                    <div class="col-md-2">
-                                        <div class="stream_1 mb-30">
-                                            <a href="live_output.html" class="stream_bg">
-                                                <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt="">
-                                                <a href="{{url('/student_list_eleve')}}">
-                                                    <h4 style="    color: black;
+                                        @foreach ($allGroupe as $groupe)
+                                            <div class="col-md-2">
+                                                <div class="stream_1 mb-30">
+                                                    <a href="live_output.html" class="stream_bg">
+                                                        <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}"
+                                                            alt="">
+                                                        <a href="{{ url('/student_list_eleve') }}">
+                                                            <h4 style="    color: black;
+                                                        text-align: center;
+                                                        margin: 20px 0px 10px 0px;">{{ $groupe->designation }}</h4>
+                                                        </a>
+                                                        <p style="    color: black;
                                                     text-align: center;
-                                                    margin: 20px 0px 10px 0px;">{{$groupe -> designation}}</h4>
-                                                </a>
-                                                <p style="    color: black;
-                                                text-align: center;
-                                                margin: 10px 0px 10px 0px;">{{$groupe -> capacite}} élèves</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    @endforeach
+                                                    margin: 10px 0px 10px 0px;">{{ $groupe->capacite }} élèves</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     @endif
 
                                 </div>
@@ -50,7 +50,7 @@
                                     <div class="live-content">
                                         <p>Consulter vos groupe et vos élèves</p>
                                         <button class="live_link"
-                                            onclick="window.location.href = '';">{{$totalGroupes}} Groupes</button>
+                                            onclick="window.location.href = '';">{{ $totalGroupes }} Groupes</button>
                                         <span class="livinfo">.</span>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                     <div class="live-content">
                                         <p>Consulter vos groupe et vos élèves</p>
                                         <button class="live_link"
-                                            onclick="window.location.href = '';">{{$totalelevesGroupe}} élèves</button>
+                                            onclick="window.location.href = '';">{{ $totalelevesGroupe }} élèves</button>
                                         <span class="livinfo">.</span>
                                     </div>
                                 </div>
@@ -77,5 +77,4 @@
     </div>
 
 
-    @endsection
-   
+@endsection

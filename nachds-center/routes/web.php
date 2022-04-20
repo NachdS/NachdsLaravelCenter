@@ -26,6 +26,7 @@ use App\Http\Controllers\teacher\ProfileTeacherController;
 use App\Http\Controllers\student\ProfileStudenteController;
 use App\Http\Controllers\student\FriendInGroupController;
 use App\Http\Controllers\student\FormationController;
+use App\Http\Controllers\student\PayoutController;
 /*
 |--------------------------------------------------------------------------
 | Teacher Controllers
@@ -101,9 +102,12 @@ Route::get('student_search_result',[FormationController::class,'show'])->name('s
 
 Route::get('student_course_detail/{groupe_id}',[FormationController::class,'showById'])->name('student_course_detail'); 
 
-Route::get('student_payout', function () {
+/* Route::get('student_payout', function () {
     return view('student/student_payout')->name('student_payout');
-});
+}); */
+Route::get('make_new_payement',[PayoutController::class,'addPayment'])->name('make_new_payement'); 
+Route::post('store_new_payement',[PayoutController::class,'store'])->name('store_new_payement');
+Route::get('student_payout',[PayoutController::class,'show'])->name('student_payout'); 
 
 Route::get('student_profile_view',[ProfileStudenteController::class,'show'])->name('student_profile_view'); 
 
@@ -111,7 +115,7 @@ Route::get('student_schedule', function () {
     return view('student/student_schedule');
 });
 
-Route::get('formationGrp',[FormationController::class,'formationGrp'])->name('formationGrp');
+Route::post('formationGrp',[FormationController::class,'formationGrp'])->name('search_result_filtre');
 /* teacher */
 
 

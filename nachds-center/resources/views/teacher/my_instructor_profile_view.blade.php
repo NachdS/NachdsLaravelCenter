@@ -1,7 +1,5 @@
-﻿
-    @extends('teacher.layout_public_teacher_interface')
-    @section('content_public_teacher_interface') 
-
+﻿@extends('teacher.layout_public_teacher_interface')
+@section('content_public_teacher_interface')
     <div class="wrapper _bg4586">
         <div class="_216b01">
             <div class="container-fluid">
@@ -15,7 +13,7 @@
                                     </a>
                                     <div class="dp_dt150">
                                         <div class="img148">
-                                            <img src="{{ asset(@$user->avatar) }}"  alt="">
+                                            <img src="{{ asset(@$user->avatar) }}" alt="">
                                         </div>
                                         <div class="prfledt1">
                                             <h2>{{ auth()->user()->name }}</h2>
@@ -26,19 +24,19 @@
                                         <li>
                                             <div class="_ttl121">
                                                 <div class="_ttl122">Nombres de groupes</div>
-                                                <div class="_ttl123">{{@$totalGroupes}} </div>
+                                                <div class="_ttl123">{{ @$totalGroupes }} </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="_ttl121">
                                                 <div class="_ttl122">Nombre de cours</div>
-                                                <div class="_ttl123">{{@$totalCours}}</div>
+                                                <div class="_ttl123">{{ @$totalCours }}</div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="_ttl121">
                                                 <div class="_ttl122">Nombre d'élèves</div>
-                                                <div class="_ttl123">{{@$totalCondidats}}</div>
+                                                <div class="_ttl123">{{ @$totalCondidats }}</div>
                                             </div>
                                         </li>
                                     </ul>
@@ -81,16 +79,28 @@
                                     <div class="_htg451">
                                         <div class="_htg452">
                                             <h3>À propos de moi</h3>
-                                                <ul class="list-group">
-                                                    <li class="list-group-item" style="background-color: #fff"><span><strong>Nom :</strong></span> <span>{{ auth()->user()->name }}</span></li>
-                                                    <li class="list-group-item" style="background-color: #fff"><span><strong>Sexe :</strong></span> <span>{{ @$user->genre }}</span></li>
-                                                    <li class="list-group-item" style="background-color: #ffecec"><span><strong>Adress :</strong></span> <span>{{ auth()->user()->adresse }}</span></li>
-                                                    <li class="list-group-item" style="background-color: #fff"><span><strong>Télèphone :</strong></span> <span>{{ auth()->user()->phone }}</span></li>
-                                                    <li class="list-group-item" style="background-color: #ffecec"><span><strong>Email :</strong></span> <span>{{ auth()->user()->email }}</span></li>
-                                                    <li class="list-group-item" style="background-color: #fff"><span><strong>Cin </strong></span> <span>{{ auth()->user()->cin }}</span></li>
-                                                    <li class="list-group-item" style="background-color: #ffecec"><span><strong>Spécialité :</strong></span> <span>{{ @$user->specialite }}</span></li>
-                                                    
-                                                  </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item" style="background-color: #fff"><span><strong>Nom
+                                                            :</strong></span> <span>{{ auth()->user()->name }}</span></li>
+                                                <li class="list-group-item" style="background-color: #fff">
+                                                    <span><strong>Sexe :</strong></span> <span>{{ @$user->genre }}</span>
+                                                </li>
+                                                <li class="list-group-item" style="background-color: #ffecec">
+                                                    <span><strong>Adress :</strong></span>
+                                                    <span>{{ auth()->user()->adresse }}</span></li>
+                                                <li class="list-group-item" style="background-color: #fff">
+                                                    <span><strong>Télèphone :</strong></span>
+                                                    <span>{{ auth()->user()->phone }}</span></li>
+                                                <li class="list-group-item" style="background-color: #ffecec">
+                                                    <span><strong>Email :</strong></span>
+                                                    <span>{{ auth()->user()->email }}</span></li>
+                                                <li class="list-group-item" style="background-color: #fff"><span><strong>Cin
+                                                        </strong></span> <span>{{ auth()->user()->cin }}</span></li>
+                                                <li class="list-group-item" style="background-color: #ffecec">
+                                                    <span><strong>Spécialité :</strong></span>
+                                                    <span>{{ @$user->specialite }}</span></li>
+
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +111,4 @@
             </div>
         </div>
     </div>
-
-
-    @endsection
-  
+@endsection
