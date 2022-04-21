@@ -20,7 +20,7 @@
                 <div class="col-lg-12">
                     <h2 class="st_title"><i class="uil uil-analysis"></i> Effectuer un nouveau paiement</h2>
                 </div>
-                <form action="{{ route('store_new_payement') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('store_new_payement')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="general_info10">
                         <div class="row">
@@ -30,8 +30,7 @@
                                         <label>Montant*</label>
                                         <div class="ui left icon input swdh19">
                                             <input class="prompt srch_explore" type="text" placeholder="Montant"
-                                                name="montant" data-purpose="edit-payement-title" 
-                                                id="main[title]" value="">
+                                                name="montant" data-purpose="edit-payement-title" id="main[title]" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -43,8 +42,8 @@
                                         <label>Date paimement*</label>
                                         <div class="ui left icon input swdh19">
                                             <input class="prompt srch_explore" type="date" placeholder="Date"
-                                                name="date_paiement" data-purpose="edit-payement-title" 
-                                                id="main[title]" value="">
+                                                name="date_paiement" data-purpose="edit-payement-title" id="main[title]"
+                                                value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -52,15 +51,26 @@
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="ui search focus mt-30 lbel25">
-                                    <div class="form-group">
-                                        <label>Periode*</label>
-                                        <div class="ui left icon input swdh19">
-                                            <input class="prompt srch_explore" type="number" placeholder="Periode"
-                                                name="periode" data-purpose="edit-payement-title" 
-                                                id="main[title]" value="">
-                                        </div>
-                                    </div>
+                                <label class="inline-block text-sm text-gray-600" for="Multiselect"
+                                  >Choisir multiple periode</label
+                                >
+                                <div class="relative flex w-full">
+                                  <select
+                                    id="select-role"
+                                    name="periode[]"
+                                    multiple
+                                    placeholder="Choisir periode..."
+                                    autocomplete="off"
+                                    class="block w-full rounded-sm cursor-pointer focus:outline-none"
+                                    multiple
+                                    required
+                                  >
+                                     @foreach ($groupes as $grp) 
+                                     <option value="{{ $grp->duree_periode }}"> {{ $grp->duree_periode }}</option>
+                                     @endforeach
+                                  </select>
                                 </div>
+                              </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -69,7 +79,7 @@
                                         <label>Justification*</label>
                                     </div>
                                     <input style="height: calc(2em + 0.75rem + 2px);border: 1px solid #e5e5e5;" type="file"
-                                        name="justification" class="form-control" placeholder="justification">
+                                        name="justification" class="form-control" placeholder="justification" required>
 
                                 </div>
                             </div>
@@ -78,18 +88,18 @@
                                     <div class="mt-30 lbel25">
                                         <label>Groupe*</label>
                                     </div>
-                                    <select name="formation_id" id="" class="form-control" required>
+                                    <select name="groupe_id" id="groupe_id" class="form-control" required>
                                         <option value="">Choisir..</option>
                                         @foreach ($groupes as $grp)
                                             <option value=" {{ $grp->id }} "> {{ $grp->designation }} </option>
-                                        @endforeach  
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
-                           
+
                             <div class="col-lg-12 col-md-12">
                                 <div class="mt-30 mb-30 lbel25">
-                                    <button type="submit" class="main-btn color btn-hover"><i
+                                    <button type="submit" class="main-btn color btn-hover" style="background-color:#ed2a26;"><i
                                             class="fas fa-save mr-2"></i>Ajouter</button>
                                 </div>
                             </div>

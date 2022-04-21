@@ -47,8 +47,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="live1452">
-                                            <iframe src="{{ asset(@$video->file) }}"
+                                        <div class="live1452" style=" position: relative;">
+                                            <iframe style=" top: 0;left: 0;right: 0;bottom: 0;width=100%; height=300px; frameborder=0;" 
+                                            src="{{ asset(@$video->file) }}"
                                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                 allowfullscreen></iframe>
                                         </div>

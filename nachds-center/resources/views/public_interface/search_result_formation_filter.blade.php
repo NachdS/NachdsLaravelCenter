@@ -465,7 +465,7 @@
                         <div class="result_stitles">
                             <div class="rs6t_title">Filters</div>
                         </div>
-                        @if (count($allformations) != '0')
+                        @if (count($data) != '0')
                             <form action="{{ route('search_result_formation_filter') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-lg-12 col-md-4 mt-50">
@@ -525,8 +525,8 @@
                          <div class="row">
                              <div class="col-md-12 ">
 
-                                 @if (@$allformations)
-                                     @foreach (@$allformations as $formation)
+                                 @if (@$data )
+                                     @foreach (@$data  as $formation)
                                          <div class="fcrse_1 mb-20">
                                              <a class="hf_img">
                                                  <img src="{{ asset($formation->image) }}" alt="">
@@ -561,7 +561,7 @@
                                      @endforeach
                                  @endif
                                  <div class='mt-10 mb-10' style="float: right;">
-                                     {{ $allformations->links() }}
+                                     {{ $data ->links() }}
                                  </div>
                              </div>
 

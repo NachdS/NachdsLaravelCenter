@@ -47,7 +47,7 @@
                             <form action="{{ route('search_result_filtre') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-lg-12 col-md-4 mt-50">
-                                    <select class="form-control" id="grpID2" name="groupe_id">
+                                    <select class="form-control" id="grpID2" name="niveau_id">
                                         <option value="">Choisir niveau ...</option>
                                         @foreach (App\Models\Niv::all() as $niv)
                                             <option value="{{ $niv->id }}">
@@ -56,17 +56,17 @@
                                     </select>
                                 </div>
 
-                                <div class="col-lg-12 col-md-4 mt-10">
+                                <div class="col-lg-12 col-md-4" style="margin-top: 5px">
                                     <select class="form-control" class="form-controle" id="matID2" name="matiere_id">
-                                        <option value="">Choisir matière ...</option>
+                                        <option value="">Choisir Matière ...</option>
                                         @foreach (App\Models\Matiere::all() as $mat)
                                             <option value="{{ $mat->id }}">
                                                 {{ $mat->designation }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-
-                                <div class="col-lg-12 col-md-4 mt-10">
+                                
+                                <div class="col-lg-12 col-md-4" style="margin-top: 5px">
                                     <select class="form-control" class="form-controle" id="matID2" name="type">
                                         <option value="">Choisir type ...</option>
                                         @foreach (App\Models\Formation::all() as $form)
@@ -76,7 +76,7 @@
                                     </select>
                                 </div>
 
-                                <div class="col-lg-12 col-md-4 mt-20">
+                                <div class="col-lg-12 col-md-4" style="margin-top: 20px">
                                     <div class="">
                                         <div class="">
                                             <input type="submit" style="width: 100%;" class="btn btn-default steps_btn" value="Find" class="btn btn-success">

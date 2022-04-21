@@ -58,6 +58,11 @@
       href="/sites/default/files/favicon.ico"
       type="image/vnd.microsoft.icon"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css"
+      rel="stylesheet"
+    />
 
 
 </head>
@@ -194,6 +199,12 @@
     document.getElementById("designation").value(des); */
     }
   </script>
+   <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+   <script>
+     new TomSelect('#select-role', {
+       maxItems: 3,
+     });
+   </script>
 
 
 

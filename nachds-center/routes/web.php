@@ -55,6 +55,8 @@ use App\Http\Controllers\teacher\ChapitreController;
 Route::get('about_us',[AboutUsController::class, 'show'])->name('about_us'); 
 
 Route::get('contact_us',[ContactController::class, 'show'])->name('contact_us'); 
+Route::get('message-sent',[ContactController::class, 'sendEmail'])->name('contact.send'); 
+
 
 Route::get('espace_staff', function () {
     return view('public_interface/espace_staff');
@@ -82,12 +84,11 @@ Route::get('news_single_view/{id}',[ActualitesController::class,'showById'])->na
 Route::get('news',[ActualitesController::class, 'show'])->name('news'); 
 
 Route::get('search_result_formation',[FormationPubliqueController::class, 'show'])->name('search_result_formation'); 
+Route::post('formation_filtre',[FormationPubliqueController::class,'formationFiltre'])->name('search_result_formation_filter');
 
 Route::get('sign_up_steps', function () {
     return view('public_interface/sign_up_steps');
 });
-
-
 
 
 

@@ -86,7 +86,7 @@
                                      <li>
                                          <div class="txt_cntct"><span class="cntct_895"><i
                                                      class="uil uil-mobile-android-alt"></i>Numéro de téléphone :</span>
-                                             <p>{{ @$allcontacts->telephone1 }}/p>
+                                             <p>{{ @$allcontacts->telephone1 }}</p>
                                          </div>
                                      </li>
                                      <li>
@@ -116,9 +116,7 @@
                      @endif
                  </div>
 
-                 <form class="row contact-form" action="{{ route('send-email') }}" method="POST"
-                     enctype="multipart/form-data">
-                     @csrf
+
                      <div class="col-lg-12 mt-50">
                          <h2 class="st_title"><i class="uil uil-comment-info-alt"></i> Soumettez votre avis </h2>
                          @if (Session::has('success'))
@@ -128,15 +126,24 @@
                              <div class="alert alert-danger alert-dismissible"><button type="button"
                                      class="close">&times;</button>{{ Session::get('failed') }}</div>
                          @endif
+                         @if (Section::has('message-sent'))
+                         <div class="alert alert-success" role="alert">
+                             {{
+                                Section::get('message-sent')
+                             }}
+
+                         </div>
+                         @endif
+                         @endsection)
                          <div class="row">
                              <div class="col-lg-12 col-md-8">
-                                 <div class="ui search focus">
+                                 <!-- <div class="ui search focus">
                                      <div class="ui left icon input swdh11 swdh19">
 
                                          <input type="email" name="emailRecipient" id="emailRecipient"
                                              class="form-control col-md-12" placeholder="Mail To">
                                      </div>
-                                 </div>
+                                 </div> -->
                                  {{-- <div class="ui search focus mt-30">
 									<div class="ui left icon input swdh11 swdh19">
 										<input class="prompt srch_explore" type="text" name="tel" value=""
@@ -149,24 +156,45 @@
 											id="id_email" required="" maxlength="64" placeholder="Adresse e-mail">
 									</div>
 								</div> --}}
+                                <form method="POST" action="{{ route('contact.send') }}" enctype="multipart/form-data">
+                                    @csrf
                                  <div class="ui search focus mt-30">
                                      <div class="ui left icon input swdh11 swdh19">
-                                         <input type="text" name="emailSubject" id="emailSubject" class="form-control"
-                                             placeholder="Sujet">
-                                     </div>
+                                       
+                                         <input type="text" name="name" id="name" class="form-control"
+                                             placeholder="Name">
+                                        </div>
+                                     
                                  </div>
                                  <div class="ui search focus mt-30">
+                                    <div class="ui left icon input swdh11 swdh19">
+                                       
+                                        <input type="text" name="email" id="email" class="form-control"
+                                            placeholder="Email">
+                                       </div>
+                                    
+                                </div>
+                                <div class="ui search focus mt-30">
+                                    <div class="ui left icon input swdh11 swdh19">
+                                        <input type="text" name="phone" id="phone" class="form-control"
+                                            placeholder="Phone">
+                                       </div>
+                                    
+                                </div>
+                                 <div class="ui search focus mt-30">
                                      <div class="ui form swdh30">
+                                        <div class="form-group">
                                          <div class="field">
-                                             <textarea name="emailBody" id="emailBody" class="form-control" placeholder="Message"></textarea>
+                                             <textarea name="msg" id="emailBody" class="form-control" placeholder="Message"></textarea>
+                                         </div>
                                          </div>
                                      </div>
                                  </div>
-                                 <button class="save_btn" type="submit">Envoyer</button>
+                                 <button class="save_btn" style="background-color: #ed2a26;" type="submit">Envoyer</button>
+                                </form>
                              </div>
                          </div>
                      </div>
-                 </form>
 
 
              </div>

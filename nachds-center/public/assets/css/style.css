@@ -8770,4 +8770,12 @@ header.header.clearfix {
         margin-top: -30px;
       }
 
-      
+      video {
+        height: -webkit-fill-available !important;
+        width: -webkit-fill-available !important;
+     }
+    
+     video:-webkit-full-page-media {
+        height: -webkit-fill-available !important;
+        width: -webkit-fill-available !important;
+     }

@@ -4953,9 +4953,10 @@ img.logo-main {
 
 
 video {
-    height: 100% !important;
-    width: 100% !important;
-}
-video {
-    width: 100% !important; 
-}
+    height: -webkit-fill-available !important;
+    width: -webkit-fill-available !important;
+ }
+ video:-webkit-full-page-media {
+    height: -webkit-fill-available !important;
+    width: -webkit-fill-available !important;
+ }

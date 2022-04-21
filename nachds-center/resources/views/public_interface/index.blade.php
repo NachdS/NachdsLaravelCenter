@@ -78,8 +78,8 @@
                                              <div class="item">
                                                  <div class="fcrse_1 mb-20">
                                                      <a href="{{ route('video_pub_detail', ['id' => @$video->id]) }}"
-                                                         class="fcrse_img">
-                                                         <video style="width:338px !important; heigth:150px !important;"
+                                                         class="fcrse_img" style="height: 220px;">
+                                                         <video style="max-height: -webkit-fill-available;contain: strict;width: -webkit-fill-available !important; frameborder=0;"
                                                              class="video-fluid" autoplay loop muted>
                                                              <source src="{{ asset(@$video->file) }}" type="video/mp4" />
                                                          </video>
