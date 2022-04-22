@@ -27,6 +27,7 @@ use App\Http\Controllers\student\ProfileStudenteController;
 use App\Http\Controllers\student\FriendInGroupController;
 use App\Http\Controllers\student\FormationController;
 use App\Http\Controllers\student\PayoutController;
+use App\Http\Controllers\student\SheduleController;
 /*
 |--------------------------------------------------------------------------
 | Teacher Controllers
@@ -113,9 +114,7 @@ Route::get('student_payout',[PayoutController::class,'show'])->name('student_pay
 
 Route::get('student_profile_view',[ProfileStudenteController::class,'show'])->name('student_profile_view'); 
 
-Route::get('student_schedule', function () {
-    return view('student/student_schedule');
-});
+Route::get('student_schedule',[SheduleController::class,'show'])->name('student_schedule'); 
 Route::post('formationGrp',[FormationController::class,'formationGrp'])->name('search_result_filtre');
 
 /* teacher */

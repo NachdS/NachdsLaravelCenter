@@ -527,7 +527,7 @@
 
                                  @if (@$allformations)
                                      @foreach (@$allformations as $formation)
-                                         <div class="fcrse_1 mb-20">
+                                         <div class="fcrse_1 mb-10">
                                              <a class="hf_img">
                                                  <img src="{{ asset($formation->image) }}" alt="">
                                                  <div class="course-overlay">

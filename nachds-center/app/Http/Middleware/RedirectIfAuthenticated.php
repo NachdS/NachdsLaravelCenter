@@ -34,8 +34,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null) {
         if (Auth::guard($guard)->check()) {
           //$role = Auth::user()->role_id;
-          $role = Role::
-          join('roles', 'users.role_id', 'roles.id')
+          $role = Role::join('users', 'users.role_id', 'roles.id')
           ->where('users.id', Auth::user()->id)
           ->select('roles.name')->first();
           switch ($role->name) {

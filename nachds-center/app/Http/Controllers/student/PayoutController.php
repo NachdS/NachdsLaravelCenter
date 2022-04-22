@@ -37,11 +37,12 @@ class PayoutController extends Controller
             )
             ->paginate(5);
 
-            $alltotals = Inscription::join('payements', 'payements.inscription_id', '=', 'inscriptions.id')
+            $alltotals = Inscription::join('payements', 'inscriptions.id', '=', 'payements.inscription_id')
             ->join('candidats', 'inscriptions.candidat_id', 'candidats.id')
             ->where('candidats.id', @Auth::user()->id)
             ->select('inscriptions.prix_total')
             ->get();
+            dd($alltotals);
 
             $allpayementsum = $allpayements->sum('montant');
             $alltotalsum = $alltotals->sum('prix_total');
