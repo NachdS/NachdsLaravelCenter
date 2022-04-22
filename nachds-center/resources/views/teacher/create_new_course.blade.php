@@ -1,11 +1,5 @@
 ﻿@extends('teacher.layout_public_teacher_interface')
 @section('content_public_teacher_interface')
-
-
-
-
-
-
     <div class="wrapper" >
         @if ($errors->any())
             <div class="alert alert-danger">

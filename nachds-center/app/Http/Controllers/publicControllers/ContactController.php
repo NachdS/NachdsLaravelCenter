@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Coordonnee;
 use Illuminate\Http\Request;
 use App\Mail\ContactMail;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -32,6 +32,7 @@ class ContactController extends Controller
             'phone' => $request->phone,
             'msg' => $request->msg,
         ];
+
         Mail::to('sakly.souhailaaa@gmail.com')->send(new ContactMail($details));
         return back()->width('message-sent', 'Votre massage a été envoyé avec succes');
     }

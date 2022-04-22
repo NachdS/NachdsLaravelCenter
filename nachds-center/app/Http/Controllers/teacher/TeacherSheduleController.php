@@ -7,5 +7,9 @@ use Illuminate\Http\Request;
 
 class TeacherSheduleController extends Controller
 {
-    //
+
+    public function show()
+    {
+        return view('teacher.teacher_schedule');
+    }
 }

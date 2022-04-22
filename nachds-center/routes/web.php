@@ -37,6 +37,7 @@ use App\Http\Controllers\teacher\TeacherGroupeController;
 use App\Http\Controllers\teacher\TeacherEarningController;
 use App\Http\Controllers\teacher\CourController;
 use App\Http\Controllers\teacher\ChapitreController;
+use App\Http\Controllers\teacher\TeacherSheduleController;
 
 
 /*
@@ -55,7 +56,7 @@ use App\Http\Controllers\teacher\ChapitreController;
 Route::get('about_us',[AboutUsController::class, 'show'])->name('about_us'); 
 
 Route::get('contact_us',[ContactController::class, 'show'])->name('contact_us'); 
-Route::get('message-sent',[ContactController::class, 'sendEmail'])->name('contact.send'); 
+Route::post('message-sent',[ContactController::class, 'sendEmail'])->name('contact.send'); 
 
 
 Route::get('espace_staff', function () {
@@ -115,8 +116,8 @@ Route::get('student_profile_view',[ProfileStudenteController::class,'show'])->na
 Route::get('student_schedule', function () {
     return view('student/student_schedule');
 });
-
 Route::post('formationGrp',[FormationController::class,'formationGrp'])->name('search_result_filtre');
+
 /* teacher */
 
 
@@ -156,14 +157,11 @@ Route::get('saved_courses', function () {
     return view('teacher/saved_courses');
 });
 
-Route::get('teacher_schedule', function () {
-    return view('teacher/teacher_schedule');
-});
+Route::get('teacher_schedule',[TeacherSheduleController::class,'show'])->name('teacher_schedule'); 
 
 /*mailer*/
-Route::get("email", [MailerController::class, "email"])->name("email");
-
-Route::post("send-email", [MailerController::class, "composeEmail"])->name("send-email");
+/* Route::get("email", [MailerController::class, "email"])->name("email");
+Route::post("send-email", [MailerController::class, "composeEmail"])->name("send-email"); */
 
 
 

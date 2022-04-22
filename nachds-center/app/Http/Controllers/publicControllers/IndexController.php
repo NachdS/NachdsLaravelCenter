@@ -39,6 +39,7 @@ class IndexController extends Controller
         $totalCondidats = $allcondidats->count();
         $totalFormations = $allformations->count();
         $totalCours = $allcours->count();
+       
 
         $allenseignants = Enseignant::join('users', 'users.id', '=', 'enseignants.id')
             ->where('users.role_id', '3')

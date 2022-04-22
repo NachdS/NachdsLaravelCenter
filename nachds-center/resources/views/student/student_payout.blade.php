@@ -14,8 +14,9 @@
                             <div class="top_countries_title">
                                 <h2>Reçu Total </h2>
                             </div>
+                        
                             <div class="payout_content">
-                                <span><strong>$4568.50</strong></span>
+                                <span><strong>{{$allpayementsum}}dt</strong></span>
                                 <div class="payout__via">
                                 </div>
                                 <div class="">
@@ -27,6 +28,7 @@
                                     </p>
                                 </div>
                             </div>
+                            
                         </div>
                         <div class="top_countries mt-30">
                             <div class="top_countries_title">
@@ -34,7 +36,10 @@
                             </div>
                             <div class="payout_content">
                                 <img src="" alt="">
-                                <span><strong>$4568.50</strong></span>
+                                @php
+                                    dd($alltotalsum);
+                                @endphp
+                                <span><strong>{{$alltotalsum - $allpayementsum}} dt</strong></span>
                             </div>
                         </div>
                     </div>
@@ -50,26 +55,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if ($allpayements)
+                                    @foreach ($allpayements as $pay )
                                     <tr>
-                                        <td>$2550.54</td>
-                                        <td>Payoneer</td>
-                                        <td>15 Mar 2020</td>
-                                        <td>15 Mar 2020</td>
+                                        <td>{{@$pay->montant}}</td>
+                                        <td>{{@$pay->designation}}</td>
+                                        <td>{{@$pay->date}}</td>
+                                        <td>{{@$pay->periode}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>$1950.14</td>
-                                        <td>Payoneer</td>
-                                        <td>15 Feb 2020</td>
-                                        <td>15 Mar 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>$1950.14</td>
-                                        <td>Payoneer</td>
-                                        <td>15 Feb 2020</td>
-                                        <td>15 Mar 2020</td>
-                                    </tr>
+                                @endforeach
+                                @endif
+
                                 </tbody>
                             </table>
+
+                            
                         </div>
                     </div>
                 </div>

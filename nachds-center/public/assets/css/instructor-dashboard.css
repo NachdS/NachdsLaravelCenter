@@ -4179,7 +4179,7 @@ i.icon8 {
     font-size: 14px;
     color: #fff;
     border: 0;
-    background: #ed2a26;
+    background: #ed2a26 !important;
     border-radius: 3px;
     margin-right: 5px;
     font-weight: 500;

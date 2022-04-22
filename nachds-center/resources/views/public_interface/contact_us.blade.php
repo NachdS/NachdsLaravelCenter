@@ -119,22 +119,20 @@
 
                      <div class="col-lg-12 mt-50">
                          <h2 class="st_title"><i class="uil uil-comment-info-alt"></i> Soumettez votre avis </h2>
-                         @if (Session::has('success'))
+                         @if (@Session::has('success'))
                              <div class="alert alert-success alert-dismissible"><button type="button"
                                      class="close">&times;</button>{{ Session::get('success') }}</div>
                          @elseif(Session::has('failed'))
                              <div class="alert alert-danger alert-dismissible"><button type="button"
                                      class="close">&times;</button>{{ Session::get('failed') }}</div>
                          @endif
-                         @if (Section::has('message-sent'))
-                         <div class="alert alert-success" role="alert">
-                             {{
-                                Section::get('message-sent')
-                             }}
+                        
+                        @if(Session::has('message-sent'))
+                        <div class="alert alert-success" >
+                            {{ Session::get('message-sent') }}
+                        </div>
+                        @endif
 
-                         </div>
-                         @endif
-                         @endsection)
                          <div class="row">
                              <div class="col-lg-12 col-md-8">
                                  <!-- <div class="ui search focus">
