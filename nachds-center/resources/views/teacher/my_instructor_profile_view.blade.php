@@ -42,10 +42,10 @@
                                     </ul>
                                 </div>
                                 <div class="col-lg-5">
-                                    <ul class="_bty149">
+                                    <!-- <ul class="_bty149">
                                         <li><button class="msg125 btn500"
                                                 onclick="window.location.href = 'setting.html';">Edit</button></li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div>
                         </div>

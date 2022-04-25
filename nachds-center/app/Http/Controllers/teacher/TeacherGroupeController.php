@@ -20,7 +20,6 @@ class TeacherGroupeController extends Controller
     {
 
         $allGroupe = Groupe::where('enseignant_id', @Auth::user()->id)->get();
-        //$allGroupeIndivs = GroupeIndivs::where('enseignant_id',@Auth::user()->id)->get();
         $totalGroupes = $allGroupe->count();
 
         $arr = [];

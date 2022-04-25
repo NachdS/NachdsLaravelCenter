@@ -34,6 +34,6 @@ class ContactController extends Controller
         ];
 
         Mail::to('sakly.souhailaaa@gmail.com')->send(new ContactMail($details));
-        return back()->width('message-sent', 'Votre massage a été envoyé avec succes');
+        return back()->with('message-sent', 'Votre massage a été envoyé avec succes');
     }
 }

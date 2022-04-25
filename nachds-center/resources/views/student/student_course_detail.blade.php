@@ -29,6 +29,18 @@
                                         <div class="_htg451">
 
                                             <div class="_htg452 mt-35">
+                                                <h3>Download Files</h3>
+                                                <button type="submit" class="main-btn color btn-hover"
+                                                    style="background-color:#ed2a26 !important;"><i
+                                                        class="fas fa-file-pdf"></i></button>
+                                                <button type="submit" class="main-btn color btn-hover"
+                                                    style="background-color:#4bb866 !important;"><i
+                                                        class="fas fa-file-word"></i></button>
+                                                <button type="submit" class="main-btn color btn-hover"
+                                                    style="background-color:#0fd7e6 !important; "><i
+                                                        class="fas fa-file-archive"></i></button>
+                                            </div>
+                                            <div class="_htg452 mt-35">
                                                 <h3>Description</h3>
                                                 <span id="description" class="_abc123">{{-- {{$cour->description}} --}}
                                                     </p>
@@ -60,7 +72,8 @@
                                                     <div class="section-header-left">
                                                         <span class="section-title-wrapper">
                                                             <i class='uil uil-presentation-play crse_icon'></i>
-                                                            <span class="section-title-text">{{ $cour->designation }}</span>
+                                                            <span
+                                                                class="section-title-text">{{ $cour->designation }}</span>
                                                         </span>
                                                     </div>
                                                     <div class="section-header-right">

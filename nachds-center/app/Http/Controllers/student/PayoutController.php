@@ -37,12 +37,10 @@ class PayoutController extends Controller
             )
             ->paginate(5);
 
-            $alltotals = Inscription::join('payements', 'inscriptions.id', '=', 'payements.inscription_id')
-            ->join('candidats', 'inscriptions.candidat_id', 'candidats.id')
+            $alltotals = Inscription::join('candidats', 'inscriptions.candidat_id', 'candidats.id')
             ->where('candidats.id', @Auth::user()->id)
             ->select('inscriptions.prix_total')
             ->get();
-            dd($alltotals);
 
             $allpayementsum = $allpayements->sum('montant');
             $alltotalsum = $alltotals->sum('prix_total');
@@ -84,7 +82,7 @@ class PayoutController extends Controller
             $new_pay = new Payement();
             $new_pay->montant = @$request->input('montant');
             $new_pay->date_paiement = @$request->input('date_paiement');
-            $new_pay->periode =json_encode(@$request->input['periode']);
+            $new_pay->periode = json_encode($request->input('periode'));
             $new_pay->inscription_id = $ins->id;
             $new_pay->approuve ='a approuver';
             if (@$request->file('justification')) {

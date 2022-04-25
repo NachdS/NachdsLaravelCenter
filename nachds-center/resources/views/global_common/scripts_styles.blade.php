@@ -192,13 +192,25 @@
   });
   
   </script>
-  <script>
+   <script>
     function playme(vid) {
     document.getElementById("video1").src = 'http://127.0.0.1/nachds-center/storage/app/public/'+vid;
-    /* document.getElementById("description").value(desc);
-    document.getElementById("designation").value(des); */
     }
-  </script>
+  </script> 
+    <!--<script>
+      function playme(vid) {
+       let file = document.querySelector("video1");
+       let parsedJson = JSON.parse(file.innerHTML);
+       parsedJson.forEach((item) => {
+        if (video1[i].type = "mp4") {
+         file.innerHTML.src = 'http://127.0.0.1/nachds-center/storage/app/public/'+vid;
+     });
+
+      /* document.getElementById("description").value(desc);
+      document.getElementById("designation").value(des); */
+        }
+      }
+    </script> --}}
    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
    <script>
      new TomSelect('#select-role', {

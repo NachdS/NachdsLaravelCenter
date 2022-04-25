@@ -36,9 +36,9 @@
                             </div>
                             <div class="payout_content">
                                 <img src="" alt="">
-                                @php
+                                {{-- @php
                                     dd($alltotalsum);
-                                @endphp
+                                @endphp --}}
                                 <span><strong>{{$alltotalsum - $allpayementsum}} dt</strong></span>
                             </div>
                         </div>
