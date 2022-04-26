@@ -158,9 +158,7 @@ Route::get('saved_courses', function () {
 
 Route::get('teacher_schedule',[TeacherSheduleController::class,'show'])->name('teacher_schedule'); 
 
-/*mailer*/
-/* Route::get("email", [MailerController::class, "email"])->name("email");
-Route::post("send-email", [MailerController::class, "composeEmail"])->name("send-email"); */
+
 
 
 

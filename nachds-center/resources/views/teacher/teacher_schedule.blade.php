@@ -39,7 +39,7 @@
     <div class="wrapper" style="min-height: 650px;">
         <div class="side-body padding-top">
            <div style="display: flex; float: right;"><label style="padding: 7px;">Groupes</label>
-                <select name="groupe_id" id="groupe_id" class="form-control" required>
+                <select name="groupe_id"  onchange="toggle_form_element(this)" id="groupe_id" class="form-control" required>
                     <option value="">Choisir...</option>
                     @foreach ($groupes as $grp)
                         <option value="{{ $grp->id }}"> {{ @$grp->designation }} </option>
@@ -54,7 +54,7 @@
                 } ?>
                 <br>
                 @foreach ($groupes as $groupe_selected)
-                    <div id="timetable_{{$groupe_selected->id}}"> 
+                    <div  id="timetable" value="{{$groupe_selected->id}}"> 
                     <center>
                         <h4>
                             Emploi
@@ -293,3 +293,5 @@
         </div>
     </div>
 @endsection
+
+

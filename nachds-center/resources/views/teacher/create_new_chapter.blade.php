@@ -156,7 +156,7 @@
                                                                             <div class="section-item-title">
                                                                                 <i class="fas fa-file-alt mr-2"></i>
                                                                                 <span
-                                                                                    class="section-item-title-text">{{ @$chp->designation }}
+                                                                                    class="section-item-title-text">{{ @$chp->designation}}
                                                                                 </span>
                                                                             </div>
                                                                             <form
@@ -167,12 +167,11 @@
                                                                                 @method('DELETE')
 
                                                                                 <button type="submit" title="Delete"
-                                                                                    class="gray-s" style="background-color: transparent !important;
-                          border: 0 !important;"><i class="uil uil-trash-alt"></i></button>
+                                                                                    class="gray-s" style="background-color: transparent !important;border: 0 !important;"><i class="uil uil-trash-alt"></i></button>
                                                                             </form>
 
                                                                             <form
-                                                                                action="{{ route('delete_new_chapter', $chp->id) }}"
+                                                                                action="{{ route('edit_new_chapter', $chp->id) }}"
                                                                                 method="GET">
 
                                                                                 <a class="gray-s"

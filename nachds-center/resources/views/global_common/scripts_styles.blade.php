@@ -210,7 +210,7 @@
       document.getElementById("designation").value(des); */
         }
       }
-    </script> --}}
+    </script> -->
    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
    <script>
      new TomSelect('#select-role', {
@@ -218,6 +218,37 @@
      });
    </script>
 
+<!-- <script>
+   function toggle_form_element(select) {
+   var elements =[];
+   var divSelect = select.value;
+   var value = $('timetable' + value).attr('id');
+   console.log(value);
+   document.querySelectorAll()
+   elements.push((document.getElementById("timetable").value);
+   for (var i = 0; i < elements.length; i++) {
+       if (i == divSelect) {
+           elements[i].style.display = "block";
+       } else {
+           elements[i].style.display = "none";
+       }
+   }
+}
+</script> -->
+
+<script>
+function toggle_form_element(select) {
+  var divSelect = select.value;
+  var elements= document.querySelectorAll("timetable");
+  for (var i = 0; i < elements.length; i++) {
+      if (elements[i].value == divSelect) {
+          elements[i].style.display = "block";
+      } else {
+          elements[i].style.display = "none";
+      }
+  }
+}
+</script>
 
 
 </body>

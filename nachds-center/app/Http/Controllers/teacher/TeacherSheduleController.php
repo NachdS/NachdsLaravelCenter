@@ -12,11 +12,8 @@ class TeacherSheduleController extends Controller
 {
     public function show(Request $request)
     {
-        //$enseignant_selected = Enseignant::find(@Auth::user()->id);
-        //$groupe_selected = $request->input('groupe_id');
         $groupes = Groupe::where('groupes.enseignant_id', @Auth::user()->id)->get();
         return view('teacher.teacher_schedule', compact(
-                //'enseignant_selected',
                 'groupes'
             )
         );
