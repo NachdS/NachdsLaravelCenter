@@ -49,8 +49,8 @@ class ChapitreController extends Controller
 
         if (@$request->file('files')) {
             foreach (@$request->file('files') as $file) {
-                {
-                    $path_files = $file->store('chapitres');
+                {   $originalName = $file->getClientOriginalName();
+                    $path_files = $file->storePubliclyAs('chapitres', $originalName);
                     $fileData[] = $path_files;
                 }
                 $new_chapitre->files = json_encode($fileData);
@@ -93,7 +93,8 @@ class ChapitreController extends Controller
         $input = $request->all();
         if (@$request->file('files')) {
             foreach (@$request->file('files') as $file) {
-                $path_files = $file->store('chapitres');
+                $originalName = $file->getClientOriginalName();
+                $path_files = $file->storePubliclyAs('chapitres', $originalName);
                 $input[] = $path_files;
             }
             $chapitre->files = json_encode($input);

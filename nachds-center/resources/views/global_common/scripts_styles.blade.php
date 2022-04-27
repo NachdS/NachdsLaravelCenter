@@ -239,9 +239,16 @@
 <script>
 function toggle_form_element(select) {
   var divSelect = select.value;
-  var elements= document.querySelectorAll("timetable");
+  console.log(select);
+
+  var id_groupe  = document.getElementById('groupe_id').value;
+
+  //var elements= document.getElementById("timetable"+ id_groupe);
+  
+  var elements= document.getElementsByName("timetable");
+  console.log(elements)
   for (var i = 0; i < elements.length; i++) {
-      if (elements[i].value == divSelect) {
+      if (elements[i].id == "timetable_"+id_groupe) {
           elements[i].style.display = "block";
       } else {
           elements[i].style.display = "none";

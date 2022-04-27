@@ -54,7 +54,7 @@
                 } ?>
                 <br>
                 @foreach ($groupes as $groupe_selected)
-                    <div  id="timetable" value="{{$groupe_selected->id}}"> 
+                    <div id="timetable_{{$groupe_selected->id}}" name="timetable" value="{{$groupe_selected->id}}"> 
                     <center>
                         <h4>
                             Emploi
