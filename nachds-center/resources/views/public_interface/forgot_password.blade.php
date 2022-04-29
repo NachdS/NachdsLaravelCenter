@@ -25,7 +25,7 @@
                     </form>
                     <p class="mb-0 mt-30">Go Back <a href="{{ url('/sign_up_steps') }}">Sign In</a></p>
                 </div>
-                <div class="sign_footer"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}"
+                <div class="sign_footer" style="display: flex !important; align-items: center !important; justify-content: center !important;"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}"
                         alt="">© 2020 <strong>Cursus</strong>. All
                     Rights Reserved.</div>
             </div>

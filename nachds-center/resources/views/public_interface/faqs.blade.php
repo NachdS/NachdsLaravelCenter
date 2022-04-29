@@ -34,7 +34,7 @@
                             <div class="membership_faq_bg">
                                 <div class="panel-group mt-4 accordion" id="accordion2">
                                     @foreach ($allfaqs as $faqs)
-                                        <div class="panel panel-default">
+                                        <div class="panel panel-default" style="border-top: 0px;">
                                             <div class="panel-heading" id="headingOne2">
                                                 <div class="panel-title">
                                                     <a class="collapsed" data-toggle="collapse"

@@ -84,7 +84,7 @@
                                                              <source src="{{ asset(@$video->file) }}" type="video/mp4" />
                                                          </video>
                                                          <div class="course-overlay">
-                                                             <span class="play_btn1">
+                                                             <span class="play_btn1" style="padding: 11px 13px;">
                                                                  <i class="uil uil-play"></i></span>
                                                          </div>
                                                      </a>
@@ -92,7 +92,7 @@
                                                          <div class="vdtodt">
                                                              <!--<span class="vdt14">15 vues</span>-->
                                                              <span
-                                                                 class="vdt14">{{ \Carbon\Carbon::parse(@$video->created_at)->format('j F') }}</span>
+                                                                 class="vdt14">{{ \Carbon\Carbon::parse(@$video->created_at)->format('j F, Y') }}</span>
                                                          </div>
                                                          <a href="course_detail_view.html"
                                                              class="crse14s">{{ @$video->designation }}</a>

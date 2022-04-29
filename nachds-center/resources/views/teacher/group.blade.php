@@ -18,10 +18,10 @@
                                         @foreach ($allGroupe as $groupe)
                                             <div class="col-md-2">
                                                 <div class="stream_1 mb-30">
-                                                    <a href="live_output.html" class="stream_bg">
+                                                    <a href="#" class="stream_bg">
                                                         <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}"
                                                             alt="">
-                                                        <a href="{{ url('/student_list_eleve') }}">
+                                                        <a href="#">
                                                             <h4 style="    color: black;
                                                         text-align: center;
                                                         margin: 20px 0px 10px 0px;">{{ $groupe->designation }}</h4>

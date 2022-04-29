@@ -32,6 +32,12 @@ class TeacherGroupeController extends Controller
             ->join('groupes', 'groupes.id', '=', 'inscriptions.groupe_id')
             ->whereIn('inscriptions.groupe_id', $arr)
             ->get();
+
+        $allCapacite = Groupe::where('enseignant_id', @Auth::user()->id)
+            ->select('capacite')
+            ->get();
+
+        //$totalCapacité = $allCapacite->sum();
         $totalelevesGroupe = $elevesGroupe->count();
 
         return view('teacher.group', compact('allGroupe', 'totalGroupes', 'totalelevesGroupe'));

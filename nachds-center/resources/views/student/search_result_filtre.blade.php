@@ -115,9 +115,9 @@
                                                     </div>
                                                 </a>
                                                 <div class="hs_content">
-                                                    <!--<div class="vdtodt">
-                                                        <span class="vdt14">{{ \Carbon\Carbon::parse(@$formation->created_at)->format('j F') }}</span>
-                                                    </div>-->
+                                                    <div class="vdtodt">
+                                                        <span class="vdt14">{{ \Carbon\Carbon::parse(@$formation->created_at)->format('j F, Y') }}</span>
+                                                    </div>
                                                     <a
                                                         class="crse14s title900">{{ @$formation->designation }}-{{ $formation->groupe }}</a>
                                                     <!--<a href="#" class="crse-cate"></a>-->

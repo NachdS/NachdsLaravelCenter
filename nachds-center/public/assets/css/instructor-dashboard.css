@@ -4904,7 +4904,7 @@ label.switch input[type=checkbox]:checked+span:before {
 }
 
 .main-btn.cancel {
-    color: #91699c;
+    /* color: #91699c; */
     background: #f3f3f3;
 }
 

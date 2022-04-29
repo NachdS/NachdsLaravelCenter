@@ -20,81 +20,83 @@ class FormationPubliqueController extends Controller
         return view('public_interface.search_result_formation', compact('allformations'));
     }
 
+    
     public function formationFiltre(Request $request)
     {
         $mat_id = $request->matiere_id;
-        $grp_id = $request->groupe_id;
-        $niv_id = $request->niv_id;
+        $niv_id = $request->niveau_id;
         $type = $request->type;
 
-        if ($grp_id != "" && $mat_id != "") {
+        if ($niv_id != "" && $mat_id != "" && $type != "" ) {
 
             //echo "3 are selected";
-            $data = Formation::join('groupes', 'formations.id', 'groupes.formation_id')
-                ->join('matieres', 'formations.matiere_id', 'matieres.id')
-                ->join('nivs', 'formations.niveau_id', 'nivs.id')
-                ->where('groupes.id', $grp_id)
+            $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('nivs.id', $niv_id)
                 ->where('matieres.id', $mat_id)
                 ->where('formations.type', $type)
+                ->select('formations.*','nivs.*','matieres.designation as matiere')
                 ->orderBy('formations.id', 'DESC')
-                ->select(
-                    'formations.*',
-                    'groupes.designation as groupe',
-                    'groupes.id as groupe_id',
-                    'matieres.designation as matiere',
-                    'matieres.id as matiere_id',
-                    'nivs.*'
-                )
                 ->paginate(7);
+               
 
-        } else if ($mat_id != "") {
+        }  else if ($niv_id == "" && $mat_id == "") {
             //echo "mat is selected";
-            $data = Formation::join('groupes', 'formations.id', 'groupes.formation_id')
-                ->join('matieres', 'formations.matiere_id', 'matieres.id')
-                ->join('nivs', 'formations.niveau_id', 'nivs.id')
-                ->where('matieres.id', $mat_id)
+            $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('formations.type', $type)
+                ->select('formations.*','nivs.*','matieres.designation as matiere')
                 ->orderBy('formations.id', 'DESC')
-                ->select(
-                    'formations.*',
-                    'groupes.designation as groupe',
-                    'groupes.id as groupe_id',
-                    'matieres.designation as matiere',
-                    'matieres.id as matiere_id',
-                    'nivs.*'
-                )
                 ->paginate(7);
 
-        } else if ($grp_id != "") {
-            //echo "grp is selected";
-            $data = Formation::join('groupes', 'formations.id', 'groupes.formation_id')
-                ->join('matieres', 'formations.matiere_id', 'matieres.id')
-                ->join('nivs', 'formations.niveau_id', 'nivs.id')
-                ->where('groupes.id', $grp_id)
+        }
+        else if ($mat_id == "" && $type == "") {
+            //echo "mat is selected";
+            $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('nivs.id', $niv_id)
+                ->select('formations.*','nivs.*','matieres.designation as matiere')
                 ->orderBy('formations.id', 'DESC')
-                ->select(
-                    'formations.*',
-                    'groupes.designation as groupe',
-                    'groupes.id as groupe_id',
-                    'matieres.designation as matiere',
-                    'matieres.id as matiere_id',
-                    'nivs.*'
-                )
                 ->paginate(7);
-        } else if ($type != "") {
-            //echo "type is selected";
-            $data = Formation::join('groupes', 'formations.id', 'groupes.formation_id')
-                ->join('matieres', 'formations.matiere_id', 'matieres.id')
-                ->join('nivs', 'formations.niveau_id', 'nivs.id')
-                ->where('formations.type', $type)
+
+        }
+        else if ($niv_id == "" && $type == "") {
+            //echo "mat is selected";
+            $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('matieres.id', $mat_id)
+                ->select('formations.*','nivs.*','matieres.designation as matiere')
                 ->orderBy('formations.id', 'DESC')
-                ->select(
-                    'formations.*',
-                    'groupes.designation as groupe',
-                    'groupes.id as groupe_id',
-                    'matieres.designation as matiere',
-                    'matieres.id as matiere_id',
-                    'nivs.*'
-                )
+                ->paginate(7);
+
+        }
+        else if ($mat_id == "") {
+            //echo "mat is selected";
+            $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('nivs.id', $niv_id)
+                ->where('formations.type', $type)
+                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->orderBy('formations.id', 'DESC')
+                ->paginate(7);
+
+        } else if ($niv_id == "") {
+            //echo "grp is selected";
+            $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('matieres.id', $mat_id)
+                ->where('formations.type', $type)
+                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->orderBy('formations.id', 'DESC')
+                ->paginate(7);
+        }else if ($type == "") {
+            //echo "type is selected";
+            $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('nivs.id', $niv_id)
+                ->where('matieres.id', $mat_id)
+                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->orderBy('formations.id', 'DESC')
                 ->paginate(7);
         } else {
             //echo "nothing is slected";
@@ -102,8 +104,8 @@ class FormationPubliqueController extends Controller
 
         }
 
-        if (count($data) == "0") {
-            echo "<h1 align='center'>no products found under this Category</h1>";
+        if ($data->count() == 0) {
+            echo "<h1 align='center'>Groupe not found</h1>";
         } else {
             return view('public_interface.search_result_formation_filter', [
                 'data' => $data,
@@ -112,3 +114,6 @@ class FormationPubliqueController extends Controller
 
     }
 }
+
+
+

@@ -72,7 +72,7 @@
                    
                     <p class="mb-0 mt-30 hvsng145">Vous n'avez pas de compte ?<a href="{{url('/sign_up_steps')}}">S'inscrire</a></p>
              </div>
-             <div class="sign_footer"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}" alt="">© 2020 <strong>Cursus</strong>. All
+             <div class="sign_footer" style="display: flex;float: left;width: 100%;align-items: center;justify-content: center;"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}" alt="">© 2020 <strong>Cursus</strong>. All
                 Rights Reserved.
              </div>
             </div>

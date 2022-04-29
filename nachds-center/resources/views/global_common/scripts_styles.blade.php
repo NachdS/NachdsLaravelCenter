@@ -91,6 +91,14 @@
   <script src="{{ asset('assets/js/function.js') }}"></script>
   <script src="{{ asset('assets/js/datepicker.min.js') }}"></script>
   <script src="{{ asset('assets/js/i18n/datepicker.en.js') }}"></script>
+  <script>
+    function chapitreInfo(chap , cour) {
+      console.log(chap.designation)
+     document.getElementById("designation").innerHTML=chap.designation;
+     document.getElementById("description").innerHTML=chap.description;
+      }
+    
+  </script> 
   <script>$(document).ready(function () {
       $('#dtBasicExample').DataTable();
       $('.dataTables_length').addClass('bs-select');
@@ -197,20 +205,14 @@
     document.getElementById("video1").src = 'http://127.0.0.1/nachds-center/storage/app/public/'+vid;
     }
   </script> 
-    <!--<script>
-      function playme(vid) {
-       let file = document.querySelector("video1");
-       let parsedJson = JSON.parse(file.innerHTML);
-       parsedJson.forEach((item) => {
-        if (video1[i].type = "mp4") {
-         file.innerHTML.src = 'http://127.0.0.1/nachds-center/storage/app/public/'+vid;
-     });
-
-      /* document.getElementById("description").value(desc);
-      document.getElementById("designation").value(des); */
-        }
+    <script>
+     function getvalue() {
+      console.log(event.target.value);
       }
-    </script> -->
+    </script> 
+
+{{-- showcourinfo --}}
+
    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
    <script>
      new TomSelect('#select-role', {

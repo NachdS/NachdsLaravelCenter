@@ -1256,6 +1256,9 @@ i.icon1 {
     -ms-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
 }
+.course-overlay .play_btn1 {
+ padding: 11px 13px !important;
+  }
 
 .course-overlay:hover .play_btn1 {
     color: #fff !important;
@@ -8779,3 +8782,12 @@ header.header.clearfix {
         height: -webkit-fill-available !important;
         width: -webkit-fill-available !important;
      }
+
+
+
+
+     .sign_footer {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }

@@ -274,11 +274,11 @@
                                                                                                                         class="form-group">
                                                                                                                         <div
                                                                                                                             class="ui search focus lbel25 mt-30">
-                                                                                                                            <label>Description*</label>
+                                                                                                                            <label for="description">Description*</label>
                                                                                                                                     <div
                                                                                                                                       class="ui form swdh30">
                                                                                                                                         <div class="field">
-                                                                                                                                            <textarea value="{{old('description')}}" rows="3" name="description" id="description" ></textarea>
+                                                                                                                                            <textarea value="{{$chp->description}}" rows="3" name="description" id="description"></textarea>
                                                                                                                                         </div>
                                                                                                                                     </div>
                                                                                                                         </div>

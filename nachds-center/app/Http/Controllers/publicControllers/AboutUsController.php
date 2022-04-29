@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\publicControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Candidat;
 use App\Models\Coordonnee;
 use App\Models\Cour;
 use App\Models\Enseignant;
@@ -26,6 +27,7 @@ class AboutUsController extends Controller
         $allcondidats = Enseignant::all();
         $allformations = Formation::all();
         $allcours = Cour::all();
+        $allstudents = Candidat::all();
         $allinscription = Inscription::all();
         $allpartenaires = Partenaire::latest()->paginate(10);
 
@@ -36,9 +38,10 @@ class AboutUsController extends Controller
         $totalCours = $allcours->count();
         $totalInscription = $allinscription->count();
         $totalPartenaires = $allpartenaires->count();
+        $totalStudents = $allstudents->count();
 
         /*   dd($allaboutUs); */
 
-        return view('public_interface.about_us', compact('allaboutUs', 'totalEnseignants', 'totalCondidats', 'totalFormations', 'totalCours', 'totalPartenaires', 'totalInscription'));
+        return view('public_interface.about_us', compact('allaboutUs', 'totalEnseignants', 'totalCondidats', 'totalFormations', 'totalCours', 'totalPartenaires', 'totalInscription','totalStudents'));
     }
 }

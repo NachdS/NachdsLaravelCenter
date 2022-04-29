@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <div class="p__metric">
-                            25k
+                            {{@$totalStudents}}
                             <span>Elèves</span>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <div class="p__metric">
                             {{ @$totalInscription }}
-                            <span>Inscription</span>
+                            <span>Inscriptions</span>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6">

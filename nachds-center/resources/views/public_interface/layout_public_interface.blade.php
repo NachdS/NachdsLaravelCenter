@@ -10,16 +10,16 @@
                     <ul class="fotb_left">
                         <li>
                             @if (@$header)
-                                <p style="margin-top: 4px;">Phone Number: {{ @$header->telephone1 }}</p>
+                                <p style="margin-top: 4px; font-size: 14px; font-weight: 200; font-style: italic;">Phone Number: {{ @$header->telephone1 }}</p>
                             @endif
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4" style="text-align: center;">
+                <div class="col-md-4" style="text-align: center; font-size: 14px; font-weight: 200; font-style: italic;">
                     <ul class="fotb_left">
                         <li>
                             @if (@$header)
-                                <p style="margin-top: 4px;">Email: {{ @$header->email }}</p>
+                                <p style="margin-top: 4px; font-size: 14px; font-weight: 200; font-style: italic;">Email: {{ @$header->email }}</p>
                             @endif
                         </li>
                     </ul>

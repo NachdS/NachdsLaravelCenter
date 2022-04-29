@@ -50,8 +50,8 @@ class ChapitreController extends Controller
         if (@$request->file('files')) {
             foreach (@$request->file('files') as $file) {
                 {   $originalName = $file->getClientOriginalName();
-                    $path_files = $file->storePubliclyAs('chapitres', $originalName);
-                    $fileData[] = $path_files;
+                    $path_files = $file->store('/chapitres');
+                    $fileData[] = ['original_name'=> $originalName , 'download_link' =>$path_files];
                 }
                 $new_chapitre->files = json_encode($fileData);
             }
@@ -94,14 +94,13 @@ class ChapitreController extends Controller
         if (@$request->file('files')) {
             foreach (@$request->file('files') as $file) {
                 $originalName = $file->getClientOriginalName();
-                $path_files = $file->storePubliclyAs('chapitres', $originalName);
-                $input[] = $path_files;
+                $path_files = $file->store('/chapitres');
+                $input[] = ['original_name'=> $originalName , 'download_link' =>$path_files];
             }
             $chapitre->files = json_encode($input);
 
         }
         $chapitre->update($input);
-
         return redirect()->route('create_new_chapter', $request->input('cour_id'))
             ->with('success', 'Chapitre updated successfully');
     }
@@ -113,10 +112,10 @@ class ChapitreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {  
         Chapitre::find($id)->delete();
 
-        return redirect()->route('create_new_chapter')
+        return redirect()->route('instructor_courses')
             ->with('success', 'Chapitre deleted successfully');
     }
 }

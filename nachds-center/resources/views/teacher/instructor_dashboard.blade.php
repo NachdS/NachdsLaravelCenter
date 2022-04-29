@@ -82,13 +82,13 @@
                                                     <div class="badge_seller">
                                                         {{ \Carbon\Carbon::parse(@$cour->created_at)->format('j F, Y') }}
                                                     </div>
-                                                    <div class="crse_reviews">
+                                                    <!-- <div class="crse_reviews">
                                                         <i class="uil uil-star"></i>4.5
-                                                    </div>
+                                                    </div> -->
                                                     <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                                    <div class="crse_timer">
+                                                    <!-- <div class="crse_timer">
                                                         25 hours
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </a>
                                             <div class="fcrse_content">

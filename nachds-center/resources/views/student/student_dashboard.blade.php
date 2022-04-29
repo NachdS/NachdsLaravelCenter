@@ -80,26 +80,26 @@
                                                 <a class="fcrse_img">
                                                     <img src="{{ asset(@$form->image) }}" alt="">
                                                     <div class="course-overlay">
-                                                        <div class="badge_seller">Les plus abonnés</div>
-                                                        <div class="crse_reviews">
+                                                        <div class="badge_seller">{{ @$form->matiere }}</div>
+                                                        <!-- <div class="crse_reviews">
                                                             <i class="uil uil-star"></i>top
-                                                        </div>
+                                                        </div> -->
                                                         <span class="play_btn1"><i class="uil uil-play"></i></span>
                                                         <div class="crse_timer">
-                                                            {{ @$form->duree }}
+                                                            {{ @$form->duree }} Jours
                                                         </div>
                                                     </div>
                                                 </a>
                                                 <div class="fcrse_content">
                                                     <div class="vdtodt">
-                                                        <span class="vdt14">109k views</span>
-                                                        <span class="vdt14">{{ @$form->created_at }}</span>
+                                                        <span class="vdt14">{{ \Carbon\Carbon::parse(@$form->created_at)->format('j F, Y') }}</span>
+                                                      
                                                     </div>
                                                     <a href="{{ url('/student_course_detail') }}"
                                                         class="crse14s">{{ @$form->designation }}</a>
                                                     <!-- <a href="#" class="crse-cate">{{ @$form->matiere }}</a> -->
                                                     <div class="auth1lnkprce">
-                                                        <p class="cr1fot">By <a href="#">John Doe</a></p>
+                                                       <!--  <p class="cr1fot">By <a href="#">John Doe</a></p> -->
                                                         <div class="prce142">{{ @$form->prix1 }}dt</div>
                                                         <button class="shrt-cart-btn" title="cart"><i
                                                                 class="uil uil-shopping-cart-alt"></i></button>

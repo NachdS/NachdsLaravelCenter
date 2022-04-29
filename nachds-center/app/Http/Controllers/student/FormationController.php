@@ -16,16 +16,6 @@ class FormationController extends Controller
 {
     public function show(Formation $formations, Enseignant $enseignants, User $users, Groupe $groupes, Niv $nivs)
     {
-        //$allformations = Formation::paginate(7);
-
-        /*  $allformations = Formation::join('nivs','nivs.id','=','formations.id')
-        ->get(); */
-
-        /*  $allformations = Formation::join('groupes','groupes.formation_id','=','formations.id')
-        ->join('enseignants', 'groupes.enseignant_id', '=', 'enseignants.id')
-        ->join('users','users.id',"=","enseignants.id")
-        ->get();  */
-
         $allformations = Formation::
             join('groupes', 'formations.id', 'groupes.formation_id')
             ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
@@ -42,13 +32,7 @@ class FormationController extends Controller
                 'inscriptions.prix_acompte',
             )
             ->paginate(7);
-        /*$allformations = Inscription::
-        join('groupes', 'inscriptions.groupe_id', 'groupes.id')
-        ->join('formations', 'groupes.formation_id', 'formations.id')
-        ->where('inscriptions.candidat_id',@Auth::user()->id)
-        ->orderBy('formations.id', 'DESC')
-        ->select('formations.*')
-        ->paginate(7);*/
+
         return view('student.search_result', compact('allformations'));
     }
 
@@ -81,8 +65,7 @@ class FormationController extends Controller
                 ->where('nivs.id', $niv_id)
                 ->where('matieres.id', $mat_id)
                 ->where('formations.type', $type)
-                ->orderBy('formations.id', 'DESC')
-                ->select(
+                ->orderBy('formations.id', 'DESC')->select(
                     'formations.*',
                     'nivs.*',
                     'groupes.designation as groupe',
@@ -93,8 +76,9 @@ class FormationController extends Controller
                     'matieres.id as matiere_id',
                 )
                 ->paginate(7);
+               
 
-        }  else if ($niv_id != "" && $mat_id != "") {
+        }  else if ($niv_id == "" && $mat_id == "") {
             //echo "mat is selected";
             $data = Formation::
                 join('groupes', 'formations.id', 'groupes.formation_id')
@@ -102,31 +86,6 @@ class FormationController extends Controller
                 ->join('matieres', 'formations.matiere_id', 'matieres.id')
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('inscriptions.candidat_id', @Auth::user()->id)
-                ->where('nivs.id', $niv_id)
-                ->where('matieres.id', $mat_id)
-                ->orderBy('formations.id', 'DESC')
-                ->select(
-                    'formations.*',
-                    'nivs.*',
-                    'groupes.designation as groupe',
-                    'groupes.id as groupe_id',
-                    'matieres.designation as matiere',
-                    'inscriptions.prix_total',
-                    'inscriptions.prix_acompte',
-                    'matieres.id as matiere_id',
-                )
-                ->paginate(7);
-
-        }
-        else if ($mat_id != "" && $type != "") {
-            //echo "mat is selected";
-            $data = Formation::
-                join('groupes', 'formations.id', 'groupes.formation_id')
-                ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
-                ->join('matieres', 'formations.matiere_id', 'matieres.id')
-                ->join('nivs','formations.niveau_id','nivs.id')
-                ->where('inscriptions.candidat_id', @Auth::user()->id)
-                ->where('matieres.id', $mat_id)
                 ->where('formations.type', $type)
                 ->orderBy('formations.id', 'DESC')
                 ->select(
@@ -142,7 +101,53 @@ class FormationController extends Controller
                 ->paginate(7);
 
         }
-        else if ($niv_id != "" && $type != "") {
+        else if ($mat_id == "" && $type == "") {
+            //echo "mat is selected";
+            $data = Formation::
+                join('groupes', 'formations.id', 'groupes.formation_id')
+                ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
+                ->join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('inscriptions.candidat_id', @Auth::user()->id)
+                ->where('nivs.id', $niv_id)
+                ->orderBy('formations.id', 'DESC')
+                ->select(
+                    'formations.*',
+                    'nivs.*',
+                    'groupes.designation as groupe',
+                    'groupes.id as groupe_id',
+                    'matieres.designation as matiere',
+                    'inscriptions.prix_total',
+                    'inscriptions.prix_acompte',
+                    'matieres.id as matiere_id',
+                )
+                ->paginate(7);
+
+        }
+        else if ($niv_id == "" && $type == "") {
+            //echo "mat is selected";
+            $data = Formation::
+                join('groupes', 'formations.id', 'groupes.formation_id')
+                ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
+                ->join('matieres', 'formations.matiere_id', 'matieres.id')
+                ->join('nivs','formations.niveau_id','nivs.id')
+                ->where('inscriptions.candidat_id', @Auth::user()->id)
+                ->where('matieres.id', $mat_id)
+                ->orderBy('formations.id', 'DESC')
+                ->select(
+                    'formations.*',
+                    'nivs.*',
+                    'groupes.designation as groupe',
+                    'groupes.id as groupe_id',
+                    'matieres.designation as matiere',
+                    'inscriptions.prix_total',
+                    'inscriptions.prix_acompte',
+                    'matieres.id as matiere_id',
+                )
+                ->paginate(7);
+
+        }
+        else if ($mat_id == "") {
             //echo "mat is selected";
             $data = Formation::
                 join('groupes', 'formations.id', 'groupes.formation_id')
@@ -165,30 +170,7 @@ class FormationController extends Controller
                 )
                 ->paginate(7);
 
-        }
-        else if ($mat_id != "") {
-            //echo "mat is selected";
-            $data = Formation::
-                join('groupes', 'formations.id', 'groupes.formation_id')
-                ->join('inscriptions', 'groupes.id', 'inscriptions.groupe_id')
-                ->join('matieres', 'formations.matiere_id', 'matieres.id')
-                ->join('nivs','formations.niveau_id','nivs.id')
-                ->where('inscriptions.candidat_id', @Auth::user()->id)
-                ->where('matieres.id', $mat_id)
-                ->orderBy('formations.id', 'DESC')
-                ->select(
-                    'formations.*',
-                    'nivs.*',
-                    'groupes.designation as groupe',
-                    'groupes.id as groupe_id',
-                    'matieres.designation as matiere',
-                    'inscriptions.prix_total',
-                    'inscriptions.prix_acompte',
-                    'matieres.id as matiere_id',
-                )
-                ->paginate(7);
-
-        } else if ($niv_id != "") {
+        } else if ($niv_id == "") {
             //echo "grp is selected";
             $data = Formation::
                 join('groupes', 'formations.id', 'groupes.formation_id')
@@ -196,7 +178,8 @@ class FormationController extends Controller
                 ->join('matieres', 'formations.matiere_id', 'matieres.id')
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('inscriptions.candidat_id', @Auth::user()->id)
-                ->where('matieres.id', $niv_id)
+                ->where('matieres.id', $mat_id)
+                ->where('formations.type', $type)
                 ->orderBy('formations.id', 'DESC')
                 ->select(
                     'formations.*',
@@ -209,7 +192,7 @@ class FormationController extends Controller
                     'matieres.id as matiere_id',
                 )
                 ->paginate(7);
-        }else if ($type != "") {
+        }else if ($type == "") {
             //echo "type is selected";
             $data = Formation::
                 join('groupes', 'formations.id', 'groupes.formation_id')
@@ -217,7 +200,8 @@ class FormationController extends Controller
                 ->join('matieres', 'formations.matiere_id', 'matieres.id')
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('inscriptions.candidat_id', @Auth::user()->id)
-                ->where('formations.type', $type)
+                ->where('nivs.id', $niv_id)
+                ->where('matieres.id', $mat_id)
                 ->orderBy('formations.id', 'DESC')
                 ->select(
                     'formations.*',
@@ -236,7 +220,7 @@ class FormationController extends Controller
 
         }
 
-        if (count($data) == "0") {
+        if ($data->count() == 0) {
             echo "<h1 align='center'>Groupe not found</h1>";
         } else {
             return view('student.search_result_filtre', [

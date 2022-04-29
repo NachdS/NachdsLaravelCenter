@@ -14,7 +14,7 @@
             <a href="{{ url('/index') }}"><img class="logo-inverse" src="{{ asset('assets/images/ct_logo.png') }}"
                     alt=""></a>
         </div>
-        <div class="search120">
+       <!-- <div class="search120">
             <div class="ui search">
                 <div class="ui left icon input swdh10">
                     <input class="prompt srch10" type="text"
@@ -22,7 +22,7 @@
                     <i class='uil uil-search-alt icon icon1'></i>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="header_right">
             <ul>
                 <li>

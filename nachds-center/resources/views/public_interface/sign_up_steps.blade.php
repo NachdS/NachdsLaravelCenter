@@ -154,7 +154,7 @@
                         </div>
 
                     </div>
-                    <div class="sign_footer"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}"
+                    <div class="sign_footer" style="display: flex;float: left;width: 100%;align-items: center;justify-content: center;"><img class="sign_logo_footer" src="{{ asset('assets/images/logo.png') }}"
                             alt="">© 2020 <strong>Cursus</strong>. All
                         Rights Reserved.</div>
                 </div>

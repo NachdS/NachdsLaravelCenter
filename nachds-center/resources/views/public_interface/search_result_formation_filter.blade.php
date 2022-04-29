@@ -465,58 +465,49 @@
                         <div class="result_stitles">
                             <div class="rs6t_title">Filters</div>
                         </div>
+                                        
                         @if (count($data) != '0')
                             <form action="{{ route('search_result_formation_filter') }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <div class="col-lg-12 col-md-4 mt-50">
-                                    <select class="form-control" id="grpID2" name="groupe_id">
-                                        <option value="">Choisir groupe ...</option>
-                                        @foreach (App\Models\Groupe::all() as $grp)
-                                            <option value="{{ $grp->id }}">
-                                                {{ $grp->designation }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-12 col-md-4" style="margin-top: 5px">
-                                    <select class="form-control" id="grpID2" name="niveau_id">
-                                        <option value="">Choisir niveau ...</option>
-                                        @foreach (App\Models\Niv::all() as $niv)
-                                            <option value="{{ $niv->id }}">
-                                                {{ $niv->designation }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-12 col-md-4" style="margin-top: 5px">
-                                    <select class="form-control" class="form-controle" id="matID2" name="matiere_id">
-                                        <option value="">Choisir Matière ...</option>
-                                        @foreach (App\Models\Matiere::all() as $mat)
-                                            <option value="{{ $mat->id }}">
-                                                {{ $mat->designation }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                
-                                <div class="col-lg-12 col-md-4" style="margin-top: 5px">
-                                    <select class="form-control" class="form-controle" id="matID2" name="type">
-                                        <option value="">Choisir type ...</option>
-                                        @foreach (App\Models\Formation::all() as $form)
-                                            <option value="{{ $form->type }}">
-                                                {{ $form->type }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-12 col-md-4" style="margin-top: 20px">
-                                    <div class="">
-                                        <div class="">
-                                            <input type="submit" style="width: 100%;" class="btn btn-default steps_btn" value="Find" class="btn btn-success">
-                                        </div>
-                                        <div class="styleNm"></div>
+                                    @csrf
+                                    <div class="col-lg-12 col-md-4 mt-50">
+                                        <select class="form-control" id="grpID2" name="niveau_id">
+                                            <option value="">Choisir niveau ...</option>
+                                            @foreach (App\Models\Niv::all() as $niv)
+                                                <option value="{{ $niv->id }}">
+                                                    {{ $niv->designation }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                </div>
-                            </form>
+
+                                    <div class="col-lg-12 col-md-4" style="margin-top: 5px">
+                                        <select class="form-control" class="form-controle" id="matID2" name="matiere_id">
+                                            <option value="">Choisir Matière ...</option>
+                                            @foreach (App\Models\Matiere::all() as $mat)
+                                                <option value="{{ $mat->id }}">
+                                                    {{ $mat->designation }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-lg-12 col-md-4" style="margin-top: 5px">
+                                        <select class="form-control" class="form-controle" id="matID2" name="type">
+                                            <option value="">Choisir type ...</option>
+                                            @foreach (App\Models\Formation::all() as $form)
+                                                <option value="{{ $form->type }}">
+                                                    {{ $form->type }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-4" style="margin-top: 20px">
+                                        <div class="">
+                                            <div class="">
+                                                <input type="submit" style="width: 100%;" class="btn btn-default steps_btn" value="Find" class="btn btn-success">
+                                            </div>
+                                            <div class="styleNm"></div>
+                                        </div>
+                                    </div>
+                                </form>
                         @endif
                     </div>
                 </div>

@@ -25,7 +25,7 @@
          </div>
          <div class="faq1256 index-content ">
              <div class="container">
-                 <div class="row justify-content-md-center">
+                 <div class="row justify-content-md-center mb-50">
                      @if (@$detailEvenement->count() > 0)
                          @foreach ($detailEvenement as $event)
                              <div class="col-md-8">
@@ -49,21 +49,7 @@
                              </div>
                          @endforeach
                      @endif
-                     <div class="col-md-12">
-                         <div class="blog_pagination">
-                             <a href="#" class="bp_left">
-                                 <i class="uil uil-angle-double-left"></i>
-                                 <div class="kslu15">
-                                     <div class="prevlink">Précédent</div>
-                                 </div>
-                             </a>
-                             <a href="#" class="bp_right">
-                                 <div class="kslu16">
-                                     <div class="prevlink1">Suivant</div>
-                                     <i class="uil uil-angle-double-right"></i>
-                             </a>
-                         </div>
-                     </div>
+                     
                  </div>
              </div>
          </div>
