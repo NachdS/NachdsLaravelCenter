@@ -2,6 +2,8 @@
  @section('content_public')
 
      <div class="wrapper _bg4586 _new89">
+        @if (@$detailEvenement->count() > 0)
+        @foreach ($detailEvenement as $event)
          <div class="_215cd2">
              <div class="container">
                  <div class="row">
@@ -17,7 +19,7 @@
                              </nav>
                          </div>
                          <div class="title129">
-                             <h2>Event Title</h2>
+                             <h2>{{ $event->title }}</h2>
                          </div>
                      </div>
                  </div>
@@ -26,8 +28,6 @@
          <div class="faq1256 index-content ">
              <div class="container">
                  <div class="row justify-content-md-center mb-50">
-                     @if (@$detailEvenement->count() > 0)
-                         @foreach ($detailEvenement as $event)
                              <div class="col-md-8">
 
                                  @include('global_common/bloc_menuicon')
@@ -38,21 +38,23 @@
                                  </div>
                                  <div class="vew120 frc123">
                                      <div class="vdtodt55">
-                                         <span class="vdt24">Par {{ $event->publier }}</span>
-                                         <span class="vdt24">{{ $event->created_at->format('j F, Y') }}</span>
+                                         <!-- <span class="vdt24">
+                                            {{--  {{ is_null($event->created_at) ? '' : $event->created_at->format('j F, Y') }} --}}
+                                         </span> -->
+                                         <span> Du {{ @$event->date_debut}}</span>
+                                         <span>au {{ @$event->date_fin }}</span>
                                      </div>
                                  </div>
                                  <div class="vew120 mt-35 mb-30">
-                                     <h4>{{ $event->title }}</h4>
+                                     <!-- <h4>{{ $event->title }}</h4> -->
                                      <p>{{ $event->description }}</p>
                                  </div>
                              </div>
-                         @endforeach
-                     @endif
-                     
                  </div>
              </div>
          </div>
+         @endforeach
+         @endif
      </div>
 
  @endsection

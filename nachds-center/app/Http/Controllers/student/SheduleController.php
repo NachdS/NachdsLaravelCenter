@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class SheduleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+    
     public function show()
     {
         $groupes = Groupe::join('inscriptions', 'inscriptions.groupe_id', '=', 'groupes.id')

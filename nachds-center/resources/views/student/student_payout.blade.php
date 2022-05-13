@@ -20,8 +20,7 @@
                                 <div class="payout__via">
                                 </div>
                                 <div class="">
-                                    <p><small class="payout__small-notification">Etat Formation
-                                            <strong>Payé/ Pas encore Payé</strong></small>
+                                    <p>
                                         <button class="main-btn color btn-hover" style="float: right;"
                                             onclick="window.location.href = '{{ url('/make_new_payement') }}';"><i
                                                 class="fas fa-dollar-sign mr-2"></i>Effectuer paiement</button>
@@ -32,7 +31,7 @@
                         </div>
                         <div class="top_countries mt-30">
                             <div class="top_countries_title">
-                                <h2>Le reste à payer</h2>
+                                <h2>Le reste à payer en total</h2>
                             </div>
                             <div class="payout_content">
                                 <img src="" alt="">

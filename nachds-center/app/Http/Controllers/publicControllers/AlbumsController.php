@@ -16,7 +16,7 @@ class AlbumsController extends Controller
      */
     public function show(Album $albums)
     {
-        $allalbums = Album::latest()->paginate(8);
+        $allalbums = Album::orderBy('created_at', 'DESC')->paginate(8);
 
         return view('public_interface.gallery', compact('allalbums'));
     }

@@ -149,7 +149,7 @@ Route::get('teacher_schedule', [TeacherSheduleController::class, 'show'])->name(
 /**********auth route  **************/
 Auth::routes();
 
-Route::get('sign_in_student', [App\Http\Controllers\Auth\LoginController::class, 'showStudentForm']);
+Route::get('sign_in_student', [App\Http\Controllers\Auth\LoginController::class, 'showStudentForm'])->name('sign_in_student');
 Route::get('sign_in_teacher', [App\Http\Controllers\Auth\LoginController::class, 'showTeacherForm']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

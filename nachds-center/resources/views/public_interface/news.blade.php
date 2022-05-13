@@ -61,18 +61,26 @@
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-7">
-                        <div class="press_news">
+                        <div class="press_news mb-50">
                             @if (@$allactualites->count() > 0)
                                 @foreach (@$allactualites as $actualite)
-                                    <div class="press_item mt-35">
-                                        <div class="vdtopress">{{ @$actualite->created_at->format('j F, Y') }}</div>
-                                        <h4>{{ @$actualite->title }}</h4>
-                                        <p class="blog_des">
-                                            {{ $actualite->short_description }}</p>
-
+   
+                                    <div class="blogbg_1 mb-35">
                                         <a href="{{ route('news_detail', ['id' => @$actualite->id]) }}"
-                                            class="press_dt_view">lire la suite<i
-                                                class="uil uil-angle-double-right"></i></a>
+                                            class="hf_img">
+                                            <img src="{{ asset(@$actualite->cover) }}" />
+                                            <div class="course-overlay"></div>
+                                        </a>
+                                        <div class="hs_content">
+                                            <div class="vdtodt">
+                                                <span>  {{ @$actualite->created_at->format('j F, Y')}}</span>
+                                            </div>
+                                            <a href="{{ route('news_detail', ['id' => @$actualite->id]) }}"
+                                                class="crse14s title900">{{ @$actualite->title }}</a>
+                                            <p class="blog_des">{{ @$actualite->short_description }}</p>
+                                            <a href="{{ route('news_detail', ['id' => @$actualite->id]) }}"
+                                                class="view-blog-link">Lire la suite<i class="uil uil-arrow-right"></i></a>
+                                        </div>
                                     </div>
                                 @endforeach
                             @endif

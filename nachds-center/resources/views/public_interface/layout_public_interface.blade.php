@@ -64,6 +64,9 @@
                         <li>
                             <a href="{{ url(@$menu->url) }}">{{ @$menu->title }}</a>
                         </li>
+                   
+                        {{-- <li>
+                        <a @if (@$page == 'about_us') style="color: red" @else style="color: rgb(255, 251, 0)" @endif href="{{route('about_us')}}">{{ @$menu->title }}</a></li>   --}}     
                     @endforeach
                 </ul>
             </nav>

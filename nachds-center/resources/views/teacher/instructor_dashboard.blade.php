@@ -26,7 +26,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Total des groupes</h5>
-                                <h2>{{ @$totalGroupes }}</h2>
+                                <h3>{{ @$totalGroupes }} Groupes</h3>
                             </div>
                             <div class="card_dash_right">
                                 <img src="{{ asset('assets/images/dashboard/graduation-cap.svg') }}" alt="">
@@ -37,7 +37,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Total des cours</h5>
-                                <h2>{{ @$totalCours }}</h2>
+                                <h3>{{ @$totalCours }} Cours</h3>
                             </div>
                             <div class="card_dash_right">
                                 <img src="{{ asset('assets/images/dashboard/online-course.svg') }}" alt="">
@@ -48,14 +48,14 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Total d'élèves</h5>
-                                <h2>{{ @$totalCondidats }}</h2>
+                                <h3>{{ @$totalCondidats }} Elèves</h3>
                             </div>
                             <div class="card_dash_right">
                                 <img src="{{ asset('assets/images/dashboard/knowledge.svg') }}" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <!-- <div class="col-md-12">
                         <div class="card_dash1">
                             <div class="card_dash_left1">
                                 <i class="uil uil-book-alt"></i>
@@ -63,11 +63,11 @@
                             </div>
                             <div class="card_dash_right1">
                                 <button class="create_btn_dash"
-                                    onclick="window.location.href = '{{ url('/create_new_course') }}';">Créez votre
+                                    onclick="window.location.href = '{{-- {{ url('/create_new_course') }} --}}';">Créez votre
                                     cours</button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -76,7 +76,7 @@
                                 @foreach ($coursprof as $cour)
                                     <div class="col-lg-3 col-md-4">
                                         <div class="fcrse_1 mt-30">
-                                            <a href="{{ url('/student_course_detail') }}" class="fcrse_img">
+                                            <a class="fcrse_img">
                                                 <img src="{{ asset('assets/images/courses/img-1.jpg') }}" alt="">
                                                 <div class="course-overlay">
                                                     <div class="badge_seller">
@@ -85,7 +85,6 @@
                                                     <!-- <div class="crse_reviews">
                                                         <i class="uil uil-star"></i>4.5
                                                     </div> -->
-                                                    <span class="play_btn1"><i class="uil uil-play"></i></span>
                                                     <!-- <div class="crse_timer">
                                                         25 hours
                                                     </div> -->
@@ -105,8 +104,7 @@
                                                     <!--<span class="vdt14"></span>
                                                     <span class="vdt14"></span>-->
                                                 </div>
-                                                <a href="{{ url('/student_course_detail') }}"
-                                                    class="crse14s">{{ $cour->designation }}</a>
+                                                <a class="crse14s">{{ $cour->designation }}</a>
                                                 <a href="#" class="crse-cate">Contient {{ $cour->chapitres->count() }}
                                                     Chapitres</a>
                                                 <div class="auth1lnkprce">

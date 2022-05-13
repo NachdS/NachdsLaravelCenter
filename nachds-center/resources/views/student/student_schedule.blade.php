@@ -39,7 +39,6 @@
         <div class="side-body padding-top">
            <div style="display: flex; float: right;"><label style="padding: 7px;">Groupes</label>
                 <select name="groupe_id"  onchange="toggle_form_element(this)" id="groupe_id" class="form-control" required>
-                    <option value="">Choisir...</option>
                     @foreach ($groupes as $grp)
                         <option value="{{ $grp->id }}"> {{ @$grp->designation }} </option>
                     @endforeach

@@ -66,16 +66,14 @@
                                  </div>
                                  <ul class="contact_list_info">
                                      <li>
-                                         <div class="txt_cntct"><span class="cntct_895"><i
-                                                     class="uil uil-location-point"></i>Adresse principale :</span>
+                                         <div class="txt_cntct"><span class="cntct_895">Adresse principale :</span>
                                              <p>
                                                  {{ @$allcontacts->adresse }}
                                              </p>
                                          </div>
                                      </li>
                                      <li>
-                                         <div class="txt_cntct"><span class="cntct_895"><i
-                                                     class="uil uil-envelope"></i>Email
+                                         <div class="txt_cntct"><span class="cntct_895"></i>Email
                                                  Adresse :</span>
                                              <p><a href="https://gambolthemes.net/cdn-cgi/l/email-protection"
                                                      class="__cf_email__"
@@ -84,20 +82,17 @@
                                          </div>
                                      </li>
                                      <li>
-                                         <div class="txt_cntct"><span class="cntct_895"><i
-                                                     class="uil uil-mobile-android-alt"></i>Numéro de téléphone :</span>
+                                         <div class="txt_cntct"><span class="cntct_895">Numéro de téléphone 1:</span>
                                              <p>{{ @$allcontacts->telephone1 }}</p>
                                          </div>
                                      </li>
                                      <li>
-                                         <div class="txt_cntct"><span class="cntct_895"><i
-                                                     class="uil uil-mobile-android-alt"></i>Numéro de téléphone :</span>
+                                         <div class="txt_cntct"><span class="cntct_895">Numéro de téléphone 2:</span>
                                              <p>{{ @$allcontacts->telephone2 }} </p>
                                          </div>
                                      </li>
                                      <li>
-                                         <div class="txt_cntct"><span class="cntct_895"><i
-                                                     class="uil uil-mobile-android-alt"></i>Numéro de fax :</span>
+                                         <div class="txt_cntct"><span class="cntct_895">Fax :</span>
                                              <p>{{ @$allcontacts->fax }} </p>
                                          </div>
                                      </li>
@@ -135,32 +130,13 @@
 
                          <div class="row">
                              <div class="col-lg-12 col-md-8">
-                                 <!-- <div class="ui search focus">
-                                     <div class="ui left icon input swdh11 swdh19">
-
-                                         <input type="email" name="emailRecipient" id="emailRecipient"
-                                             class="form-control col-md-12" placeholder="Mail To">
-                                     </div>
-                                 </div> -->
-                                 {{-- <div class="ui search focus mt-30">
-									<div class="ui left icon input swdh11 swdh19">
-										<input class="prompt srch_explore" type="text" name="tel" value=""
-											id="id_tel" required="true" maxlength="64" placeholder="Numéro de téléphone">
-									</div>
-								</div> --}}
-                                 {{-- <div class="ui search focus mt-30">
-									<div class="ui left icon input swdh11 swdh19">
-										<input class="prompt srch_explore" type="email" name="emailaddress" value=""
-											id="id_email" required="" maxlength="64" placeholder="Adresse e-mail">
-									</div>
-								</div> --}}
                                 <form method="POST" action="{{ route('contact.send') }}" enctype="multipart/form-data">
                                     @csrf
                                  <div class="ui search focus mt-30">
                                      <div class="ui left icon input swdh11 swdh19">
                                        
                                          <input type="text" name="name" id="name" class="form-control"
-                                             placeholder="Name">
+                                             placeholder="Nom & Prénom">
                                         </div>
                                      
                                  </div>
@@ -175,7 +151,7 @@
                                 <div class="ui search focus mt-30">
                                     <div class="ui left icon input swdh11 swdh19">
                                         <input type="text" name="phone" id="phone" class="form-control"
-                                            placeholder="Phone">
+                                            placeholder="Numéro de téléphone">
                                        </div>
                                     
                                 </div>

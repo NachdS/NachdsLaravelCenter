@@ -10,6 +10,7 @@ use App\Models\Session;
 use App\Models\Tuteur;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ProfileStudenteController extends Controller
 {
@@ -38,10 +39,11 @@ class ProfileStudenteController extends Controller
 
         $groupe = Groupe::join('inscriptions', 'inscriptions.groupe_id', '=', 'groupes.id')
             ->where('inscriptions.candidat_id', @Auth::user()->id)
-            ->first();
+            ->get();
 
         $session = Session::join('inscriptions', 'inscriptions.session_id', '=', 'sessions.id')
             ->where('inscriptions.candidat_id', @Auth::user()->id)
+            ->where('inscriptions.created_at', '=' ,Carbon::today())
             ->first();
 
         $cours = Cour::join('groupes', 'groupes.id', '=', 'cours.groupe_id')

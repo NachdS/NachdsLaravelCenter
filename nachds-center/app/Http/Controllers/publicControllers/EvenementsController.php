@@ -16,7 +16,7 @@ class EvenementsController extends Controller
      */
     public function show(Evenement $evenements)
     {
-        $allEvenements = Evenement::latest()->paginate(8);
+        $allEvenements = Evenement::orderBy('created_at', 'DESC')->paginate(8);
 
         return view('public_interface.event', compact('allEvenements'));
     }

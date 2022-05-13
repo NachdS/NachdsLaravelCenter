@@ -29,7 +29,7 @@
                                     <div class="form-group">
                                         <label>Montant*</label>
                                         <div class="ui left icon input swdh19">
-                                            <input class="prompt srch_explore" type="text" placeholder="Montant"
+                                            <input class="prompt srch_explore" type="number" placeholder="Montant"
                                                 name="montant" data-purpose="edit-payement-title" id="main[title]" value=""
                                                 required>
                                         </div>

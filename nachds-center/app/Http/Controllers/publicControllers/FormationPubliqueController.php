@@ -15,7 +15,10 @@ class FormationPubliqueController extends Controller
 
     public function show(Formation $formations, Enseignant $enseignants, User $users, Groupe $groupes, Niv $nivs)
     {
-        $allformations = Formation::paginate(7);
+        $allformations = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
+        ->select('formations.*','matieres.designation as matiere')
+        ->orderBy('formations.id', 'DESC')
+        ->paginate(7);
 
         return view('public_interface.search_result_formation', compact('allformations'));
     }
@@ -35,7 +38,7 @@ class FormationPubliqueController extends Controller
                 ->where('nivs.id', $niv_id)
                 ->where('matieres.id', $mat_id)
                 ->where('formations.type', $type)
-                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->select('formations.*','nivs.*','matieres.designation as matiere','formations.designation as formationsdes')
                 ->orderBy('formations.id', 'DESC')
                 ->paginate(7);
                
@@ -45,7 +48,7 @@ class FormationPubliqueController extends Controller
             $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('formations.type', $type)
-                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->select('formations.*','nivs.*','matieres.designation as matiere','formations.designation as formationsdes')
                 ->orderBy('formations.id', 'DESC')
                 ->paginate(7);
 
@@ -55,7 +58,7 @@ class FormationPubliqueController extends Controller
             $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('nivs.id', $niv_id)
-                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->select('formations.*','nivs.*','matieres.designation as matiere','formations.designation as formationsdes')
                 ->orderBy('formations.id', 'DESC')
                 ->paginate(7);
 
@@ -65,7 +68,7 @@ class FormationPubliqueController extends Controller
             $data = Formation::join('matieres', 'formations.matiere_id', 'matieres.id')
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('matieres.id', $mat_id)
-                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->select('formations.*','nivs.*','matieres.designation as matiere','formations.designation as formationsdes')
                 ->orderBy('formations.id', 'DESC')
                 ->paginate(7);
 
@@ -76,7 +79,7 @@ class FormationPubliqueController extends Controller
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('nivs.id', $niv_id)
                 ->where('formations.type', $type)
-                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->select('formations.*','nivs.*','matieres.designation as matiere','formations.designation as formationsdes')
                 ->orderBy('formations.id', 'DESC')
                 ->paginate(7);
 
@@ -86,7 +89,7 @@ class FormationPubliqueController extends Controller
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('matieres.id', $mat_id)
                 ->where('formations.type', $type)
-                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->select('formations.*','nivs.*','matieres.designation as matiere','formations.designation as formationsdes')
                 ->orderBy('formations.id', 'DESC')
                 ->paginate(7);
         }else if ($type == "") {
@@ -95,7 +98,7 @@ class FormationPubliqueController extends Controller
                 ->join('nivs','formations.niveau_id','nivs.id')
                 ->where('nivs.id', $niv_id)
                 ->where('matieres.id', $mat_id)
-                ->select('formations.*','nivs.*','matieres.designation as matiere')
+                ->select('formations.*','nivs.*','matieres.designation as matiere','formations.designation as formationsdes')
                 ->orderBy('formations.id', 'DESC')
                 ->paginate(7);
         } else {

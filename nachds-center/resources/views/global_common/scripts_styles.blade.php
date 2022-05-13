@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=9">
     <meta name="description" content="Gambolthemes">
     <meta name="author" content="Gambolthemes">
-    <title>Cursus - About Us</title>
+    <title>Help Center</title>
 
     <link rel="icon" type="image/png" href="{{asset('assets/images/fav.png')}}">
 

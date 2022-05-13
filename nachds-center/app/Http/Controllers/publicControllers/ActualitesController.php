@@ -16,7 +16,7 @@ class ActualitesController extends Controller
      */
     public function show(Actualite $actualites)
     {
-        $allactualites = Actualite::latest()->paginate(8);
+        $allactualites = Actualite::orderBy('created_at', 'DESC')->paginate(8);
 
         return view('public_interface.news', compact('allactualites'));
     }

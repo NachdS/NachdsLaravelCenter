@@ -19,7 +19,7 @@
                                                         <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}"
                                                             alt="">
                                                         <h4>{{ $amis->name }}</h4>
-                                                        <p>{{ $amis->phone }}</p>
+                                                        <p>{{ $amis->email }}</p>
                                                     </a>
                                                 </div>
                                             </div>

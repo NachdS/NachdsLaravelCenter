@@ -32,20 +32,20 @@
                                 <p>Attendez, qu'en est-il…</p>
                             </div>
                             <div class="membership_faq_bg">
-                                <div class="panel-group mt-4 accordion" id="accordion2">
+                                <div class="panel-group mt-4 accordion" id="accordion">
                                     @foreach ($allfaqs as $faqs)
                                         <div class="panel panel-default" style="border-top: 0px;">
-                                            <div class="panel-heading" id="headingOne2">
+                                            <div class="panel-heading" id="headingOne2{{ $faqs->id }}">
                                                 <div class="panel-title">
                                                     <a class="collapsed" data-toggle="collapse"
-                                                        data-target="#collapseOne2" href="#" aria-expanded="false"
-                                                        aria-controls="collapseOne2">
+                                                        data-target="#collapseOne2{{ $faqs->id }}" href="#" aria-expanded="false"
+                                                        aria-controls="collapseOne2{{ $faqs->id }}">
                                                         {{ $faqs->question }}
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div id="collapseOne2" class="panel-collapse collapse"
-                                                aria-labelledby="headingOne2" data-parent="#accordion2">
+                                            <div id="collapseOne2{{ $faqs->id }}" class="panel-collapse collapse"
+                                                aria-labelledby="headingOne2{{ $faqs->id }}" data-parent="#accordion">
                                                 <div class="panel-body">{{ $faqs->reponse }}</div>
                                             </div>
                                         </div>

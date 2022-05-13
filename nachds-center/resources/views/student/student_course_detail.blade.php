@@ -70,7 +70,7 @@
                                             </ul>
                                         </div>
                                         @foreach ($cours as $cour)
-                                            <div id="accordion{{ $cour->id }}"
+                                            <div id="accordion"
                                                 class="ui-accordion ui-widget ui-helper-reset">
                                                 <a href="javascript:void(0)"
                                                     class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">
@@ -87,13 +87,13 @@
                                                 </a>
 
                                                 <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom"
-                                                    id="accordion2">
+                                                    id="accordion">
                                                     @foreach (@$cour->chapitres as $chap)
                                                         <div class="panel panel-default"
                                                             style="margin-bottom: 0px; border-bottom: 1px solid #efefef;">
                                                             <div class="panel-heading"
                                                                 id="headingOne2_{{ @$chap->id }}">
-                                                                <div class="panel-title" style="border:none;">
+                                                                <div class="panel-title" style="border:none; margin-left: 15px">
                                                                     <a onclick="chapitreInfo({{$chap}} , {{$cour}})" value={{ @$chap->designation }}
                                                                         class="" data-toggle="collapse"
                                                                         data-target="#collapseOne2_{{ @$chap->id }}"
@@ -112,45 +112,44 @@
                                                                         <?php $ext = pathinfo(@$file->download_link, PATHINFO_EXTENSION); ?>
                                                                         <div id="collapseOne2_{{ @$chap->id }}"
                                                                             class="panel-collapse collapse"
-                                                                            data-parent="#accordion2">
+                                                                            data-parent="#accordion">
                                                                             <div class="panel-body"
                                                                                 style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-left: none; border-top: 1px solid #efefef; border-bottom: none; padding: 10px;">
                                                                                 <a class="fileType" target="_blank"
-                                                                                href="{{env('APP_STORAGE')}}{{$file->download_link}}"
+                                                                                href="{{env('APP_STORAGE')}}{{@$file->download_link}}"
                                                                                     data-file-name="{{@$file->original_name }}">
                                                                                     @if ($ext == 'pdf')
                                                                                         <div class="img_settings_container"
                                                                                             style="float:left;padding-right:15px;">
-                                                                                            <i class="fas fa-file-pdf"></i>
+                                                                                            <i class="fas fa-file-pdf" style="margin-left: 55px"></i>
                                                                                             <a href="{{$s}}{{$file->download_link}}"
                                                                                                 target="_blank">
 
-                                                                                                {{$file->original_name}}
-                                                                                               {{--  {{ substr(@$file, 10) }} --}}
-                                                                                               
+                                                                                                {{@$file->original_name}}
+                                                                                              
                                                                                             </a>
                                                                                         </div>
                                                                                     @elseif($ext == 'doc' || $ext == 'docm' || $ext == 'docx')
                                                                                         <div class="img_settings_container"
                                                                                             style="float:left;padding-right:15px;">
-                                                                                            <i class="fas fa-file-word"></i>
+                                                                                            <i class="fas fa-file-word"  style="margin-left: 55px"></i>
                                                                                             <a href="{{Storage::get(@$file) }}"
                                                                                                 target="_blank">
-                                                                                                {{ substr(@$file, 10) }}</a>
+                                                                                                {{@$file->original_name}}</a>
                                                                                         </div>
                                                                                     @elseif($ext == 'ptt' || $ext == 'pptx')
                                                                                     <div class="img_settings_container"
                                                                                     style="float:left;padding-right:15px;">
-                                                                                    <i class="fas fa-file-powerpoint"></i>
+                                                                                    <i class="fas fa-file-powerpoint" style="margin-left: 55px"></i>
                                                                                     <a href="{{Storage::get(@$file)}}"
                                                                                         target="_blank">
-                                                                                        {{ substr(@$file, 10) }}</a>
+                                                                                        {{@$file->original_name}}</a>
                                                                                 </div>
                                                                                     @elseif($ext == 'mp4' || $ext == 'mp4')
-                                                                                        <div>
+                                                                                        <div style="margin-left: 55px">
                                                                                             <a href="#" id="playvideo"
-                                                                                                onclick="playme('<?php echo $file; ?>')">
-                                                                                                {{ substr(@$file, 10) }}
+                                                                                                onclick="playme('<?php echo $file->download_link; ?>')">
+                                                                                                {{@$file->original_name}}
                                                                                         </div>
                                                                                     @else
                                                                                         <div class="img_settings_container"

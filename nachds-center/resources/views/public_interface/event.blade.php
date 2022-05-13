@@ -59,34 +59,6 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <!--<a href="#collapse1" class="category-topics cate-right collapsed"
-                                            data-toggle="collapse" role="button" aria-expanded="true"
-                                            aria-controls="collapse1">Labels</a>
-                                        <div class="collapse" id="collapse1" >
-                                            <ul class="category-card">
-                                                <li>
-                                                    <a href="#" class="category-item1 active">All</a>
-                                                    <a href="#" class="category-item1">Students</a>
-                                                    <a href="#" class="category-item1">Instructors</a>
-                                                    <a href="#" class="category-item1">Ideas & Opinions</a>
-                                                    <a href="#" class="category-item1">Edututs+ News</a>
-                                                    <a href="#" class="category-item1">Social Innovation</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <a href="#collapse2" class="category-topics cate-right collapsed"
-                                            data-toggle="collapse" role="button" aria-expanded="false"
-                                            aria-controls="collapse2">Archive</a>
-                                        <div class="collapse" id="collapse2" >
-                                            <ul class="category-card">
-                                                <li>
-                                                    <a href="#" class="category-item1">January 2020</a>
-                                                    <a href="#" class="category-item1">February 2020</a>
-                                                    <a href="#" class="category-item1">March 2020</a>
-                                                    <a href="#" class="category-item1">April 2020</a>
-                                                </li>
-                                            </ul>
-                                        </div>-->
                                 </li>
                                 <li>
                             </ul>
@@ -103,9 +75,8 @@
                                     </a>
                                     <div class="hs_content">
                                         <div class="vdtodt">
-
-                                            <span
-                                                class="vdt14">{{ @$event->created_at->format('j F, Y') }}</span>
+                                            <span> Du {{ @$event->date_debut}}</span>
+                                            <span>au {{ @$event->date_fin }}</span>
                                         </div>
                                         <a href="{{ route('event_single_view', ['id' => @$event->id]) }}"
                                             class="crse14s title900">{{ @$event->title }}</a>

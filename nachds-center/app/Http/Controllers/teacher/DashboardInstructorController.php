@@ -39,7 +39,7 @@ class DashboardInstructorController extends Controller
             ->join('users', 'users.id', '=', 'enseignants.id')
             ->where('users.id', @Auth::user()->id)
             ->select('cours.*')
-            ->paginate(8);
+            ->paginate(4);
 
         $totalGroupes = $groupe->count();
         $totalCondidats = $condidat->count();
