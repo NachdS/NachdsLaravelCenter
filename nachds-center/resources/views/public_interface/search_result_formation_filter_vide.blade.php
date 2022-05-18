@@ -35,8 +35,6 @@
                          <div class="result_stitles">
                              <div class="rs6t_title">Filters</div>
                          </div>
-
-                         @if (count($data) != '0')
                              <form action="{{ route('search_result_formation_filter') }}" method="post"
                                  enctype="multipart/form-data">
                                  @csrf
@@ -80,54 +78,15 @@
                                      </div>
                                  </div>
                              </form>
-                         @endif
                      </div>
                  </div>
                  <div class="col-lg-9 col-md-8">
                      <div class="_14d25 mb-20">
                          <div class="row">
                              <div class="col-md-12 ">
-
-                                 @if (@$data)
-                                     @foreach (@$data as $formation)
-                                         <div class="fcrse_1 mb-20">
-                                             <a class="hf_img">
-                                                 <img src="{{ asset($formation->image) }}" alt="">
-                                                 <div class="course-overlay">
-                                                     <div class="badge_seller">{{ @$formation->matiere }}</div>
-                                                     <div class="crse_revues" style="background-color: #ffecec; width: fit-content;">
-                                                        <i class="uil uil-dollar-sign" ></i>{{@$formation->prix1}} dt
-                                                    </div>
-                                                    
-                                                     <div class="crse_timer">
-                                                         {{ @$formation->duree }} Jours
-                                                     </div>
-                                                 </div>
-                                             </a>
-                                             <div class="hs_content">
-                                                 <div class="vdtodt">
-                                                     <!--<span class="vdt14">109k élèves</span>-->
-                                                     <span
-                                                         class="vdt14">{{ is_null($formation->created_at) ? '' : $formation->created_at->format('j F, Y') }}</span>
-                                                 </div>
-                                                 <a class="crse14s title900" >{{ @$formation->formationsdes}}</a>
-                                                 <!--<a href="#" class="crse-cate"></a>-->
-                                                 <p class="cr1fot">{{ @$formation->type }}</p>
-                                                 @auth
-                                                 <div class="auth1lnkprce">
-                                                    <button class="shrt-cart-btn" title="cart" ><a href="{{ route('make_new_payement')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
-                                                </div>
-                                                @endauth
-                                                @guest
-                                                <div class="auth1lnkprce">
-                                                    <button class="shrt-cart-btn" title="cart" ><a href="{{ route('sign_in_student')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
-                                                    </div>
-                                                @endguest
-                                             </div>
-                                             
-                                         </div>
-                                     @endforeach
-                                 @endif
+                                <div class="title129">
+                                    <h2 style= "color:#ed2a26;">Formation inexistante !!</h2>
+                                </div>
                                  <div class='mt-10 mb-10' style="float: right;">
                                      {{ $data->links() }}
                                  </div>

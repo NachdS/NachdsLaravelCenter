@@ -61,8 +61,9 @@ class DashboardStudentController extends Controller
 
 
         $totalCours = $cours->count();
+        $page ='/student_dashboard';
 
-        return view('student.student_dashboard', compact('user', 'groupe', 'session', 'totalCours', 'formation'));
+        return view('student.student_dashboard', compact('user', 'groupe', 'session', 'totalCours', 'formation','page'));
     }
 
     /*public function showById($id)

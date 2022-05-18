@@ -19,8 +19,8 @@ class FormationPubliqueController extends Controller
         ->select('formations.*','matieres.designation as matiere')
         ->orderBy('formations.id', 'DESC')
         ->paginate(7);
-
-        return view('public_interface.search_result_formation', compact('allformations'));
+        $page ='/search_result_formation';
+        return view('public_interface.search_result_formation', compact('allformations','page'));
     }
 
     
@@ -29,6 +29,7 @@ class FormationPubliqueController extends Controller
         $mat_id = $request->matiere_id;
         $niv_id = $request->niveau_id;
         $type = $request->type;
+        $page ='/search_result_formation';
 
         if ($niv_id != "" && $mat_id != "" && $type != "" ) {
 
@@ -108,10 +109,13 @@ class FormationPubliqueController extends Controller
         }
 
         if ($data->count() == 0) {
-            echo "<h1 align='center'>Groupe not found</h1>";
+            return view('public_interface.search_result_formation_filter_vide', [
+                'data' => $data, 'mat_id'=> $mat_id, 'niv_id'=> $niv_id,'type'=> $type,'page'=>$page
+            ]);
         } else {
             return view('public_interface.search_result_formation_filter', [
-                'data' => $data,
+                'data' => $data, 'mat_id'=> $mat_id, 'niv_id'=> $niv_id,'type'=> $type,'page'=>$page
+                
             ]);
         }
 

@@ -146,7 +146,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="login-btn" type="submit">Se connecter maintenant</button>
+                                    <button class="login-btn" style="background-color: #ed2a26;" type="submit">Se connecter maintenant</button>
                                     <p class="mb-0 mt-30">Vous avez déjà un compte?<a
                                             href="{{ url('/sign_in_student') }}"> Connexion</a></p>
                                 </form>

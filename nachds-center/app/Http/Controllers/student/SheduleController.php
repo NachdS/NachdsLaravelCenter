@@ -19,9 +19,8 @@ class SheduleController extends Controller
         $groupes = Groupe::join('inscriptions', 'inscriptions.groupe_id', '=', 'groupes.id')
             ->where('inscriptions.candidat_id', @Auth::user()->id)
             ->get();
-       // $candidat = Candidat::find(@Auth::user()->id);
-
-        return view('student.student_schedule', compact('groupes'));
+        $page ='/student_schedule';
+        return view('student.student_schedule', compact('groupes','page'));
     }
 
 }

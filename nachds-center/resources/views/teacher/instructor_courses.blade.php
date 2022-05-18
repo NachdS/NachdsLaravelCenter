@@ -100,8 +100,6 @@
                                         </table>
                                         <div class='mt-10 mb-10' style="float: right;">
                                             {{ $cours->links() }}
-                                            {{-- {!! $cours->links(); !!}
-                                        {!! $cours->render() !!} --}}
                                         </div>
                                     </div>
                                 </div>

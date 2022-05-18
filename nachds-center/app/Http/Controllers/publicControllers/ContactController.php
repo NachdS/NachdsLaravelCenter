@@ -20,8 +20,9 @@ class ContactController extends Controller
     public function show(Coordonnee $coordonnees)
     {
         $allcontacts = Coordonnee::first();
+        $page ='/contact_us';
 
-        return view('public_interface.contact_us', compact('allcontacts'));
+        return view('public_interface.contact_us', compact('allcontacts','page'));
     }
 
      public function sendEmail(Request $request)

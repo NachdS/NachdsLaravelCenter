@@ -124,7 +124,7 @@
                                                     <p class="cr1fot">{{ @$formation->type }}</p>
                                                     <div class="auth1lnkprce">
                                                         <!--<p class="cr1fot">Par M.<a href="#">John Doe</a></p>-->
-                                                        <div class="prce142">{{ @$formation->prix_acompte }} /
+                                                        <div class="prce142">{{ @$formation->prix_acompte}} /
                                                             {{ @$formation->prix_total }}DT</div>
                                                         <!--<button class="shrt-cart-btn" title="cart"><i
                                                             class="uil uil-shopping-cart-alt"></i></button>-->

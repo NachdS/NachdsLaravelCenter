@@ -17,8 +17,8 @@ class FaqsController extends Controller
     public function show(Faqs $faqs)
     {
         $allfaqs = Faqs::latest()->paginate(10);
-
-        return view('public_interface.faqs', compact('allfaqs'));
+        $page ='/faqs';
+        return view('public_interface.faqs', compact('allfaqs','page'));
     }
 
 }

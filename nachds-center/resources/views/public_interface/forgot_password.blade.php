@@ -21,7 +21,7 @@
                                 <i class="uil uil-envelope icon icon2"></i>
                             </div>
                         </div>
-                        <button class="login-btn" type="submit">Reset Password</button>
+                        <button class="login-btn"  style="background-color: #ed2a26;" type="submit">Reset Password</button>
                     </form>
                     <p class="mb-0 mt-30">Go Back <a href="{{ url('/sign_up_steps') }}">Sign In</a></p>
                 </div>

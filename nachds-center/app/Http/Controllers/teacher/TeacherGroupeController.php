@@ -40,6 +40,19 @@ class TeacherGroupeController extends Controller
         //$totalCapacité = $allCapacite->sum();
         $totalelevesGroupe = $elevesGroupe->count();
 
-        return view('teacher.group', compact('allGroupe', 'totalGroupes', 'totalelevesGroupe'));
+        $page ='/group';
+        return view('teacher.group', compact('allGroupe', 'totalGroupes', 'totalelevesGroupe','page'));
+    }
+
+    public function showById($id)
+    { 
+        $candidats = Candidat::join('inscriptions', 'inscriptions.candidat_id', '=', 'candidats.id')
+        ->join('users', 'users.id', '=', 'candidats.id')
+        ->join('groupes', 'groupes.id', '=', 'inscriptions.groupe_id')
+        ->where('inscriptions.groupe_id', $id)
+        ->select('users.*')
+        ->get();
+        $page ='/group';
+        return view('teacher.list_eleve', compact('candidats','page'));
     }
 }

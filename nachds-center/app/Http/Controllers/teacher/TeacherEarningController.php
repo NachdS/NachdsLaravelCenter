@@ -60,7 +60,9 @@ class TeacherEarningController extends Controller
             ->whereYear('payementens.created_at', date('Y', strtotime('-1 year')))
             ->where('enseignants.id', @Auth::user()->id)
             ->sum('payementens.montant');
+        
+        $page ='/instructor_earning';
 
-        return view('teacher.instructor_earning', compact('allpayementens', 'last_7_days', 'last_session', 'last_month', 'last_year'));
+        return view('teacher.instructor_earning', compact('allpayementens', 'last_7_days', 'last_session', 'last_month', 'last_year','page'));
     }
 }

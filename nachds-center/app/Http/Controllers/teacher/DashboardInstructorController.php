@@ -44,7 +44,8 @@ class DashboardInstructorController extends Controller
         $totalGroupes = $groupe->count();
         $totalCondidats = $condidat->count();
         $totalCours = $cours->count();
+        $page ='/instructor_dashboard';
 
-        return view('teacher.instructor_dashboard', compact('user', 'totalGroupes', 'totalCours', 'totalCondidats', 'coursprof'));
+        return view('teacher.instructor_dashboard', compact('user', 'totalGroupes', 'totalCours', 'totalCondidats', 'coursprof','page'));
     }
 }

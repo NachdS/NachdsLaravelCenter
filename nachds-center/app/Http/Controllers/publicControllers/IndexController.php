@@ -40,12 +40,12 @@ class IndexController extends Controller
         $totalFormations = $allformations->count();
         $totalCours = $allcours->count();
        
-
+        $page ='/index';
         $allenseignants = Enseignant::join('users', 'users.id', '=', 'enseignants.id')
             ->where('users.role_id', '3')
             ->get(['users.name', 'users.phone', 'users.adresse', 'users.email', 'users.cin', 'users.avatar', 'enseignants.specialite', 'enseignants.type', 'enseignants.genre', 'enseignants.cin_delivre']);
 
-        return view('public_interface.index', compact('allvideo_Pubs', 'allenseignants', 'allpartenaires', 'totalEnseignants', 'totalCondidats', 'totalFormations', 'allsliders', 'totalCours'));
+        return view('public_interface.index', compact('page','allvideo_Pubs', 'allenseignants', 'allpartenaires', 'totalEnseignants', 'totalCondidats', 'totalFormations', 'allsliders', 'totalCours'));
     }
 
     /**
@@ -56,9 +56,9 @@ class IndexController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showById($id)
-    {
+    {   $page ='/index';
         $detailvideo_Pubs = VideosPub::where('id', $id)->get();
-        return view('public_interface.video_pub_detail', compact('detailvideo_Pubs'));
+        return view('public_interface.video_pub_detail', compact('detailvideo_Pubs','page'));
     }
 
 }

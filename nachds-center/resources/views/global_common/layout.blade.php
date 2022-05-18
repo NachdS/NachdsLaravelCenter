@@ -8,8 +8,6 @@
    @yield('content')
   {{-- end global content --}}
 
-</body>
-
 <footer class="footer ">
     <div class="container mt-20">
         <div class="row">
@@ -193,6 +191,6 @@
         </div>
     </div>
 </footer>
- 
+</body> 
 
 @endsection

@@ -42,8 +42,9 @@ class CourChapitreController extends Controller
             ->where('users.id', @Auth::user()->id)
             ->select('cours.*')
             ->get();
+        $page ='/create_new_chapter';
 
-        return view('student.create_new_chapter', compact('chapitres', 'cours'))
+        return view('student.create_new_chapter', compact('chapitres', 'cours', 'page'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

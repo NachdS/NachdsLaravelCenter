@@ -65,7 +65,7 @@
 
 
                             <div class="">
-                                <button class="login-btn" type="submit"> {{ __('Login') }}</button>
+                                <button class="login-btn"  style="background-color: #ed2a26;" type="submit"> {{ __('Login') }}</button>
                                 <p class="sgntrm145">
                                     @if (Route::has('password.request'))
                                         <a href="{{ route('password.request') }}">

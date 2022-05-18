@@ -1,25 +1,24 @@
-﻿@extends('student.layout_public_student_interface')
-@section('content_public_student_interface')
+@extends('teacher.layout_public_teacher_interface')
+@section('content_public_teacher_interface')
 
-
-    <div class="wrapper" style="min-height: 700px;">
+    <div class="wrapper">
         <div class="sa4d25">
-            <div class="container-fluid">
+            <div class="container-fluid" style="min-height: 550px;">
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12">
+                    <div class="col-xl-12 col-lg-12 mb-50">
                         <div class="section3125">
-                            <h4 class="item_title">Mes Amis De Groupe</h4>
+                            <h4 class="item_title">Listes d'élèves </h4>
                             <div class="la5lo1">
                                 <div class="row">
-                                    @if (@$amisGroupe)
-                                        @foreach ($amisGroupe as $amis)
+                                    @if (@$candidats)
+                                        @foreach ($candidats as $candidat)
                                             <div class="col-md-2">
                                                 <div class="stream_1 mb-30">
-                                                    <a href="#" class="stream_bg">
-                                                        <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}"
+                                                    <a href="live_output.html" class="stream_bg">
+                                                        <img  src="{{ asset(@$candidat->avatar) }}"
                                                             alt="">
-                                                        <h4>{{ $amis->name }}</h4>
-                                                        <p>{{ $amis->email }}</p>
+                                                        <h4>{{ @$candidat->name }}</h4>
+                                                        <p>{{ @$candidat->email }}<span></span></p>
                                                     </a>
                                                 </div>
                                             </div>

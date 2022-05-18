@@ -54,19 +54,14 @@
                     ->where('name', '=', 'menuPublique')
                     ->get();
             @endphp
-
             <nav>
                 <div class="nav-mobile">
                     <a id="nav-toggle" href="#!"><span></span></a>
                 </div>
                 <ul class="nav-list">
                     @foreach (@$allMenus as $menu)
-                        <li>
-                            <a href="{{ url(@$menu->url) }}">{{ @$menu->title }}</a>
-                        </li>
-                   
-                        {{-- <li>
-                        <a @if (@$page == 'about_us') style="color: red" @else style="color: rgb(255, 251, 0)" @endif href="{{route('about_us')}}">{{ @$menu->title }}</a></li>   --}}     
+                         <li>
+                        <a @if (@$page == @$menu->url) style="background: #dc3545; color:black;" @else style="color: #ffffff;" @endif href="{{ url(@$menu->url)}}">{{ @$menu->title }} </a></li>   
                     @endforeach
                 </ul>
             </nav>

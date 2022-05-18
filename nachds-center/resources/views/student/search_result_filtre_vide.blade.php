@@ -43,7 +43,6 @@
                             <div class="result_stitles">
                                 <div class="rs6t_title">Filters</div>
                             </div>
-                            @if (count($data) != '0')
                                 <form action="{{ route('search_result_filtre') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="col-lg-12 col-md-4 mt-50">
@@ -85,7 +84,6 @@
                                         </div>
                                     </div>
                                 </form>
-                            @endif
                         </div>
                     </div>
 
@@ -96,47 +94,9 @@
                         <div class="_14d25 mb-20">
                             <div class="row">
                                 <div class="col-md-12 ">
-
-                                    @if (@$data)
-                                        @foreach (@$data as $formation)
-                                            <div class="fcrse_1 mb-20">
-                                                <a href="{{ route('student_course_detail', ['groupe_id' => @$formation->groupe_id]) }}"
-                                                    class="hf_img">
-                                                    <img src="{{ asset(@$formation->image) }}" alt="">
-                                                    <div class="course-overlay">
-                                                        <div class="badge_seller">{{ @$formation->matiere }}</div>
-                                                        <!--<div class="crse_revues">
-                                                            <i class="uil uil-star"></i>4.5
-                                                        </div>-->
-                                                        <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                                        <div class="crse_timer">
-                                                            {{ @$formation->duree }} jours
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <div class="hs_content">
-                                                    <div class="vdtodt">
-                                                        <span class="vdt14">{{ \Carbon\Carbon::parse(@$formation->created_at)->format('j F, Y') }}</span>
-                                                    </div>
-                                                    <a
-                                                        class="crse14s title900">{{ @$formation->nivdesignation}}-{{ $formation->grpdesignation }}</a>
-                                                    <!--<a href="#" class="crse-cate"></a>-->
-                                                    <p class="cr1fot">{{ @$formation->type }}</p>
-                                                    <div class="auth1lnkprce">
-                                                        <!--<p class="cr1fot">Par M.<a href="#">John Doe</a></p>-->
-                                                        <div class="prce142">{{ @$formation->prix_acompte }} /
-                                                            {{ @$formation->prix_total }}DT</div>
-                                                        <!--<button class="shrt-cart-btn" title="cart"><i
-                                                                class="uil uil-shopping-cart-alt"></i></button>-->
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                        <div class='mt-10 mb-10' style="float: right;">
-                                            {{ $data->links() }}
-                                        </div>
-                                    @endif
+                                    <div class="title129">
+                                        <h2 style= "color:#ed2a26;">Formation inexistante !!</h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>

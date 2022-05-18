@@ -18,17 +18,18 @@
                                         @foreach ($allGroupe as $groupe)
                                             <div class="col-md-2">
                                                 <div class="stream_1 mb-30">
-                                                    <a href="#" class="stream_bg">
-                                                        <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}"
-                                                            alt="">
+                                                    <a href="{{ route('list_eleve', ['id' => @$groupe->id]) }}" class="stream_bg">
+                                                         <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}"
+                                                            alt=""> 
+                                                        <a href="{{ route('list_eleve', ['id' => @$groupe->id]) }}" class="hf_img"></a>
                                                         <a href="#">
                                                             <h4 style="    color: black;
                                                         text-align: center;
                                                         margin: 20px 0px 10px 0px;">{{ $groupe->designation }}</h4>
                                                         </a>
-                                                        <p style="    color: black;
+                                                        <!-- <p style="    color: black;
                                                     text-align: center;
-                                                    margin: 10px 0px 10px 0px;">{{ $groupe->capacite }} élèves</p>
+                                                    margin: 10px 0px 10px 0px;">{{ $groupe->capacite }} élèves</p> -->
                                                     </a>
                                                 </div>
                                             </div>

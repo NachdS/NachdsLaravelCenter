@@ -39,9 +39,7 @@ class AboutUsController extends Controller
         $totalInscription = $allinscription->count();
         $totalPartenaires = $allpartenaires->count();
         $totalStudents = $allstudents->count();
-        $page ='about_us';
-
-        /*   dd($allaboutUs); */
+        $page ='/about_us';
 
         return view('public_interface.about_us',compact('allaboutUs', 'totalEnseignants', 'totalCondidats', 'totalFormations', 'totalCours', 'totalPartenaires', 'totalInscription','totalStudents','page'));
     }

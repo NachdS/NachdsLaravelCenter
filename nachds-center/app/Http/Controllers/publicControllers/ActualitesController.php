@@ -17,8 +17,8 @@ class ActualitesController extends Controller
     public function show(Actualite $actualites)
     {
         $allactualites = Actualite::orderBy('created_at', 'DESC')->paginate(8);
-
-        return view('public_interface.news', compact('allactualites'));
+        $page ='/news';
+        return view('public_interface.news', compact('allactualites','page'));
     }
 
     /**
@@ -30,8 +30,9 @@ class ActualitesController extends Controller
      */
     public function showById($id)
     {
+        $page ='/news';
         $detailactualite = Actualite::where('id', $id)->get();
-        return view('public_interface.news_single_view', compact('detailactualite'));
+        return view('public_interface.news_single_view', compact('detailactualite','page'));
     }
 
 }

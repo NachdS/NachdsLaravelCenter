@@ -63,7 +63,7 @@
                                 <div class="tab-pane fade show active" id="nav-courses" role="tabpanel">
                                     <div class="crse_content">
                                         <h3>Le contenu des cours</h3>
-                                        <div class="_112456">
+                                         <div class="_112456">
                                             <ul class="accordion-expand-holder">
                                                 <li><span class="accordion-expand-all _d1452"></span></li>
                                                 <li><span class="_fgr123"></span></li>
@@ -73,7 +73,7 @@
                                             <div id="accordion"
                                                 class="ui-accordion ui-widget ui-helper-reset">
                                                 <a href="javascript:void(0)"
-                                                    class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">
+                                                    class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all" >
                                                     <div class="section-header-left">
                                                         <span class="section-title-wrapper">
                                                             <i class='uil uil-presentation-play crse_icon'></i>
@@ -86,8 +86,8 @@
                                                     </div>
                                                 </a>
 
-                                                <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom"
-                                                    id="accordion">
+                                                <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom accordion"
+                                                    id="accordion2">
                                                     @foreach (@$cour->chapitres as $chap)
                                                         <div class="panel panel-default"
                                                             style="margin-bottom: 0px; border-bottom: 1px solid #efefef;">
@@ -112,15 +112,14 @@
                                                                         <?php $ext = pathinfo(@$file->download_link, PATHINFO_EXTENSION); ?>
                                                                         <div id="collapseOne2_{{ @$chap->id }}"
                                                                             class="panel-collapse collapse"
-                                                                            data-parent="#accordion">
+                                                                            data-parent="#accordion2">
                                                                             <div class="panel-body"
                                                                                 style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-left: none; border-top: 1px solid #efefef; border-bottom: none; padding: 10px;">
                                                                                 <a class="fileType" target="_blank"
                                                                                 href="{{env('APP_STORAGE')}}{{@$file->download_link}}"
                                                                                     data-file-name="{{@$file->original_name }}">
                                                                                     @if ($ext == 'pdf')
-                                                                                        <div class="img_settings_container"
-                                                                                            style="float:left;padding-right:15px;">
+                                                                                        <div class="img_settings_container">
                                                                                             <i class="fas fa-file-pdf" style="margin-left: 55px"></i>
                                                                                             <a href="{{$s}}{{$file->download_link}}"
                                                                                                 target="_blank">
@@ -130,16 +129,14 @@
                                                                                             </a>
                                                                                         </div>
                                                                                     @elseif($ext == 'doc' || $ext == 'docm' || $ext == 'docx')
-                                                                                        <div class="img_settings_container"
-                                                                                            style="float:left;padding-right:15px;">
+                                                                                        <div class="img_settings_container">
                                                                                             <i class="fas fa-file-word"  style="margin-left: 55px"></i>
                                                                                             <a href="{{Storage::get(@$file) }}"
                                                                                                 target="_blank">
                                                                                                 {{@$file->original_name}}</a>
                                                                                         </div>
                                                                                     @elseif($ext == 'ptt' || $ext == 'pptx')
-                                                                                    <div class="img_settings_container"
-                                                                                    style="float:left;padding-right:15px;">
+                                                                                    <div class="img_settings_container">
                                                                                     <i class="fas fa-file-powerpoint" style="margin-left: 55px"></i>
                                                                                     <a href="{{Storage::get(@$file)}}"
                                                                                         target="_blank">
@@ -152,8 +149,7 @@
                                                                                                 {{@$file->original_name}}
                                                                                         </div>
                                                                                     @else
-                                                                                        <div class="img_settings_container"
-                                                                                            style="float:left;padding-right:15px;">
+                                                                                        <div class="img_settings_container">
                                                                                             <img src="{{ asset('public/theme/img/icon_file.png') }}"
                                                                                                 style="width: 65px;height: 65px;clear:both; display:block; padding:2px; border:1px solid #ddd;margin-top: -10px;">
                                                                                         </div>

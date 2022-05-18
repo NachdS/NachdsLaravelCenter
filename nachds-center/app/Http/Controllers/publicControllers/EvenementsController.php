@@ -17,8 +17,8 @@ class EvenementsController extends Controller
     public function show(Evenement $evenements)
     {
         $allEvenements = Evenement::orderBy('created_at', 'DESC')->paginate(8);
-
-        return view('public_interface.event', compact('allEvenements'));
+        $page ='/event';
+        return view('public_interface.event', compact('allEvenements','page'));
     }
 
     /**
@@ -30,7 +30,8 @@ class EvenementsController extends Controller
      */
     public function showById($id)
     {
+        $page ='/event';
         $detailEvenement = Evenement::where('id', $id)->get();
-        return view('public_interface.event_single_view', compact('detailEvenement'));
+        return view('public_interface.event_single_view', compact('detailEvenement','page'));
     }
 }

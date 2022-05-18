@@ -27,6 +27,7 @@ class FriendInGroupController extends Controller
             ->distinct('users.id')
             ->get();
         // dd($amisGroupe);
-        return view('student.student_list_eleve', compact('amisGroupe'));
+        $page ='/student_list_eleve';
+        return view('student.student_list_eleve', compact('amisGroupe','page'));
     }
 }

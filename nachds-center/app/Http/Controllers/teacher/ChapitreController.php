@@ -21,7 +21,8 @@ class ChapitreController extends Controller
      */
     public function create()
     {
-        return view('teacher.create_new_chapter');
+        $page ='/create_new_chapter';
+        return view('teacher.create_new_chapter',compact('page'));
     }
 
     /**
@@ -71,7 +72,8 @@ class ChapitreController extends Controller
     public function edit($id)
     {
         $chapitre = Chapitre::find($id)->first();
-        return view('teacher.create_new_chapter', compact('chapitre'));
+        $page ='/create_new_chapter';
+        return view('teacher.create_new_chapter', compact('chapitre','page'));
     }
 
     /* Update the specified resource in storage.

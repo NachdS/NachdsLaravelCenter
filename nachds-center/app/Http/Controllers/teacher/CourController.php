@@ -35,7 +35,8 @@ class CourController extends Controller
         // $chapitres = Chapitre::join('cours','cours.id','=','chapitres.cours_id')
         //->get();
         //$totalchapitres = $chapitres->count();
-        return view('teacher.instructor_courses', compact('cours'))
+        $page ='/instructor_courses';
+        return view('teacher.instructor_courses', compact('cours','page'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -43,7 +44,8 @@ class CourController extends Controller
     {
         $detailchapitre = Chapitre::where('cour_id', $id)->paginate(7);
         $cour = Cour::find($id);
-        return view('teacher.create_new_chapter', compact('detailchapitre', 'cour'));
+        $page ='/instructor_courses';
+        return view('teacher.create_new_chapter', compact('detailchapitre', 'cour','page'));
     }
 
     /**
@@ -53,7 +55,8 @@ class CourController extends Controller
      */
     public function create()
     {$groupes = Groupe::where('enseignant_id', Auth::user()->id)->orderby('designation')->get();
-        return view('teacher.create_new_course', compact('groupes'));
+        $page ='/instructor_courses';
+        return view('teacher.create_new_course', compact('groupes','page'));
     }
 
     /**
@@ -93,8 +96,8 @@ class CourController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Cour $cour)
-    {
-        return view('teacher.create_new_course', compact('cour'));
+    {   $page ='/instructor_courses';
+        return view('teacher.create_new_course', compact('cour','page'));
     }
 
     /**
@@ -107,7 +110,8 @@ class CourController extends Controller
     {
         $cour = Cour::find($id)->first();
         $groupes = Groupe::where('enseignant_id', Auth::user()->id)->orderby('designation')->get();
-        return view('teacher.edit_new_course', compact('cour', 'groupes'));
+        $page ='/instructor_courses';
+        return view('teacher.edit_new_course', compact('cour', 'groupes','page'));
     }
 
     /**

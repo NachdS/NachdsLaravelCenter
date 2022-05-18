@@ -146,10 +146,7 @@
                     </li> -->
                     @foreach (@$allMenus as $menu)
                         <li class="menu--item">
-                            <a href="{{ url(@$menu->url) }}" class="menu--link " title="Groupe">
-                                <i class="{{ @$menu->icon_class }}"></i>
-                                <span class="menu--label">{{ @$menu->title }}</span>
-                            </a>
+                            <a @if (@$page == @$menu->url) class="menu--link active"  @else class="menu--link " @endif href="{{ url(@$menu->url)}}"><i class="{{ @$menu->icon_class }}"></i><span class="menu--label">{{ @$menu->title }}</span></a></li> 
                         </li>
                     @endforeach
             </div>

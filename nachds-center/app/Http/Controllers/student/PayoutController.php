@@ -44,8 +44,9 @@ class PayoutController extends Controller
 
             $allpayementsum = $allpayements->sum('montant');
             $alltotalsum = $alltotals->sum('prix_total');
+            $page ='/student_payout';
 
-        return view('student.student_payout', compact('allpayements','allpayementsum','alltotalsum'));
+        return view('student.student_payout', compact('allpayements','allpayementsum','alltotalsum','page'));
     }
 
     public function addPayment(){
@@ -54,7 +55,8 @@ class PayoutController extends Controller
             ->where('candidats.id', Auth::user()->id)->orderby('groupes.designation')->select('groupes.*')->get(); 
 
             $formations = Formation::join('groupes' , 'groupes.formation_id' , 'formations.id')->whereIn('groupes.id' , $groupes)->get();
-        return view('student.make_new_payement', compact('groupes' , 'formations'));
+            $page ='/student_payout';
+        return view('student.make_new_payement', compact('groupes' , 'formations','page'));
     }}
 
     /**
@@ -71,6 +73,7 @@ class PayoutController extends Controller
 
 
          $request->validate([
+             //montant a corriger
             'montant' => 'required',
             'date_paiement' =>'required',
             'periode'=>'required',

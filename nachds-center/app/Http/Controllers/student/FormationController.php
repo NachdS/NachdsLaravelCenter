@@ -40,8 +40,10 @@ class FormationController extends Controller
                 'nivs.designation as nivdesignation',
             )
             ->paginate(7);
+            $page ='/student_search_result';
+            
 
-        return view('student.search_result', compact('allformations'));
+        return view('student.search_result', compact('allformations','page'));
     }
 
     public function showById($groupe_id)
@@ -52,7 +54,8 @@ class FormationController extends Controller
             ->where('inscriptions.candidat_id', @Auth::user()->id)
             ->where('cours.groupe_id', $groupe_id)
             ->get('cours.*');
-        return view('student.student_course_detail', compact('groupe_info', 'cours'));
+            $page ='/student_search_result';
+        return view('student.student_course_detail', compact('groupe_info', 'cours','page'));
     }
 
     public function formationGrp(Request $request)
@@ -60,6 +63,7 @@ class FormationController extends Controller
         $mat_id = $request->matiere_id;
         $niv_id = $request->niveau_id;
         $type = $request->type;
+        $page ='/student_search_result';
 
         if ($niv_id != "" && $mat_id != "" && $type != "") {
 
@@ -233,10 +237,12 @@ class FormationController extends Controller
         }
 
         if ($data->count() == 0) {
-            echo "<h1 align='center'>Groupe not found</h1>";
+            return view('student.search_result_filtre_vide', [
+                'data' => $data, 'mat_id'=> $mat_id, 'niv_id'=> $niv_id,'type'=> $type,'page'=>$page
+            ]);
         } else {
             return view('student.search_result_filtre', [
-                'data' => $data,
+                'data' => $data, 'mat_id'=> $mat_id, 'niv_id'=> $niv_id,'type'=> $type,'page'=>$page
             ]);
         }
 
